@@ -37,6 +37,13 @@ function closePopup5() {
     document.getElementById('popup5').style.display = 'none';
 }
 
+function openPopup10() {
+    document.getElementById('popup10').style.display = 'flex';
+}
+function closePopup10() {
+    document.getElementById('popup10').style.display = 'none';
+}
+
 const gsearchInput = document.getElementById('gsearch-input');
 const gsuggestionsContainer = document.getElementById('gsuggestions-container');
 const gsearchButton = document.getElementById('gsearch-button');

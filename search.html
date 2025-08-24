@@ -6,6 +6,7 @@
     <title>Genes Lite</title>
     <link rel="stylesheet" href="searchstyles.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tally.css">
     <meta name="color-scheme" content="light dark">
 
     
@@ -97,6 +98,8 @@
                 <div class="dropdown-content" style="margin-right: 60px">
                     <center><p style="margin-top: 2px; margin-bottom: 2px; font-weight: 500;">Apps</p></center>
                     <a href="citation.html">&nbsp;<i class="fa-solid fa-quote-left"></i>&nbsp;&nbsp;Citation Generator&nbsp;</a><br>
+                    <a onclick="openPopup10()">&nbsp;<i class="fa-solid fa-circle-plus"></i>&nbsp;&nbsp;Tally Counter&nbsp;</a><br>
+                    
                 </div>
             </div>
 
@@ -806,6 +809,243 @@
         </div>
     </div>
 
+    <div id="popup10" class="page-normal-container">
+		<div class="page-normal">
+            <!-- Tasks -->
+            <header  class = "sticky-header" style="z-index: 1000000;">          
+                <div class = "header-left-alt">
+                    <!-- <a class="material-symbols-rounded" onclick="toggleDrawer()">chevron_backward</a>	 -->
+                    <a class="material-symbols-rounded" onclick="closePopup10()">arrow_back_ios_new</a>
+                </div>
+                    
+                    
+                <div id = "logo">				
+                    <a class = "header-text"> Tally Counter</a>
+                </div>
+
+                <div class="header-right">
+                        
+                    <div class="dropdown" style="float:right;">
+                        <a class="material-symbols-rounded">more_vert</a>
+                        <div class="dropdown-content">
+                            <a onclick="openPopup()">&nbsp;&nbsp;<i class="fa-solid fa-info"></i>&nbsp;&nbsp;&nbsp;About Me&nbsp;&nbsp;&nbsp;</a><br>	
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <br>
+            <div class="padding-body-a">
+                <center>
+                    <div class="main-container">
+
+                    <div class="controls">
+                        <button id="add-counter-btn" class="action-button-filled" style="border: none;"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-plus"></i>&nbsp;&nbsp;New Counter&nbsp;&nbsp;&nbsp;&nbsp;</b></button>
+                    </div>
+
+                    <div id="counters-container">
+                        <!-- Counters will be dynamically added here -->
+                    </div>
+                    
+                    <div id="placeholder">
+                        <p>No counters yet. Click "Add New Counter" to get started!</p>
+                    </div>
+                </center>
+            </div>
+			<br>
+			
+		</div>
+	</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const addCounterBtn = document.getElementById('add-counter-btn');
+            const countersContainer = document.getElementById('counters-container');
+            const placeholder = document.getElementById('placeholder');
+            let counterId = 0;
+
+            // --- LOCAL STORAGE FUNCTIONS ---
+
+            // Function to save all counter data to localStorage
+            const saveCounters = () => {
+                const counters = document.querySelectorAll('.counter');
+                const countersData = [];
+                counters.forEach(counter => {
+                    const id = counter.dataset.id;
+                    const label = counter.querySelector('.counter-label').value;
+                    const count = parseInt(counter.querySelector('.count-display').textContent, 10);
+                    const limit = counter.querySelector('.counter-limit').value;
+                    countersData.push({ id, label, count, limit });
+                });
+                localStorage.setItem('tallyCounters', JSON.stringify(countersData));
+            };
+
+            // Function to load counters from localStorage on page start
+            const loadCounters = () => {
+                const savedCounters = JSON.parse(localStorage.getItem('tallyCounters'));
+                if (savedCounters && savedCounters.length > 0) {
+                    let maxId = 0;
+                    savedCounters.forEach(counterData => {
+                        const newCounter = createCounterElement(counterData);
+                        countersContainer.appendChild(newCounter);
+                        checkLimit(newCounter); // Check limit status on load
+                        const currentId = parseInt(counterData.id.split('-')[1]);
+                        if (currentId > maxId) {
+                            maxId = currentId;
+                        }
+                    });
+                    counterId = maxId; // Set the global ID to avoid conflicts
+                }
+                checkPlaceholder();
+            };
+
+            // --- COUNTER MANAGEMENT FUNCTIONS ---
+
+            // Function to check if the placeholder should be visible
+            const checkPlaceholder = () => {
+                placeholder.style.display = countersContainer.children.length === 0 ? 'block' : 'none';
+            };
+
+            // Function to create a new counter element, optionally with data
+            const createCounterElement = (data = null) => {
+                const idToUse = data ? parseInt(data.id.split('-')[1]) : ++counterId;
+
+                const counterDiv = document.createElement('div');
+                counterDiv.className = 'counter';
+                counterDiv.dataset.id = `counter-${idToUse}`;
+
+                // Added contenteditable="true" to the count display
+                counterDiv.innerHTML = `
+                    <input type="text" class="counter-label" placeholder="Counter Label ${idToUse}">
+                    <h2 class="count-display" contenteditable="true">0</h2>
+                    <div class="flex-container-c">
+                        <button class="btn decrement-btn" title="Decrement">-</button>
+                        <button class="btn increment-btn" title="Increment">&nbsp;+&nbsp;</button>
+                    </div>
+                    <div class="limit-setter">
+                        <label for="limit-${idToUse}">Limit:</label>
+                        <input type="number" id="limit-${idToUse}" class="counter-limit" placeholder="-" min="0">
+                    </div>
+                    <div class="counter-actions">
+                        
+                        
+                        <button class="btn reset-btn" title="Reset">&nbsp;Reset&nbsp;</button>
+                        <button class="btn delete-btn" title="Delete this counter">&nbsp;Delete&nbsp;</button>
+                    </div>
+                `;
+
+                if (data) {
+                    counterDiv.querySelector('.counter-label').value = data.label;
+                    counterDiv.querySelector('.count-display').textContent = data.count;
+                    counterDiv.querySelector('.counter-limit').value = data.limit;
+                }
+
+                return counterDiv;
+            };
+
+            // Function to check and apply the limit state
+            const checkLimit = (counterElement) => {
+                const countDisplay = counterElement.querySelector('.count-display');
+                const incrementBtn = counterElement.querySelector('.increment-btn');
+                const limitInput = counterElement.querySelector('.counter-limit');
+                
+                const count = parseInt(countDisplay.textContent, 10);
+                const limit = limitInput.value ? parseInt(limitInput.value, 10) : null;
+
+                if (limit !== null && count >= limit) {
+                    incrementBtn.disabled = true;
+                    countDisplay.classList.add('limit-reached');
+                } else {
+                    incrementBtn.disabled = false;
+                    countDisplay.classList.remove('limit-reached');
+                }
+            };
+
+            // --- EVENT LISTENERS ---
+
+            // Event listener for the "Add Counter" button
+            addCounterBtn.addEventListener('click', () => {
+                const newCounter = createCounterElement();
+                countersContainer.appendChild(newCounter);
+                checkPlaceholder();
+                saveCounters();
+            });
+
+            // Event delegation for clicks on counter actions
+            countersContainer.addEventListener('click', (event) => {
+                const target = event.target;
+                const counterElement = target.closest('.counter');
+                if (!counterElement) return;
+
+                const countDisplay = counterElement.querySelector('.count-display');
+                let count = parseInt(countDisplay.textContent, 10);
+                let stateChanged = false;
+
+                if (target.classList.contains('increment-btn')) {
+                    count++;
+                    countDisplay.textContent = count;
+                    stateChanged = true;
+                } else if (target.classList.contains('decrement-btn')) {
+                    if (count > 0) {
+                        count--;
+                        countDisplay.textContent = count;
+                        stateChanged = true;
+                    }
+                } else if (target.classList.contains('reset-btn')) {
+                    countDisplay.textContent = 0;
+                    stateChanged = true;
+                } else if (target.classList.contains('delete-btn')) {
+                    counterElement.remove();
+                    checkPlaceholder();
+                    saveCounters();
+                    return;
+                }
+                
+                if (stateChanged) {
+                    checkLimit(counterElement);
+                    saveCounters();
+                }
+            });
+
+            // Event delegation for input changes on labels and limits
+            countersContainer.addEventListener('input', (event) => {
+                const target = event.target;
+                if (target.classList.contains('counter-limit') || target.classList.contains('counter-label')) {
+                    if (target.classList.contains('counter-limit')) {
+                        checkLimit(target.closest('.counter'));
+                    }
+                    saveCounters();
+                }
+            });
+
+            // --- EVENT LISTENERS FOR EDITABLE COUNT ---
+            
+            // Sanitize and save when the user clicks away from the count display
+            countersContainer.addEventListener('blur', (event) => {
+                const target = event.target;
+                if (target.classList.contains('count-display')) {
+                    // Remove any non-numeric characters
+                    let sanitizedValue = target.textContent.replace(/[^0-9]/g, '');
+                    // If empty after sanitizing, default to 0
+                    target.textContent = sanitizedValue === '' ? '0' : parseInt(sanitizedValue, 10);
+                    
+                    checkLimit(target.closest('.counter'));
+                    saveCounters();
+                }
+            }, true); // Use capture phase to ensure this runs before other blur events
+
+            // Handle 'Enter' key to confirm edit, preventing new lines
+            countersContainer.addEventListener('keydown', (event) => {
+                if (event.target.classList.contains('count-display') && event.key === 'Enter') {
+                    event.preventDefault(); // Prevent adding a new line
+                    event.target.blur(); // Trigger the blur event to save and sanitize
+                }
+            });
+
+
+            // --- INITIALIZATION ---
+            loadCounters();
+        });
+    </script>
     <script src = "script.js"></script>
 </body>
 </html>
