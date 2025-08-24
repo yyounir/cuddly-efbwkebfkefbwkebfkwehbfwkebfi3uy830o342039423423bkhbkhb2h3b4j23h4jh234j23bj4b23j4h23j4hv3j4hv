@@ -14,10 +14,10 @@
     
 
     <!-- FAVICON -->
-    <link rel="shortcut icon" href = "icon.png">
-    <link rel="icon" type="icon.png" sizes = "32x32" href = "iconSmall.png">
-    <link rel="aple-touch-icon" sizes = "180x180" href = "icon.png">
-    <link rel="icon" sizes = "192x192" href = "icon.png">
+		<link rel="shortcut icon" href = "icon.png">
+		<link rel="icon" type="icon.png" sizes = "32x32" href = "iconSmall.png">
+		<link rel="aple-touch-icon" sizes = "180x180" href = "icon.png">
+		<link rel="icon" sizes = "192x192" href = "icon.png">
 
         <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0" />
@@ -84,7 +84,7 @@
             font-weight: 800;
             transition-duration: 0.4s;
             animation: fadein 0.5s ease-in-out; /* Add fade-in animation */
-            border-radius: 10px;
+            border-radius: 20px;
             background-color: white;
             padding-top: 1rem;
             padding-bottom: 1rem;
@@ -207,6 +207,11 @@
             
         }
 
+        .select-selected:active{
+            border-radius: 18px;
+	        transition-duration: 0.2s;  
+        }
+
         .select-selected.select-arrow-active:after {
             /* border-color: transparent transparent #14007F transparent; */
             top: 7px;
@@ -258,13 +263,24 @@
 	        padding-bottom: 15px;
         }
 
+        .select-items div:active{
+            border-radius: 18px;
+	        transition-duration: 0.1s;  
+        }
+
 
 
         
 
         .padding-body {
-            padding-right: 20px;
-            padding-left: 20px;
+            padding-right: 45px;
+            padding-left: 45px;
+        }
+        @media (max-width: 1024px) {
+            .padding-body {
+                padding-right: 20px;
+                padding-left: 20px;
+            }
         }
 
         .card-white {
@@ -348,61 +364,67 @@
             padding-bottom:16px;
         }
 
-        @media (prefers-color-scheme: dark) {
-            body {
-            color: #f0f0f0; /* Light gray text */
-            /* background-color: #050233; */
-            background-color: #03011a;
-        }
-
-        header {
-            background-color: #03011a;
-        }
-
-        header a {
-            color: #d1ceff;
+        .action-button-tonal-h:active, .action-button-filled-h:active {
+            transition-duration: 0.2s;
+	        border-radius: 12px;
         }
         
-        .header-left a{
-            color: #d1ceff;
-        }
 
-        .header-left-alt a{
-            color: #d1ceff;
-        }
+        @media (prefers-color-scheme: dark) {
+            body {
+                color: #f0f0f0; /* Light gray text */
+                /* background-color: #050233; */
+                background-color: #03011a;
+            }
 
-        .header-left-alt a:hover {
-            background-color: #454170;
-        }
+            header {
+                background-color: #03011a;
+            }
 
-        .header-right a{
-		    color: #d1ceff;
-        }
+            header a {
+                color: #d1ceff;
+            }
+            
+            .header-left a{
+                color: #d1ceff;
+            }
 
-        .header-right a:hover {
-            background-color: #454170;
-        }
+            .header-left-alt a{
+                color: #d1ceff;
+            }
 
-        h1 {
-            color: #d1ceff; /* Lighter blue heading */
-        }
+            .header-left-alt a:hover {
+                background-color: #454170;
+            }
 
-        h2 {
-            color: #d1ceff;
-        }
+            .header-right a{
+                color: #d1ceff;
+            }
 
-        li {
-            font-size: 1.1rem;
-            color: #14007F;
-        }
+            .header-right a:hover {
+                background-color: #454170;
+            }
 
-        a {
-            color: #d1ceff; /* Even lighter blue link */
-        }
+            h1 {
+                color: #d1ceff; /* Lighter blue heading */
+            }
 
-        p {
-            color: #d1ceff; 
-        }
+            h2 {
+                color: #d1ceff;
+            }
+
+            li {
+                font-size: 1.1rem;
+                color: #14007F;
+            }
+
+            a {
+                color: #d1ceff; /* Even lighter blue link */
+            }
+
+            p {
+                color: #d1ceff; 
+            }
 
             label {
                 color: #d1ceff;
@@ -482,9 +504,7 @@
             .card-white {
                 background-color: #040126;
             }
-        }
-</style>
-        
+        }        
     </style>
 </head>
 <body>
@@ -699,7 +719,7 @@
         <img src="genesai.png" class="short-image-on-popup" alt = "Genes Logo">
         <!-- <p class="p2">"Cats will rule the world someday!"</p> -->
             <p class="p2"><b><i class="fa-solid fa-quote-left"></i>&nbsp;&nbsp;Citation Generator</b></p>
-        <p class="p2"><b>App Version 4.18e</b></p>
+        <p class="p2">App Version 4.22</p>
         <!-- <p>The version numbers that are used before 4.1 are from the PowerPoint app.</p> -->
          <!-- Any given updates will match with the current parent update that is given -->
         </center>
@@ -731,21 +751,19 @@
         function openPopup() {
             document.getElementById('popup').style.display = 'flex';
         }
-
-        function openPopup2() {
-            document.getElementById('popup2').style.display = 'flex';
-        }
-
-        function openPopup3() {
-            document.getElementById('popup3').style.display = 'flex';
-        }
-
         function closePopup() {
             document.getElementById('popup').style.display = 'none';
         }
 
+        function openPopup2() {
+            document.getElementById('popup2').style.display = 'flex';
+        }
         function closePopup2() {
             document.getElementById('popup2').style.display = 'none';
+        }
+
+        function openPopup3() {
+            document.getElementById('popup3').style.display = 'flex';
         }
         function closePopup3() {
             document.getElementById('popup3').style.display = 'none';
