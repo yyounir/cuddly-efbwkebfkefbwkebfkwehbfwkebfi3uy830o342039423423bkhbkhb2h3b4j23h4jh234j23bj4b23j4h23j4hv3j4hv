@@ -100,6 +100,7 @@
                     <center><p style="margin-top: 2px; margin-bottom: 2px; font-weight: 500;">Apps</p></center>
                     <a href="citation.html">&nbsp;<i class="fa-solid fa-quote-left"></i>&nbsp;&nbsp;Citation Generator&nbsp;</a><br>
                     <a onclick="openPopup11()">&nbsp;<i class="fa-solid fa-gauge-high"></i>&nbsp;&nbsp;Device Tests&nbsp;</a><br>
+                    <a onclick="openPopup4()">&nbsp;<i class="fa-solid fa-clock"></i>&nbsp;&nbsp;StandBy&nbsp;</a><br>
                     <a onclick="openPopup10()">&nbsp;<i class="fa-solid fa-circle-plus"></i>&nbsp;&nbsp;Tally Counter&nbsp;</a><br>
                     
                 </div>
@@ -811,6 +812,69 @@
         </div>
     </div>
 
+    <!-- StandBy -->
+    <div id="popup4" class= "popup">
+		<div class="popup-content">
+			<p class = "menu-text"><b><i class="fa-solid fa-clock"></i>&nbsp;&nbsp;StandBy</b></p>
+			
+			<!-- <p class="p2">"Cats will rule the world someday!"</p> -->
+            <p class="p2">Before using StandBy, there are some things you might want to consider. When you're ready, tap <b>Start StandBy</b>!<br>
+                <br><b><i class="fa-solid fa-battery-full"></i>&nbsp;&nbsp;Make sure you are using Power Saving Mode</b>, especially if you plan to display StandBy for a while.
+                <br><br><b><i class="fa-solid fa-circle-xmark"></i>&nbsp;&nbsp;Close all tabs, apps, or programs</b>, this helps the battery last long and you can always see the time displayed.
+                <br><br><i class="fa-solid fa-moon"></i>&nbsp;&nbsp;<b>Change Screen & Sleep settings</b>, keeping the screen on is completely optional but also useful as a desk clock!
+                <br><br><i class="fa-solid fa-text-height"></i>&nbsp;&nbsp;<b>Control the text size</b> by pressing <b>CTRL+</b> or <b>CTRL-</b>!
+                <br><br><i class="fa-solid fa-globe"></i>&nbsp;&nbsp;<b>It can display battery percentage</b>, but this may not work in most browsers!</p>
+            </p>
+            <!-- <p>The version numbers that are used before 4.1 are from the PowerPoint app.</p> -->
+            
+			<br>
+			<div class="flex-container"> 
+				<div>
+                    <a class = "action-button-tonal-i" onclick="closePopup4()"><b>&nbsp;&nbsp;&nbsp;Close&nbsp;&nbsp;&nbsp;</b></a> 
+					<a class = "action-button-tonal-i" onclick="closePopup4(); openPopup3()"><b>&nbsp;&nbsp;&nbsp;Start StandBy&nbsp;&nbsp;&nbsp;</b></a> 
+				</div> 
+			</div>
+		</div>
+	</div>
+    <div id="popup3" class="full-screen-popup">
+		<div class="full-screen-popup-content">
+			<p class = "menu-text"><b></b></p>
+			<!-- <center> -->
+			<br><br>
+            <div class="clock-container2">
+                <div class="date-display2" id="date-display2"></div>
+                <div id="clock-display2"></div>
+            </div>
+
+            <center>
+                <!-- Battery icon and percentage display -->
+                <div class="battery-display-area">
+                    <div id="battery-icon" class="battery-icon" fill="currentColor" viewBox="0 0 24 24">
+                        <i class="fa-solid fa-battery-empty" style="font-size: 30pt;"></i>
+                        <!-- Default battery icon (can be updated dynamically) -->
+                        <!-- <path d="M17 5H6C5.447 5 5 5.447 5 6v12c0 .553.447 1 1 1h11c.553 0 1-.447 1-1V6c0-.553-.447-1-1-1zm-1 12H7V7h9v10zm2-10h-1v8h1c.553 0 1-.447 1-1V8c0-.553-.447-1-1-1z"/> -->
+                    </div>
+                    <!-- <i id="battery-icon" fill="currentColor" class="fa-solid fa-battery-empty" style="font-size: 30pt;"></i> -->
+                    <p id="battery-percentage" class="battery-percentage">--%</p>
+                    <p id="charging-status" class="charging-status">Checking...</p>
+                </div>
+
+                <!-- Charging status display -->
+                <!-- <p id="charging-status" class="charging-status">Checking...</p> -->
+
+                <!-- Message for unsupported API -->
+                <p id="unsupported-message" class="unsupported-message">
+                    Battery Status API is not supported or requires a secure connection (HTTPS).
+                </p>
+            </center>
+
+            <!-- </center> -->
+			<br>
+			<center><a class = "action-button-tonaldark" onclick="closePopup3()"><b>&nbsp;<i class="fa-solid fa-xmark"></i>&nbsp;</b></a> </center>
+		</div>
+	</div>
+
+    <!-- Tally Counter -->
     <div id="popup10" class="page-normal-container">
 		<div class="page-normal">
             <!-- Tasks -->
@@ -858,6 +922,7 @@
 		</div>
 	</div>
 
+    <!-- Device Tests -->
     <div id="popup11" class="page-normal-container">
 		<div class="page-normal">
             <!-- Tasks -->
@@ -1143,6 +1208,141 @@
     </script>
     <script src = "script.js"></script>
     
+    <!-- StandBy -->
+    <script>
+        /**
+         * Function to update the clock and date display.
+         * This function gets the current time and date, formats them,
+         * and updates the corresponding HTML elements.
+         */
+        function updateClock() {
+            const now = new Date(); // Get the current date and time
+
+            // --- Time Formatting ---
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            // Seconds are intentionally not used as per request.
+
+            // Determine AM/PM and convert to 12-hour format
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // The hour '0' should be '12'
+
+            // Add leading zeros for minutes if they are less than 10
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+
+            // Construct the time string without seconds
+            const timeString = `${hours}:${minutes} ${ampm}`;
+
+            // --- Date Formatting ---
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateString = now.toLocaleDateString(undefined, options); // Format date based on user's locale
+
+            // --- Update HTML Elements ---
+            // Get the HTML element for the clock display by its ID
+            const clockElement = document.getElementById('clock-display');
+            // Check if the element exists before updating its content
+            if (clockElement) {
+                clockElement.textContent = timeString; // Set the text content to the formatted time
+            } else {
+                console.error("Clock display element not found!");
+            }
+
+            // Get the HTML element for the date display by its ID
+            const dateElement = document.getElementById('date-display');
+            // Check if the element exists before updating its content
+            if (dateElement) {
+                dateElement.textContent = dateString; // Set the text content to the formatted date
+            } else {
+                console.error("Date display element not found!");
+            }
+
+            // --- Update HTML Elements ---
+            // Get the HTML element for the clock display by its ID
+            const clockElement2 = document.getElementById('clock-display2');
+            // Check if the element exists before updating its content
+            if (clockElement2) {
+                clockElement2.textContent = timeString; // Set the text content to the formatted time
+            } else {
+                console.error("Clock display element not found!");
+            }
+
+            // Get the HTML element for the date display by its ID
+            const dateElement2 = document.getElementById('date-display2');
+            // Check if the element exists before updating its content
+            if (dateElement2) {
+                dateElement2.textContent = dateString; // Set the text content to the formatted date
+            } else {
+                console.error("Date display element not found!");
+            }
+        }
+
+        // Call updateClock initially to display the time and date immediately when the page loads.
+        updateClock();
+
+        // Set an interval to call the updateClock function every 1000 milliseconds (1 second).
+        // This ensures the clock updates in real-time.
+        setInterval(updateClock, 1000);
+
+        // Get references to the HTML elements
+        const batteryPercentageElement = document.getElementById('battery-percentage');
+        const chargingStatusElement = document.getElementById('charging-status');
+        const batteryIconElement = document.getElementById('battery-icon');
+        const unsupportedMessageElement = document.getElementById('unsupported-message');
+
+        /**
+         * Updates the display with the current battery information.
+         * @param {BatteryManager} battery - The BatteryManager object.
+         */
+        function updateBatteryInfo(battery) {
+            // Calculate battery percentage and round it
+            const percentage = Math.round(battery.level * 100);
+            batteryPercentageElement.textContent = `${percentage}%`;
+
+            // Update charging status text
+            chargingStatusElement.textContent = battery.charging ? 'Charging' : 'Not Charging';
+
+            // Reset icon classes before adding new ones
+            batteryIconElement.classList.remove('icon-green', 'icon-red', 'icon-yellow');
+
+            // Update battery icon color based on percentage and charging status
+            if (battery.charging) {
+                batteryIconElement.classList.add('icon-green'); // Green when charging
+            } else if (percentage <= 20) {
+                batteryIconElement.classList.add('icon-red'); // Red for low battery
+            } else if (percentage <= 50) {
+                batteryIconElement.classList.add('icon-yellow'); // Yellow for medium battery
+            } else {
+                // No specific color class for high battery, defaults to original gray from CSS
+            }
+        }
+
+        // Check if the Battery Status API is supported by the browser
+        if ('getBattery' in navigator) {
+            navigator.getBattery().then(function(battery) {
+                // Initial update of battery information
+                updateBatteryInfo(battery);
+
+                // Add event listeners to update the display when battery status changes
+                battery.addEventListener('chargingchange', () => updateBatteryInfo(battery));
+                battery.addEventListener('levelchange', () => updateBatteryInfo(battery));
+                battery.addEventListener('chargingtimechange', () => updateBatteryInfo(battery));
+                battery.addEventListener('dischargingtimechange', () => updateBatteryInfo(battery));
+            }).catch(function(error) {
+                // Handle potential errors (e.g., permission denied)
+                console.error("Error accessing Battery Status API:", error);
+                batteryPercentageElement.textContent = 'N/A';
+                chargingStatusElement.textContent = 'Error';
+                unsupportedMessageElement.classList.remove('hidden');
+            });
+        } else {
+            // Display a message if the API is not supported
+            batteryPercentageElement.textContent = 'N/A';
+            chargingStatusElement.textContent = 'Unavailable';
+            unsupportedMessageElement.classList.remove('hidden');
+        }
+    </script>
+
     <!-- Device Tests -->
     <script>
         // Get all the necessary DOM elements
