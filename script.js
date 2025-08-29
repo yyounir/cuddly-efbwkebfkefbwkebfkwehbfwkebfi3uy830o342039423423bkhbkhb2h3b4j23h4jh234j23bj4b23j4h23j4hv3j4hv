@@ -43,6 +43,12 @@ function openPopup10() {
 function closePopup10() {
     document.getElementById('popup10').style.display = 'none';
 }
+function openPopup11() {
+    document.getElementById('popup11').style.display = 'flex';
+}
+function closePopup11() {
+    document.getElementById('popup11').style.display = 'none';
+}
 
 const gsearchInput = document.getElementById('gsearch-input');
 const gsuggestionsContainer = document.getElementById('gsuggestions-container');

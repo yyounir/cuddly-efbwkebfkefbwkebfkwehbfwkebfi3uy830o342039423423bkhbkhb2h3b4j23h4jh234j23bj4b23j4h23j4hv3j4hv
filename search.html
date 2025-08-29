@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="searchstyles.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="tally.css">
+    <link rel="stylesheet" href="speed.css">
     <meta name="color-scheme" content="light dark">
 
     
@@ -98,6 +99,7 @@
                 <div class="dropdown-content" style="margin-right: 60px">
                     <center><p style="margin-top: 2px; margin-bottom: 2px; font-weight: 500;">Apps</p></center>
                     <a href="citation.html">&nbsp;<i class="fa-solid fa-quote-left"></i>&nbsp;&nbsp;Citation Generator&nbsp;</a><br>
+                    <a onclick="openPopup11()">&nbsp;<i class="fa-solid fa-gauge-high"></i>&nbsp;&nbsp;Device Tests&nbsp;</a><br>
                     <a onclick="openPopup10()">&nbsp;<i class="fa-solid fa-circle-plus"></i>&nbsp;&nbsp;Tally Counter&nbsp;</a><br>
                     
                 </div>
@@ -661,7 +663,7 @@
 			<img src="genesai.png" class="short-image-on-popup" alt = "Genes Logo">
 			<!-- <p class="p2">"Cats will rule the world someday!"</p> -->
              <p class="p2"></p>
-            <p class="p2"><b>Version 4.23e</b></p>
+            <p class="p2"><b>Version 4.25e</b></p>
             <!-- <p>The version numbers that are used before 4.1 are from the PowerPoint app.</p> -->
             </center>
 			<br>
@@ -850,6 +852,99 @@
                         <p>No counters yet. Click "Add New Counter" to get started!</p>
                     </div>
                 </center>
+            </div>
+			<br>
+			
+		</div>
+	</div>
+
+    <div id="popup11" class="page-normal-container">
+		<div class="page-normal">
+            <!-- Tasks -->
+            <header  class = "sticky-header" style="z-index: 1000000;">          
+                <div class = "header-left-alt">
+                    <!-- <a class="material-symbols-rounded" onclick="toggleDrawer()">chevron_backward</a>	 -->
+                    <a class="material-symbols-rounded" onclick="closePopup11()">arrow_back_ios_new</a>
+                </div>
+                    
+                    
+                <div id = "logo">				
+                    <a class = "header-text"> Device Tests</a>
+                </div>
+
+                <div class="header-right">
+                        
+                    <div class="dropdown" style="float:right;">
+                        <a class="material-symbols-rounded">more_vert</a>
+                        <div class="dropdown-content">
+                            <a onclick="openPopup()">&nbsp;&nbsp;<i class="fa-solid fa-info"></i>&nbsp;&nbsp;&nbsp;About Me&nbsp;&nbsp;&nbsp;</a><br>	
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <br>
+            <div class="padding-body-a">
+                
+                <!-- Device Performance Card -->
+                <center>
+                
+                <div class="card">
+                    <h1>Device Performance Test</h1>
+                    <br>
+                    <div class="section-content">
+                        <div class="btn-container">
+                            <button id="deviceTestBtn" class="action-button-filled" style="border: none"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-play"></i>&nbsp;&nbsp;&nbsp;Start Performance Test&nbsp;&nbsp;&nbsp;&nbsp;</b></button>
+                            <span id="deviceSpinner" class="spinner" style="display:none;"></span>
+                        </div>
+                        <div id="deviceResults" class="result-box" style="display:none;">
+                            <div class="result-item">
+                                <span class="result-label">CPU Performance:</span>
+                                <span id="cpuResult" class="result-value"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                </center>
+                <br><br>
+                <!-- Internet Speed Test Card -->
+                <center>
+                <div class="card">
+                    <h1>Internet Speed Test</h1>
+                    <br>
+                    <div class="section-content">
+                        
+                        <div class="btn-container">
+                            <button id="speedTestBtn" class="action-button-filled" style="border: none"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-play"></i>&nbsp;&nbsp;&nbsp;Start Speed Test&nbsp;&nbsp;&nbsp;&nbsp;</b></button>
+                            
+                        </div>
+                        
+                        
+                        <div id="speedResults" class="result-box" style="display:none;">
+                            <div class="result-item">
+                                <span class="result-label">Download Speed:</span>
+                                <span id="downloadResult" class="result-value"></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Upload Speed:</span>
+                                <span id="uploadResult" class="result-value"></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Latency:</span>
+                                <span id="latencyResult" class="result-value"></span>
+                            </div>
+                        </div>
+                        
+                        
+                            <span id="speedSpinner" class="spinner" style="display:none;"></span>
+                            <p id="statusMessage" class="message" style="display:none;"></p>
+                        
+                    </div>
+                    <br>
+                </div>
+                </center>
+                
+   
             </div>
 			<br>
 			
@@ -1047,5 +1142,179 @@
         });
     </script>
     <script src = "script.js"></script>
+    
+    <!-- Device Tests -->
+    <script>
+        // Get all the necessary DOM elements
+        const deviceTestBtn = document.getElementById('deviceTestBtn');
+        const speedTestBtn = document.getElementById('speedTestBtn');
+        const deviceSpinner = document.getElementById('deviceSpinner');
+        const speedSpinner = document.getElementById('speedSpinner');
+        const deviceResults = document.getElementById('deviceResults');
+        const speedResults = document.getElementById('speedResults');
+        const cpuResult = document.getElementById('cpuResult');
+        const downloadResult = document.getElementById('downloadResult');
+        const uploadResult = document.getElementById('uploadResult');
+        const latencyResult = document.getElementById('latencyResult');
+        const statusMessage = document.getElementById('statusMessage');
+
+        /**
+         * Runs a simple CPU stress test by performing a complex calculation.
+         * The time taken to complete the calculation is a rough indicator of CPU performance.
+         */
+        function runCpuTest() {
+            return new Promise(resolve => {
+                const startTime = performance.now();
+                let sum = 0;
+                // A long loop to simulate a computational task
+                for (let i = 0; i < 100000000; i++) {
+                    sum += Math.sqrt(Math.pow(Math.sin(i), 2) + Math.pow(Math.cos(i), 2));
+                }
+                const endTime = performance.now();
+                const timeTaken = (endTime - startTime).toFixed(2);
+                resolve(timeTaken);
+            });
+        }
+
+        /**
+         * Performs a download speed test by fetching a large dummy file.
+         * It measures the time taken and calculates the speed in Mbps.
+         */
+        async function runDownloadTest() {
+            // Using a public API that returns a JSON object of a certain size to simulate a download
+            const fileUrl = 'https://dummyjson.com/products?limit=100';
+            const fileSizeInBytes = 100 * 1024; // Simulating a 100 KB download for a quick test
+            const startTime = performance.now();
+
+            try {
+                const response = await fetch(fileUrl, { cache: 'no-store' });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json(); // Wait for the data to be fully downloaded
+                const endTime = performance.now();
+                const timeTakenInSeconds = (endTime - startTime) / 1000;
+
+                if (timeTakenInSeconds === 0) {
+                    return Infinity; // Avoid division by zero
+                }
+
+                // Calculate speed: (fileSizeInBytes * 8) / timeTakenInSeconds
+                // Then convert bytes per second to Megabits per second
+                const speedMbps = ((fileSizeInBytes * 8) / timeTakenInSeconds / 1000000).toFixed(2);
+                return speedMbps;
+            } catch (error) {
+                console.error('Download test failed:', error);
+                return 'Error';
+            }
+        }
+
+        /**
+         * Performs an upload speed test by sending a large dummy payload.
+         * It measures the time taken and calculates the speed in Mbps.
+         */
+        async function runUploadTest() {
+            // Simulating a 50 KB payload for a quick test
+            const payloadSizeInBytes = 50 * 1024;
+            const dummyPayload = new Array(payloadSizeInBytes).fill('a').join('');
+            const uploadUrl = 'https://dummyjson.com/products/add';
+
+            const startTime = performance.now();
+            try {
+                const response = await fetch(uploadUrl, {
+                    method: 'POST',
+                    body: JSON.stringify({ title: 'Dummy Product', description: dummyPayload }),
+                    headers: { 'Content-Type': 'application/json' },
+                    cache: 'no-store'
+                });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                const endTime = performance.now();
+                const timeTakenInSeconds = (endTime - startTime) / 1000;
+
+                if (timeTakenInSeconds === 0) {
+                    return Infinity; // Avoid division by zero
+                }
+
+                const speedMbps = ((payloadSizeInBytes * 8) / timeTakenInSeconds / 1000000).toFixed(2);
+                return speedMbps;
+            } catch (error) {
+                console.error('Upload test failed:', error);
+                return 'Error';
+            }
+        }
+
+        /**
+         * Performs a latency test by measuring the time to get a response from a server.
+         */
+        async function runLatencyTest() {
+            const testUrl = 'https://dummyjson.com/products/1';
+            const startTime = performance.now();
+
+            try {
+                const response = await fetch(testUrl, { cache: 'no-store' });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const endTime = performance.now();
+                const latencyMs = (endTime - startTime).toFixed(2);
+                return latencyMs;
+            } catch (error) {
+                console.error('Latency test failed:', error);
+                return 'Error';
+            }
+        }
+
+        // Main function to run all tests and update the UI
+        async function runAllTests() {
+            // Disable buttons and show loading indicators
+            deviceTestBtn.disabled = true;
+            speedTestBtn.disabled = true;
+            deviceSpinner.style.display = 'inline-block';
+            speedSpinner.style.display = 'inline-block';
+            deviceResults.style.display = 'none';
+            speedResults.style.display = 'none';
+            statusMessage.style.display = 'block';
+
+            // Run Device Performance Test
+            statusMessage.textContent = 'Running CPU test...';
+            const cpuTime = await runCpuTest();
+            cpuResult.textContent = `${cpuTime} ms`;
+            deviceResults.style.display = 'flex';
+            deviceSpinner.style.display = 'none';
+            deviceTestBtn.disabled = false;
+            deviceTestBtn.innerHTML = '';
+
+            // Run Internet Speed Test
+            statusMessage.textContent = 'Running download speed test...';
+            const downloadSpeed = await runDownloadTest();
+            downloadResult.textContent = `${downloadSpeed} Mbps`;
+            
+            statusMessage.textContent = 'Running upload speed test...';
+            const uploadSpeed = await runUploadTest();
+            uploadResult.textContent = `${uploadSpeed} Mbps`;
+            
+            statusMessage.textContent = 'Running latency test...';
+            const latency = await runLatencyTest();
+            latencyResult.textContent = `${latency} ms`;
+
+            speedResults.style.display = 'flex';
+            speedSpinner.style.display = 'none';
+            speedTestBtn.disabled = false;
+            speedTestBtn.textContent = 'Test Complete';
+            statusMessage.textContent = 'All tests completed successfully!';
+
+            // Re-enable buttons after all tests are done
+            deviceTestBtn.innerHTML = '<b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-play"></i>&nbsp;&nbsp;&nbsp;Start Performance Test&nbsp;&nbsp;&nbsp;&nbsp;</b>';
+            speedTestBtn.innerHTML = '<b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-play"></i>&nbsp;&nbsp;&nbsp;Start Speed Test&nbsp;&nbsp;&nbsp;&nbsp;</b>';
+        }
+
+        // Add event listeners to the buttons
+        deviceTestBtn.addEventListener('click', runAllTests);
+        speedTestBtn.addEventListener('click', runAllTests);
+
+    </script>
 </body>
 </html>

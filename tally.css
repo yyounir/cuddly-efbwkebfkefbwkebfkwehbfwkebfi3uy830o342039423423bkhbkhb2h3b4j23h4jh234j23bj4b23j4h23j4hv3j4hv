@@ -126,8 +126,7 @@
 .increment-btn {
     padding: 13px;
 	background-color:#e8e5f8;
-    border: none;
-	/* border-color: #14007F; */
+	border: none;
 	margin: auto;
 	width: auto;
 	text-align: center;
@@ -154,11 +153,9 @@
 
 
 .decrement-btn {
-    border: none;
-    font-weight: bold;
     padding: 13px;
 	background-color:#e8e5f8;
-	border-color: #14007F;
+	border: none;
 	margin: auto;
 	width: auto;
 	text-align: center;
@@ -170,6 +167,7 @@
 	font-family: quicksand;
 	text-decoration: none;
 	font-size: 25px;
+    font-weight: bold;
 }
 .decrement-btn:hover {
     background-color: #A999FF;
@@ -201,7 +199,6 @@
 
 /* Updated Delete Button Styling */
 .delete-btn {
-    color: #dc3545;
     padding: 13px;
 	background-color: inherit;
 	border-color: #14007F;
@@ -220,6 +217,7 @@
 
 .delete-btn:hover {
     background-color: #A999FF;
+    color: #dc3545;
 	padding-right: 16px;
 	padding-left:16px;
 }

@@ -1,0 +1,118 @@
+
+.button-group {
+    /* display: flex; */
+    /* gap: 15px; */
+    /* justify-content: center;  */
+    float: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+span {
+    color:#14007f;
+    font-weight: 600;
+}
+
+button:disabled {
+    /* background-color: #a7b3e0; */
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+    opacity: .5;
+}
+
+.summary-output {
+    background-color: white; /* Gray 200 */
+    padding: 25px;
+    font-weight: 600;
+    border-radius: 20px;
+    min-height: 80px;
+    text-align: left;
+    white-space: pre-wrap; 
+    word-wrap: break-word; 
+    color: #14007f;
+    font-size: 1rem;
+    line-height: 1.6;
+    /* border: 1px solid #dee2e6; */
+    position: relative; /* For copy message positioning */
+}
+
+.loading-indicator {
+    display: flex; /* Changed to flex to center spinner and text */
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    font-size: 18px;
+    /* color: #555; */
+    gap: 10px; /* Space between spinner and text */
+    display: none; /* Hidden by default */
+}
+
+.spinner {
+    width: 25px;
+    height: 25px;
+    animation: spin 1.0s linear infinite;
+    
+    /* --- ADJUST COLOR HERE --- */
+    --spinner-color: #14007f;
+    
+    /* The spinner is created by masking a solid background color. */
+    background-color: var(--spinner-color);
+    -webkit-mask: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ccircle cx='50' cy='50' r='45' fill='none' stroke='black' stroke-width='10' stroke-linecap='round' stroke-dasharray='80 200' transform='rotate(0, 50, 50)'/%3e%3ccircle cx='50' cy='50' r='45' fill='none' stroke='black' stroke-width='10' stroke-linecap='round' stroke-dasharray='80 200' transform='rotate(180, 50, 50)'/%3e%3c/svg%3e") no-repeat center;
+    mask: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ccircle cx='50' cy='50' r='45' fill='none' stroke='black' stroke-width='10' stroke-linecap='round' stroke-dasharray='80 200' transform='rotate(0, 50, 50)'/%3e%3ccircle cx='50' cy='50' r='45' fill='none' stroke='black' stroke-width='10' stroke-linecap='round' stroke-dasharray='80 200' transform='rotate(180, 50, 50)'/%3e%3c/svg%3e") no-repeat center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+@media (prefers-color-scheme: dark) {
+    .spinner {
+        border: 4px solid #d1ceff;
+        /* border-left-color: #d1ceff; */
+        --spinner-color: #d1ceff;
+    }
+
+    span {
+        color:#d1ceff;
+        font-weight: 600;
+    }
+
+    .summary-output {
+        background-color: #040126;
+        color: #d1ceff;
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.copy-message {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.copy-message.show {
+    opacity: 1;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+    .button-group {
+        flex-direction: column;
+    }
+    button {
+        width: 100%;
+    }
+    
+}
