@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genes Lite</title>
+    <link rel="stylesheet" href="searchstyles.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tally.css">
+    <link rel="stylesheet" href="speed.css">
+    <meta name="color-scheme" content="light dark">
+
+    
+
+    <!-- FAVICON -->
+		<link rel="shortcut icon" href = "icon.ico">
+		<link rel="icon" type="icon.png" sizes = "32x32" href = "icon.ico">
+		<link rel="aple-touch-icon" sizes = "180x180" href = "icon.ico">
+		<link rel="icon" sizes = "192x192" href = "icon.ico">
+        <link rel="shortcut icon" type="image/x-icon" href="icon.ico">
+
+        <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+    <!-- <script type="text/javascript" src="script.js"></script> -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="robots" content="noindex">
+
+    <style>
+        .container {
+            width: 100%;
+            max-width: 480px; /* max-w-md */
+            background-color: #ffffff; /* bg-white */
+            border-radius: 12px; /* rounded-xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            padding: 24px; /* p-6 */
+        }
+
+        .title {
+            font-size: 2rem; /* text-2xl */
+            font-weight: 700; /* font-bold */
+            text-align: center;
+            color: #1f2937; /* text-gray-800 */
+            margin-bottom: 24px; /* mb-6 */
+        }
+
+        .search-wrapper {
+            position: relative;
+        }
+
+        .search-button {
+            margin-top: 24px; /* mt-6 */
+            width: 100%;
+            background-color: #2563eb; /* bg-blue-600 */
+            color: #ffffff; /* text-white */
+            font-weight: 600; /* font-semibold */
+            padding: 12px 0; /* py-3 */
+            border-radius: 9999px; /* rounded-full */
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* transition duration-300 ease-in-out */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+            border: none;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: #1d4ed8; /* hover:bg-blue-700 */
+            transform: scale(1.05); /* hover:scale-105 */
+        }
+    </style>
+</head>
+<body id="top">
+    <header  class = "sticky-header">          
+        <div id = "logo-home" style="max-width: 180px;">
+			<a href = "search.html"><img src = "genesai.png" alt = "Logo"></a>
+		</div>
+
+        <div class="header-right">
+				
+            <div class="dropdown" style="float:right;">
+                <a class="material-symbols-rounded">more_vert</a>
+                <div class="dropdown-content">
+                    <a onclick="openPopup5()">&nbsp;<i class="fa-solid fa-cog"></i>&nbsp;&nbsp;Settings&nbsp;&nbsp;</a><br>
+                    <a onclick="openPopup()">&nbsp;&nbsp;<i class="fa-solid fa-info"></i>&nbsp;&nbsp;&nbsp;About Me&nbsp;&nbsp;</a>
+                </div>
+            </div>
+            
+            <div class="dropdown" style="float:right;">
+                <a class="material-symbols-rounded">grid_view</a>
+                <div class="dropdown-content" style="margin-right: 60px">
+                    <center><p style="margin-top: 2px; margin-bottom: 2px; font-weight: 500;">Apps</p></center>
+                    <a href="citation.html">&nbsp;<i class="fa-solid fa-quote-left"></i>&nbsp;&nbsp;Citation Generator&nbsp;</a><br>
+                    <a onclick="openPopup11()">&nbsp;<i class="fa-solid fa-gauge-high"></i>&nbsp;&nbsp;Device Tests&nbsp;</a><br>
+                    <a onclick="openPopup4()">&nbsp;<i class="fa-solid fa-clock"></i>&nbsp;&nbsp;StandBy&nbsp;</a><br>
+                    <a onclick="openPopup10()">&nbsp;<i class="fa-solid fa-circle-plus"></i>&nbsp;&nbsp;Tally Counter&nbsp;</a><br>
+                    
+                </div>
+            </div>
+
+        </div>
+    
+    </header>
+    <div class="padding-body">
+        <div class="main-content">
+                <!-- <img src="genesicon.png" class="image-short"> -->
+                <img src="genesicon.png" class="short-image-on-popup" style="height: 150px;">
+            </div>  
+        <div class="main-content"> 
+             
+            <h1 style="margin-top: 0px; margin-right: 10px; margin-left: 10px;">Hello there!<br>Nice to see you again!</h1> 
+            <!-- <p>Scroll down to see the sticky search bar.</p> -->
+            <!-- Add more content here to make the page scrollable -->
+            <!-- <div style="height: 1000px;"></div>
+            <p>End of scrollable content.</p> -->
+        </div>
+        <div class="main-content">
+            <!-- <img src="genesicon.png" class="image-short"> -->
+            <!-- <img src="genesicon.png" class="short-image-on-popup" style="height: 150px;"> -->
+        </div>
+
+        <center><div class="search-wrapper">
+            <input
+                type="text"
+                id="gsearch-input"
+                placeholder="Search something..."
+                class="gsearch-input"
+                autocomplete="off"
+            >
+            <button id="gsearch-button" class="action-button-tonal-i" style="border: none; font-weight: bold; align-content: center; margin-top: 5px; padding-top: 14px; padding-bottom: 14px;"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button id="googlesearch-button" class="action-button-unfilled-i" style="border: none; font-weight: bold; align-content: center; margin-top: 5px; padding-top: 14px; padding-bottom: 14px;"><i class="fa-brands fa-google"></i></button>
+            <div
+                id="gsearch-suggestions-container"
+                class="gsuggestions-container"
+            >
+            </div>            
+        </div></center>
+
+        
+
+
+        
+        <br><br>
+        <center><p class = "title2"><b>Frequent</b></p></center>
+        <div class="apps-container">
+            <div class="app-card">
+                <center>
+                <a href="https://copilot.microsoft.com/" target="blank"><img src="Microsoft_Copilot.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://copilot.microsoft.com/" target="blank">Copilot</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://gemini.google.com/" target="blank"><img src="geminini.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://gemini.google.com/" target="blank">Gemini</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://github.com/" target="blank"><img src="git.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://github.com/" target="blank">GitHub</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://mail.google.com/" target="blank"><img src="gmail.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://mail.google.com/" target="blank">Gmail</a>
+            </center>
+            </div>
+
+            <div class="app-card">
+                <center>
+                <a href="https://calendar.google.com/" target="blank"><img src="gcalendar.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://calendar.google.com/" target="blank">Google Calendar</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://drive.google.com/" target="blank"><img src="GoogleDrive.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://drive.google.com/" target="blank">Google Drive</a>
+            </center>
+            </div> 
+
+               
+                   
+        </div>
+
+        <div class="apps-container">
+             
+            <div class="app-card">
+                <center>
+                <a href="https://docs.google.com/" target="blank"><img src="gdocs.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://docs.google.com/" target="blank">Google Docs</a>
+            </center>
+            </div> 
+            <div class="app-card">
+                <center>
+                <a href="https://maps.google.com/" target="blank"><img src="gmaps.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://maps.google.com/" target="blank">Google Maps</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://photos.google.com/" target="blank"><img src="gphotos.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://photos.google.com/" target="blank">Google Photos</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://play.google.com/" target="blank"><img src="gplay.jpg" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://play.google.com/" target="blank">Google Play</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://slides.google.com/" target="blank"><img src="gslides.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://slides.google.com/" target="blank">Google Slides</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://translate.google.com/" target="blank"><img src="gtranslate.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://translate.google.com/" target="blank">Google Translate</a>
+            </center>
+            </div>
+                              
+        </div>
+
+
+        <div class="apps-container"> 
+               
+            <div class="app-card">
+                <center>
+                <a href="https://skillsbuild.org/" target="blank"><img src="ibmsb.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://skillsbuild.org/" target="blank">IBM SkillsBuild</a>
+            </center>
+            </div> 
+            <div class="app-card">
+                <center>
+                <a href="https://www.icloud.com/" target="blank"><img src="icloud.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://www.icloud.com/" target="blank">iCloud</a>
+                <!-- <i class="fa-solid fa-ellipsis"></i> -->
+                </center>
+            </div>  
+            <div class="app-card">
+                <center>
+                <a href="https://www.instagram.com/" target="blank"><img src="ig.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://www.instagram.com/" target="blank">Instagram</a>
+                </center>
+            </div>    
+            <div class="app-card">
+                <center>
+                <a href="https://to-do.live.com/" target="blank"><img src="mstodo.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://to-do.live.com/" target="blank">Microsoft To Do</a>
+            </center>
+            </div>                     
+            <div class="app-card">
+                <center>
+                <a href="https://onedrive.live.com/" target="blank"><img src="onedrive.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://onedrive.live.com/" target="blank">Microsoft OneDrive</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://outlook.live.com/" target="blank"><img src="msoutlook.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://outlook.live.com/" target="blank">Microsoft Outlook</a>
+            </center>
+            </div>
+        </div>
+
+        <div class="apps-container"> 
+            
+            <div class="app-card">
+                <center>
+                <a href="https://notebooklm.google/" target="blank"><img src="notebooklm.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://notebooklm.google/" target="blank">NotebookLM</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://downloads.khinsider.com/" target="blank"><img src="vgmusic.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://downloads.khinsider.com/" target="blank">Video Game Music</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://web.whatsapp.com/" target="blank"><img src="whatsapp.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://web.whatsapp.com/" target="blank">WhatApp</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://www.youtube.com" target="blank"><img src="yt.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://www.youtube.com" target="blank">YouTube</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://music.youtube.com" target="blank"><img src="ytmusic.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://music.youtube.com" target="blank">YouTube Music</a>
+            </center>
+            </div>
+        </div>
+
+        <center><br><p class = "title2"><b><i class="fa-brands fa-apple"></i>&nbsp;Apple</b></p></center>
+
+        <div class="apps-container">
+            <div class="app-card">
+                <center>
+                <a href="https://www.icloud.com/" target="blank"><img src="icloud.png" class="image-as-squircle-icon" alt = "icon"></a>
+                <a href="https://www.icloud.com/" target="blank">iCloud</a>
+                </center>
+            </div>    
+            <div class="app-card">
+                <center>
+                <a href="https://www.icloud.com/mail/" target="blank"><img src="amail.png" class="image-as-squircle-icon" alt = "icon"></a>
+                <a href="https://www.icloud.com/mail/" target="blank">Mail</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://www.icloud.com/contacts/" target="blank"><img src="acontacts.jpg" class="image-as-squircle-icon" alt = "icon"></a>
+                <a href="https://www.icloud.com/contacts/" target="blank">Contacts</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://www.icloud.com/calendar/" target="blank"><img src="icalendar.jpg" class="image-as-squircle-icon" alt = "icon"></a>
+                <a href="https://www.icloud.com/calendar/" target="blank">Calendar</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://www.icloud.com/photos/" target="blank"><img src="aphotos.png" class="image-as-squircle-icon" alt = "icon"></a>
+                <a href="https://www.icloud.com/photos/" target="blank">Photos</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://www.icloud.com/drive/" target="blank"><img src="ifiles.jpg" class="image-as-squircle-icon" alt = "icon"></a>
+                <a href="https://www.icloud.com/drive/" target="blank">Drive</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://www.icloud.com/notes/" target="blank"><img src="inotes.jpg" class="image-as-squircle-icon" alt = "icon"></a>
+                <a href="https://www.icloud.com/notes/" target="blank">Notes</a>
+            </center>
+            </div>
+                        
+        </div>
+        <div class="apps-container">
+            <div class="app-card">
+                <center>
+                <a href="https://www.icloud.com/reminders/" target="blank"><img src="areminders.jpg" class="image-as-squircle-icon" alt = "icon"></a>
+                <a href="https://www.icloud.com/reminders/" target="blank">Reminders</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://www.icloud.com/invites/" target="blank"><img src="iinvites.png" class="image-as-squircle-icon" alt = "icon"></a>
+                <a href="https://www.icloud.com/invites/" target="blank">Invites</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://www.icloud.com/pages/" target="blank"><img src="ipages.png" class="image-as-squircle-icon" alt = "icon"></a>
+                <a href="https://www.icloud.com/pages/" target="blank">Pages</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://www.icloud.com/numbers/" target="blank"><img src="inumbers.png" class="image-as-squircle-icon" alt = "icon"></a>
+                <a href="https://www.icloud.com/numbers/" target="blank">Numbers</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://www.icloud.com/keynote/" target="blank"><img src="ikeynote.png" class="image-as-squircle-icon" alt = "icon"></a>
+                <a href="https://www.icloud.com/keynote/" target="blank">Keynote</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://www.icloud.com/find/" target="blank"><img src="afind.jpg" class="image-as-squircle-icon" alt = "icon"></a>
+                <a href="https://www.icloud.com/find/" target="blank">Find My</a>
+            </center>
+            </div>
+        </div>
+        
+
+        <br><br><br><center><p class = "title2"><i class="fa-solid fa-dice"></i>&nbsp;&nbsp;<b>Games & Stuff</b></p>
+            <div class="apps-container">
+                    <div class="app-card">
+                        <center>
+                            <a href="https://discord.com/" target="blank"><img src="discord-logo-1-1.png" class="image-as-circle-icon" alt = "icon"></a>
+                            <a href="https://discord.com/" target="blank">Discord</a>
+                        </center>
+                    </div>
+                    <div class="app-card">
+                        <center>
+                        <a href="https://store.epicgames.com/" target="blank"><img src="epicgames.png" class="image-as-circle-icon" alt = "icon"></a>
+                        <a href="https://store.epicgames.com/" target="blank">Epic Games Store</a>
+                    </center>
+                    </div>
+                    <div class="app-card">
+                        <center>
+                        <a href="https://store.steampowered.com/" target="blank"><img src="steam.png" class="image-as-circle-icon" alt = "icon"></a>
+                        <a href="https://store.steampowered.com/" target="blank">Steam</a>
+                    </center>
+                    </div>
+                    <div class="app-card">
+                        <center>
+                        <a href="https://www.twitch.tv/" target="blank"><img src="twitch.png" class="image-as-circle-icon" alt = "icon"></a>
+                        <a href="https://www.twitch.tv/" target="blank">Twitch</a>
+                    </center>
+                    </div>
+            </div><br>
+        <div class="cards-container">
+            
+            <div class="card">
+                <center><h1 class = "title-2">Genshin Impact</h1></center>
+                <img src="genshin.jpg" class="image-on-half-card" alt = "Pic">
+                <p>Step into Teyvat, a vast world teeming with life and flowing with elemental energy.</p>
+
+                <p>You and your sibling arrived here from another world. 
+                    Separated by an unknown god, stripped of your powers, and cast into a deep slumber, you now awake to a world very different from when you first arrived.</p>
+
+                <p>Thus begins your journey across Teyvat to seek answers from The Seven — the gods of each element. 
+                    Along the way, prepare to explore every inch of this wondrous world, join forces with a diverse range of characters, and unravel the countless mysteries that Teyvat holds...
+                    <br></p>
+
+                <div class="button-container"><center>
+                    <div class="mdropdown">
+                    <button class="mdropbtn">&nbsp;<i class="fa-solid fa-ellipsis"></i>&nbsp;</button>
+                        <div class="mdropdown-content" style="min-width: 400px;">
+                            <!-- <a onclick = "copyText()">&nbsp;<i class="fa-solid fa-clone"></i>&nbsp;&nbsp;Copy UID&nbsp;</a> -->
+                            
+                            <p style="margin-top: 0px; margin-bottom: 1px; font-weight: 500;">Tools</p>
+                            <a href="https://act.hoyolab.com/app/community-game-records-sea/index.html?bbs_presentation_style=fullscreen&v=350&gid=2&utm_source=hoyolab&utm_medium=tools&bbs_theme=dark&bbs_theme_device=1#/ys" target="blank">&nbsp;&nbsp;Battle Chronicle</a>
+                            <a href="https://act.hoyolab.com/ys/event/bbs-lineup-qskp/index.html?bbs_presentation_style=fullscreen&utm_source=hoyolab&utm_medium=tools&utm_id=2&lang=en-us&bbs_theme=dark&bbs_theme_device=1#/pc/home" target="blank">&nbsp;&nbsp;Card Plaza</a>
+                            <a href="https://act.hoyolab.com/ys/event/signin-sea-v3/index.html?act_id=e202102251931481&hyl_auth_required=true&hyl_presentation_style=fullscreen&utm_source=hoyolab&utm_medium=tools&lang=en-us&bbs_theme=dark&bbs_theme_device=1" target="blank">&nbsp;&nbsp;Check In</a>
+                            <a href="https://act.hoyolab.com/ys/event/calculator-sea/index.html?bbs_presentation_style=fullscreen&bbs_auth_required=true&utm_source=hoyolab&utm_medium=tools&lang=en-us&bbs_theme=dark&bbs_theme_device=1#/" target="blank">&nbsp;&nbsp;Enhancement Progression Calculator</a>
+                            <a href="https://act.hoyolab.com/ys/app/interactive-map/index.html?bbs_presentation_style=no_header&utm_id=2&utm_medium=tool&utm_source=hoyolab&bbs_theme=dark&bbs_theme_device=1&lang=en-us#/map/2" target="blank">&nbsp;&nbsp;Teyvat Interactive Map</a>
+                            <br><p style="margin-top: 0px; margin-bottom: 1px; font-weight: 500;">Mobile</p>
+                            <a href="https://act.hoyolab.com/ys/event/e20210923journal/index.html?utm_source=hoyolab&utm_medium=tools&lang=en-us&bbs_theme=dark&bbs_theme_device=1#/" target="blank">&nbsp;&nbsp;Traveler's Diary</a>
+                            <br><p style="margin-top: 0px; margin-bottom: 1px; font-weight: 500;">Guides</p>
+                            <a href = "https://enka.network/u" target="blank">&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;View Build Info&nbsp;</a>
+                            <a href = "https://wiki.hoyolab.com/pc/genshin/home" target="blank">&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;HoyoWiki&nbsp;</a>
+                        </div>
+                    </div>
+                    <a class = "action-button-tonal-i" href = "https://www.google.com/search?q=genshin impact" target="blank"><b>&nbsp;<i class="fa-brands fa-google"></i>&nbsp;</b></a>
+                    <a class = "action-button-tonal-i" href = "https://genshin-impact.fandom.com/wiki/Genshin_Impact_Wiki" target="blank"><b>&nbsp;<i class="fa-solid fa-fire"></i>&nbsp;</b></a>
+                    <a class = "action-button-tonal-i" href = "https://www.instagram.com/genshinimpact/" target="blank"><b>&nbsp;<i class="fa-brands fa-instagram"></i>&nbsp;</b></a>
+                    <a class = "action-button-tonal-i" href = "https://www.youtube.com/@GenshinImpact" target="blank"><b>&nbsp;<i class="fa-brands fa-youtube"></i>&nbsp;</b></a>
+                    <br><br><br>
+                    <a class = "action-button-tonal" href = "https://www.hoyolab.com/home" target="blank"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;HoyoLab&nbsp;&nbsp;&nbsp;&nbsp;</b></a>
+                    <a class = "action-button-filled" href = "https://genshin.hoyoverse.com/en/home?utm_source=fab&utm_medium=home" target="blank"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;Official Website&nbsp;&nbsp;&nbsp;&nbsp;</b></a><br><br> 
+                    </center>
+                </div>
+            </div>
+
+            <div class="card">
+                <center><h1 class = "title-2">Honkai Star Rail</h1></center>
+                <img src="hsr.jpg" class="image-on-half-card" alt = "Pic">
+                <p>Hop aboard the Astral Express and experience the galaxy's infinite wonders filled with adventure and thrills.<br><br>Players will meet new companions across various worlds and maybe even run into some familiar faces.<br><br>
+                    Overcome the struggles together caused by Stellaron and unravel the hidden truths behind it! May this journey lead us starward!
+                    <br></p>
+                <div class="button-container"><center>
+                    <div class="mdropdown">
+                    <button class="mdropbtn">&nbsp;<i class="fa-solid fa-ellipsis"></i>&nbsp;</button>
+                        <div class="mdropdown-content" style="min-width: 350px;">
+                            <p style="margin-top: 0px; margin-bottom: 1px; font-weight: 500;">Tools</p>
+                            <a href = "https://act.hoyolab.com/app/community-game-records-sea/rpg/index.html?bbs_presentation_style=fullscreen&gid=6&utm_campaign=battlechronicle&utm_id=6&utm_medium=tools&utm_source=hoyolab&v=101&bbs_theme=dark&bbs_theme_device=1#/hsr" target="blank">&nbsp;&nbsp;Battle Records&nbsp;</a>
+                            <a href = "https://act.hoyolab.com/bbs/event/signin/hkrpg/e202303301540311.html?act_id=e202303301540311&hyl_auth_required=true&hyl_presentation_style=fullscreen&utm_source=hoyolab&utm_medium=tools&utm_campaign=checkin&utm_id=6&lang=en-us&bbs_theme=dark&bbs_theme_device=1" target="blank">&nbsp;&nbsp;Check In&nbsp;</a>
+                            <a href = "https://act.hoyolab.com/sr/app/interactive-map/index.html?hyl_presentation_style=fullscreen&utm_campaign=map&utm_id=6&utm_medium=tools&utm_source=hoyolab&lang=en-us&bbs_theme=dark&bbs_theme_device=1#/map/38?zoom=&center=&origin_map_id=" target="blank">&nbsp;&nbsp;Honkai: Star Rail Map&nbsp;</a>
+                            <a href = "https://act.hoyolab.com/sr/event/calculator/index.html?hyl_presentation_style=fullscreen&utm_campaign=calculator&utm_id=6&utm_medium=tools&utm_source=hoyolab&lang=en-us&bbs_theme=dark&bbs_theme_device=1#/home?target=Character" target="blank">&nbsp;&nbsp;Leveling Calculator&nbsp;</a>
+                            <a href = "https://act.hoyolab.com/sr/event/cultivation-tool/index.html?game_biz=hkrpg_global&hyl_auth_required=true&hyl_hide_status_bar=true&hyl_landscape=true&hyl_presentation_style=fullscreen&mode=fullscreen&utm_campaign=CultivationTool&utm_id=6&utm_medium=tools&utm_source=hoyolab&win_mode=fullscreen&lang=en-us&bbs_theme=dark&bbs_theme_device=1#/tools/suggestion" target="blank">&nbsp;&nbsp;Upgrade Recommendation&nbsp;</a>
+                            <br><p style="margin-top: 0px; margin-bottom: 1px; font-weight: 500;">Mobile</p>
+                            <a href = "https://act.hoyolab.com/sr/event/lineup/landing.html?hyl_presentation_style=fullscreen&utm_id=6&utm_medium=tools&utm_source=hoyolab&lang=en-us&bbs_theme=dark&bbs_theme_device=1" target="blank">&nbsp;&nbsp;Lineup Assistant&nbsp;</a>
+                            <a href = "https://act.hoyolab.com/sr/event/rpg-srledger/index.html?hyl_auth_required=true&hyl_presentation_style=fullscreen&utm_campaign=diary&utm_id=6&utm_medium=tools&utm_source=hoyolab&lang=en-us&bbs_theme=dark&bbs_theme_device=1" target="blank">&nbsp;&nbsp;Trailblaze Monthly Calendar&nbsp;</a>
+                            <br><p style="margin-top: 0px; margin-bottom: 1px; font-weight: 500;">Guides</p>
+                            <a href = "https://enka.network/hsr" target="blank">&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;View Build Info&nbsp;</a>
+                            <a href = "https://wiki.hoyolab.com/pc/hsr/home" target="blank">&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;HoyoWiki&nbsp;</a>
+                        </div>
+                    </div>
+                    <a class = "action-button-tonal-i" href = "https://www.google.com/search?q=honkai star rail" target="blank"><b>&nbsp;<i class="fa-brands fa-google"></i>&nbsp;</b></a>
+                    <a class = "action-button-tonal-i" href = "https://honkai-star-rail.fandom.com/wiki/Honkai:_Star_Rail_Wiki" target="blank"><b>&nbsp;<i class="fa-solid fa-fire"></i>&nbsp;</b></a>
+                    <a class = "action-button-tonal-i" href = "https://www.instagram.com/honkaistarrail" target="blank"><b>&nbsp;<i class="fa-brands fa-instagram"></i>&nbsp;</b></a>
+                    <a class = "action-button-tonal-i" href = "https://www.youtube.com/@HonkaiStarRail" target="blank"><b>&nbsp;<i class="fa-brands fa-youtube"></i>&nbsp;</b></a>
+                    <br><br><br>
+                    <a class = "action-button-tonal" href = "https://www.hoyolab.com/home" target="blank"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;HoyoLab&nbsp;&nbsp;&nbsp;&nbsp;</b></a>
+                    <a class = "action-button-filled" href = "https://hsr.hoyoverse.com/en-us/" target="blank"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;Official Website&nbsp;&nbsp;&nbsp;&nbsp;</b></a><br><br> 
+                    </center>
+                </div>
+            </div>
+
+                       
+        </div>
+
+        <div class="cards-container">     
+            <div class="card">
+                
+                <center><h1 class = "title-2">Minecraft</h1></center>
+                <img src="minecraft.jpg" class="image-on-half-card" alt = "Pic">
+                <p>Dive into an open world of building, crafting, and survival in Minecraft - 
+                    the ultimate sandbox building simulation game. Gather resources, survive the night, and build an epic adventure one block at a time. 
+                    Explore and craft your way through a completely open world where you can play with friends. 
+                    Build a world, start a farm, mine deep into the ground, face mysterious enemies, or just experiment to the limits of your imagination!</p><br>
+
+                <div class="button-container"><center>
+                    <a class = "action-button-tonal-i" href = "https://www.google.com/search?q=minecraft" target="blank"><b>&nbsp;<i class="fa-brands fa-google"></i>&nbsp;</b></a>
+                    <a class = "action-button-tonal-i" href = "https://www.youtube.com/@minecraft" target="blank"><b>&nbsp;<i class="fa-brands fa-youtube"></i>&nbsp;</b></a>
+                    <br><br><br>
+                    <a class = "action-button-tonal" href = "https://minecraft.wiki/" target="blank"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;View Wiki&nbsp;&nbsp;&nbsp;&nbsp;</b></a>
+                    <a class = "action-button-filled" href = "https://www.minecraft.net/en-us/about-minecraft" target="blank"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;Official Website&nbsp;&nbsp;&nbsp;&nbsp;</b></a><br><br> 
+                    </center>
+                </div>
+            </div>  
+            
+            <div class="card">
+                
+                <center><h1 class = "title-2">Stardew Valley</h1></center>
+                <img src="stardew.jpg" class="image-on-half-card" alt = "Pic">
+                <p>You're moving to the Valley...<br>You've inherited your grandfather's old farm plot in Stardew Valley.<br>Armed with hand-me-down tools and a few coins, you set out to begin your new life!</p><br>
+
+                <div class="button-container"><center>
+                    <a class = "action-button-tonal-i" href = "https://www.google.com/search?q=stardew valley" target="blank"><b>&nbsp;<i class="fa-brands fa-google"></i>&nbsp;</b></a><br><br><br>
+                    <a class = "action-button-tonal" href = "https://stardewvalleywiki.com/Stardew_Valley_Wiki" target="blank"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;View Wiki&nbsp;&nbsp;&nbsp;&nbsp;</b></a>
+                    <a class = "action-button-filled" href = "https://www.stardewvalley.net/" target="blank"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;Official Website&nbsp;&nbsp;&nbsp;&nbsp;</b></a><br><br> 
+                    </center>
+                </div>
+            </div>         
+        </div>
+
+        <div class="cards-container">
+            <div class="card">
+                
+                <center><h1 class = "title-2">Wuthering Waves</h1></center>
+                <img src="wuwa.png" class="image-on-half-card" alt = "Pic">
+                <p>Wuthering Waves is a story-rich open-world action RPG with a high degree of freedom. 
+                    You wake from your slumber as Rover, 
+                    joined by a vibrant cast of Resonators on a journey to reclaim your lost memories and change the world.
+                    
+                    <br><br></p>
+
+                <div class="button-container"><center>
+                    <div class="mdropdown">
+                        <button class="mdropbtn">&nbsp;<i class="fa-solid fa-ellipsis"></i>&nbsp;</button>
+                        <div class="mdropdown-content" style="width: 300px;">
+                            <a href = "https://wuwaguide.kurogames.com/en/" target="blank">&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;Wuthering&nbsp;Waves&nbsp;Guide&nbsp;</a>
+                            <a href = "https://wutheringlab.com/" target="blank">&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;WutheringLab&nbsp;</a>
+                        </div>
+                    </div>
+                    <a class = "action-button-tonal-i" href = "https://www.google.com/search?q=wuthering waves" target="blank"><b>&nbsp;<i class="fa-brands fa-google"></i>&nbsp;</b></a>
+                    <a class = "action-button-tonal-i" href = "https://wutheringwaves.fandom.com/wiki/Wuthering_Waves_Wiki" target="blank"><b>&nbsp;<i class="fa-solid fa-fire"></i>&nbsp;</b></a>
+                    <a class = "action-button-tonal-i" href = "https://www.instagram.com/wutheringwaves/" target="blank"><b>&nbsp;<i class="fa-brands fa-instagram"></i>&nbsp;</b></a>
+                    <a class = "action-button-tonal-i" href = "https://www.youtube.com/@WutheringWaves" target="blank"><b>&nbsp;<i class="fa-brands fa-youtube"></i>&nbsp;</b></a>
+                    <br><br><br>
+                    
+                    <a class = "action-button-filled" href = "https://wutheringwaves.kurogames.com/en/main" target="blank"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;Official Website&nbsp;&nbsp;&nbsp;&nbsp;</b></a><br><br> 
+                    </center>
+                </div>
+            </div> 
+            <div class="card">
+                
+                <center><h1 class = "title-2">Zenless Zone Zero</h1></center>
+                <img src="zzz.jpg" class="image-on-half-card" alt = "Pic">
+                <p>Don't go into Hollows.
+                    I know, I know, there are Ether resources in the Hollows, bizarre creations, even ruins of the old civilization — all invaluable treasures.
+                    But don't forget about the spatial disorder, the monsters, and mutants running rampant. Ultimately, this is a disaster that could swallow the world. Hollows are not where ordinary people should go.
+                    So don't go into Hollows.
+                    Or at least, don't go in alone.
+                    If you insist on getting into danger, go to New Eridu first.
+                    This city full of people from all walks of life has many who need the Hollows: powerful and wealthy tycoons, gangs who rule the streets, schemers hiding in the shadows, and ruthless officials.
+                    Make your preparations there, find strong allies, and most importantly...
+                    Find a "Proxy."
+                    Only they can guide people out of labyrinthian Hollows.
+                    Good luck.
+                    <br><br></p>
+                <div class="button-container"><center>
+                    <div class="mdropdown">
+                    <button class="mdropbtn">&nbsp;<i class="fa-solid fa-ellipsis"></i>&nbsp;</button>
+                        <div class="mdropdown-content" style="min-width: 300px;">
+                            <p style="margin-top: 0px; margin-bottom: 1px; font-weight: 500;">Tools</p>
+                            <a href="https://act.hoyolab.com/app/zzz-game-record/index.html?hyl_presentation_style=fullscreen&utm_campaign=battlechronicle&utm_id=8&utm_medium=tools&utm_source=hoyolab&bbs_theme=dark&bbs_theme_device=1#/zzz" target="blank">&nbsp;&nbsp;Battle Records&nbsp;</a>
+                            <a href="https://act.hoyolab.com/bbs/event/signin/zzz/e202406031448091.html?act_id=e202406031448091&hyl_auth_required=true&hyl_presentation_style=fullscreen&utm_campaign=checkin&utm_id=8&utm_medium=tools&utm_source=hoyolab&lang=en-us&bbs_theme=dark&bbs_theme_device=1" target="blank">&nbsp;&nbsp;Check In&nbsp;</a>
+                            <a href="https://act.hoyolab.com/zzz/event/e20240601-guide-c0k2vt/index.html?game_biz=nap_global&utm_source=hoyolab&utm_medium=tools&utm_id=8&hyl_presentation_style=fullscreen&hyl_auth_required=true&hyl_hide_status_bar=true&lang=en-us&bbs_theme=dark&bbs_theme_device=1#/" target="blank">&nbsp;&nbsp;Strategy Station&nbsp;</a>
+                            <a href="https://act.hoyolab.com/zzz/gt/character-builder-h/index.html?utm_id=8&lang=en-us&utm_source=hoyolab&utm_medium=tools#/" target="blank">&nbsp;&nbsp;Upgrade Guides&nbsp;</a>
+                            <br><p style="margin-top: 0px; margin-bottom: 1px; font-weight: 500;">Mobile</p>
+                            <a href="https://act.hoyolab.com/app/zzz-game-record/index.html?hyl_presentation_style=fullscreen&utm_id=8&utm_medium=tools&utm_source=hoyolab&bbs_theme=dark&bbs_theme_device=1#/zzz/notebook" target="blank">&nbsp;&nbsp;Inter-Knot Monthly Report&nbsp;</a>
+                            <br><p style="margin-top: 0px; margin-bottom: 1px; font-weight: 500;">Guides</p>
+                            <a href="https://zenless.gg/" target="blank">&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;Zenless.gg&nbsp;</a>
+                            <a href = "https://enka.network/zzz" target="blank">&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;View Build Info&nbsp;</a>
+                            <a href = "https://wiki.hoyolab.com/pc/zzz/home" target="blank">&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;HoyoWiki&nbsp;</a>
+                        </div>
+                    </div>
+                
+                    <!-- <a class = "action-button-tonal-i" onclick="openPopup3()"><b>&nbsp;<i class="fa-solid fa-ellipsis"></i>&nbsp;</b></a> -->
+                    <a class = "action-button-tonal-i" href = "https://www.google.com/search?q=zenless zone zero" target="blank"><b>&nbsp;<i class="fa-brands fa-google"></i>&nbsp;</b></a>
+                    <a class = "action-button-tonal-i" href = "https://zenless-zone-zero.fandom.com/wiki/Zenless_Zone_Zero_Wiki" target="blank"><b>&nbsp;<i class="fa-solid fa-fire"></i>&nbsp;</b></a>
+                    <a class = "action-button-tonal-i" href = "https://www.instagram.com/zzz.official.en" target="blank"><b>&nbsp;<i class="fa-brands fa-instagram"></i>&nbsp;</b></a>
+                    <a class = "action-button-tonal-i" href = "https://www.youtube.com/@ZZZ_official" target="blank"><b>&nbsp;<i class="fa-brands fa-youtube"></i>&nbsp;</b></a>
+                    <br><br><br>
+                    <a class = "action-button-tonal" href = "https://www.hoyolab.com/home" target="blank"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;HoyoLab&nbsp;&nbsp;&nbsp;&nbsp;</b></a>
+                    <a class = "action-button-filled" href = "https://zenless.hoyoverse.com/en-us/main" target="blank"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;Official Website&nbsp;&nbsp;&nbsp;&nbsp;</b></a><br><br> 
+                    </center>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards-container">
+            <div class="card">
+                <center><h1 class = "title-2">Watch Anime!</h1></center>
+                <img src="ANIME.png" class="image-on-half-card" alt = "Pic">
+                <p>Watch anime and read manga here!</p><br>
+                <div class="button-container"><center>
+                    <a class = "action-button-tonal-i" onclick="openPopup2()"><b>&nbsp;<i class="fa-solid fa-ellipsis"></i>&nbsp;</b></a>
+                    <a class = "action-button-tonal-i" href = "https://anilist.co/home" target="blank"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;Anilist&nbsp;&nbsp;&nbsp;&nbsp;</b></a>
+                    <br><br><br>
+                    <a class = "action-button-tonal" href = "https://www.crunchyroll.com/newsextension/" target="blank"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;News&nbsp;&nbsp;&nbsp;&nbsp;</b></a>
+                    <a class = "action-button-filled" href = "https://www.crunchyroll.com" target="blank"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;Open Crunchyroll&nbsp;&nbsp;&nbsp;&nbsp;</b></a><br><br> 
+                    </center>
+                </div>
+            </div>            
+            
+            <div class="card">
+                <center><h1 class = "title-2">Ping Pong</h1></center>
+                <img src="pingpong.png" class="image-on-half-card" alt = "Pic">
+                <p>This is a simple game of ping pong!</p>
+                
+                <div class="button-container">
+                        <br><a class = "action-button-filled" href = "https://yyounir.github.io/pingpong//pingpong.html" target="blank"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;Open Link&nbsp;&nbsp;&nbsp;&nbsp;</b></a> <br><br> 
+                </div>
+            </div>
+        </div>
+
+        <!-- <button id="theme-toggle">Toggle Dark Mode</button> -->
+
+        
+    </div>
+
+
+    
+
+
+
+
+
+    
+
+    <div id="popup" class="popup">
+		<div class="popup-content">
+			<p class = "menu-text"><b>About Me</b></p>
+			<center>
+			<img src="genesai.png" class="short-image-on-popup" alt = "Genes Logo">
+			<!-- <p class="p2">"Cats will rule the world someday!"</p> -->
+             <p class="p2"></p>
+            <p class="p2"><b>Version 4.25e</b></p>
+            <!-- <p>The version numbers that are used before 4.1 are from the PowerPoint app.</p> -->
+            </center>
+			<br>
+			<div class="flex-container"> 
+				<div>
+					<a class = "action-button-tonal" onclick="closePopup()"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></a> 
+				</div> 
+			</div>
+		</div>
+	</div>
+
+    <div id="popup3" class="full-screen-popup">
+		<div class="full-screen-popup-content">
+			<p class = "menu-text"><b></b></p>
+			<!-- <center> -->
+			<br><br>
+            <div class="clock-container2">
+                <div class="date-display2" id="date-display2"></div>
+                <div id="clock-display2"></div>
+            </div>
+
+            <center>
+                <!-- Battery icon and percentage display -->
+                <div class="battery-display-area">
+                    <div id="battery-icon" class="battery-icon" fill="currentColor" viewBox="0 0 24 24">
+                        <i class="fa-solid fa-battery-empty" style="font-size: 30pt;"></i>
+                        <!-- Default battery icon (can be updated dynamically) -->
+                        <!-- <path d="M17 5H6C5.447 5 5 5.447 5 6v12c0 .553.447 1 1 1h11c.553 0 1-.447 1-1V6c0-.553-.447-1-1-1zm-1 12H7V7h9v10zm2-10h-1v8h1c.553 0 1-.447 1-1V8c0-.553-.447-1-1-1z"/> -->
+                    </div>
+                    <!-- <i id="battery-icon" fill="currentColor" class="fa-solid fa-battery-empty" style="font-size: 30pt;"></i> -->
+                    <p id="battery-percentage" class="battery-percentage">--%</p>
+                    <p id="charging-status" class="charging-status">Checking...</p>
+                </div>
+
+                <!-- Charging status display -->
+                <!-- <p id="charging-status" class="charging-status">Checking...</p> -->
+
+                <!-- Message for unsupported API -->
+                <p id="unsupported-message" class="unsupported-message">
+                    Battery Status API is not supported or requires a secure connection (HTTPS).
+                </p>
+            </center>
+
+            <!-- </center> -->
+			<br>
+			<center><a class = "action-button-tonaldark" onclick="closePopup3()"><b>&nbsp;<i class="fa-solid fa-xmark"></i>&nbsp;</b></a> </center>
+		</div>
+	</div>
+
+    <div id="popup4" class= "popup">
+		<div class="popup-content">
+			<p class = "menu-text"><b><i class="fa-solid fa-clock"></i>&nbsp;&nbsp;StandBy</b></p>
+			
+			<!-- <p class="p2">"Cats will rule the world someday!"</p> -->
+            <p class="p2">Before using StandBy, there are some things you might want to consider. When you're ready, tap <b>Start StandBy</b>!<br>
+                <br><b><i class="fa-solid fa-battery-full"></i>&nbsp;&nbsp;Make sure you are using Power Saving Mode</b>, especially if you plan to display StandBy for a while.
+                <br><br><b><i class="fa-solid fa-circle-xmark"></i>&nbsp;&nbsp;Close all tabs, apps, or programs</b>, this helps the battery last long and you can always see the time displayed.
+                <br><br><i class="fa-solid fa-moon"></i>&nbsp;&nbsp;<b>Change Screen & Sleep settings</b>, keeping the screen on is completely optional but also useful as a desk clock!
+                <br><br><i class="fa-solid fa-text-height"></i>&nbsp;&nbsp;<b>Control the text size</b> by pressing <b>CTRL+</b> or <b>CTRL-</b>!
+                <br><br><i class="fa-solid fa-globe"></i>&nbsp;&nbsp;<b>It can display battery percentage</b>, but this may not work in most browsers!</p>
+            </p>
+            <!-- <p>The version numbers that are used before 4.1 are from the PowerPoint app.</p> -->
+            
+			<br>
+			<div class="flex-container"> 
+				<div>
+                    <a class = "action-button-tonal-i" onclick="closePopup4()"><b>&nbsp;&nbsp;&nbsp;Close&nbsp;&nbsp;&nbsp;</b></a> 
+					<a class = "action-button-tonal-i" onclick="closePopup4(); openPopup3()"><b>&nbsp;&nbsp;&nbsp;Start StandBy&nbsp;&nbsp;&nbsp;</b></a> 
+				</div> 
+			</div>
+		</div>
+	</div>
+
+    <div id="popup2" class="popup">
+			<div class="popup-content">
+				<p class = "menu-text"><b>More Options</b></p>
+				<p class="p2">Here are some free options to watch anime or read manga!<p>
+
+				<center>
+					<div id = "card-white-section-1-incard" style="background-color: inherit;">
+						<center>			
+							<div class="row">
+
+								<div class="action-button-tonal-card"><a href="https://mangapill.com/" target="blank">
+									<div class="triple-column-button-1">
+										<p class = "action-icon-transparent-L"><a class="fa-solid fa-earth-americas" href="https://mangapill.com/" target="blank"></a></p>
+									</div>
+									<a href="https://mangapill.com/" target="blank"><p class = "title3"><b>Mangapill<br></b>Read manga here!</p></a>								
+								</a></div>
+
+								<div class="action-button-tonal-card"><a href="https://9animetv.to/" target="blank">
+									<div class="triple-column-button-1">
+										<p class = "action-icon-transparent-L"><a class="fa-solid fa-earth-americas" href="https://9animetv.to/" target="blank"></a></p>
+									</div>
+									<a href="https://9animetv.to/" target="blank"><p class = "title3"><b>9animetv.to<br></b>9animetv.to</p></a>								
+								</a></div>
+                                <div class="action-button-tonal-card"><a href="https://hianiwatch.pages.dev/" target="blank">
+									<div class="triple-column-button-1">
+										<p class = "action-icon-transparent-L"><a class="fa-solid fa-earth-americas" href="https://hianiwatch.pages.dev/" target="blank"></a></p>
+									</div>
+									<a href="https://hianiwatch.pages.dev/" target="blank"><p class = "title3"><b>AnimixPlay<br></b>hianiwatch.pages.dev</p></a>								
+								</a></div>
+                                <div class="action-button-tonal-card"><a href="https://hianime.to/" target="blank">
+									<div class="triple-column-button-1">
+										<p class = "action-icon-transparent-L"><a class="fa-solid fa-earth-americas" href="https://hianime.to/" target="blank"></a></p>
+									</div>
+									<a href="https://hianime.to/" target="blank"><p class = "title3"><b>HiAnime<br></b>hianime.to</p></a>								
+								</a></div>
+								<br>
+							</div>
+						</center>	
+					</div></center><br>
+            <div class="flex-container"> 
+                <div>
+                    <a class = "action-button-tonal" onclick="closePopup2()"><b>&nbsp;&nbsp;&nbsp;Close&nbsp;&nbsp;&nbsp;</b></a>
+                </div> 
+            </div>
+        </div>
+    </div>
+
+    <div id="popup5" class="popup">
+			<div class="popup-content">
+				<p class = "menu-text"><i class="fa-solid fa-cog"></i>&nbsp;&nbsp;<b>Settings</b></p>
+
+				<center>
+					<div id = "card-white-section-1-incard" style="background-color: inherit;">
+						<center>			
+							<div class="row">
+
+								<div class="action-button-tonal-card" id="theme-toggle"><a href="#">
+									<div class="triple-column-button-1">
+										<p class = "action-icon-transparent-L"><a class="fa-solid fa-moon" href="#"></a></p>
+									</div>
+									<a href="#"><p class = "title3"><b>Dark Mode<br></b>Reduce eye strain by viewing darker colors.</p></a>								
+								</a></div>
+								<br>
+							</div>
+						</center>	
+					</div></center><br>
+            <div class="flex-container"> 
+                <div>
+                    <a class = "action-button-tonal" onclick="closePopup5()"><b>&nbsp;&nbsp;&nbsp;Close&nbsp;&nbsp;&nbsp;</b></a>
+                </div> 
+            </div>
+        </div>
+    </div>
+
+    <!-- StandBy -->
+    <div id="popup4" class= "popup">
+		<div class="popup-content">
+			<p class = "menu-text"><b><i class="fa-solid fa-clock"></i>&nbsp;&nbsp;StandBy</b></p>
+			
+			<!-- <p class="p2">"Cats will rule the world someday!"</p> -->
+            <p class="p2">Before using StandBy, there are some things you might want to consider. When you're ready, tap <b>Start StandBy</b>!<br>
+                <br><b><i class="fa-solid fa-battery-full"></i>&nbsp;&nbsp;Make sure you are using Power Saving Mode</b>, especially if you plan to display StandBy for a while.
+                <br><br><b><i class="fa-solid fa-circle-xmark"></i>&nbsp;&nbsp;Close all tabs, apps, or programs</b>, this helps the battery last long and you can always see the time displayed.
+                <br><br><i class="fa-solid fa-moon"></i>&nbsp;&nbsp;<b>Change Screen & Sleep settings</b>, keeping the screen on is completely optional but also useful as a desk clock!
+                <br><br><i class="fa-solid fa-text-height"></i>&nbsp;&nbsp;<b>Control the text size</b> by pressing <b>CTRL+</b> or <b>CTRL-</b>!
+                <br><br><i class="fa-solid fa-globe"></i>&nbsp;&nbsp;<b>It can display battery percentage</b>, but this may not work in most browsers!</p>
+            </p>
+            <!-- <p>The version numbers that are used before 4.1 are from the PowerPoint app.</p> -->
+            
+			<br>
+			<div class="flex-container"> 
+				<div>
+                    <a class = "action-button-tonal-i" onclick="closePopup4()"><b>&nbsp;&nbsp;&nbsp;Close&nbsp;&nbsp;&nbsp;</b></a> 
+					<a class = "action-button-tonal-i" onclick="closePopup4(); openPopup3()"><b>&nbsp;&nbsp;&nbsp;Start StandBy&nbsp;&nbsp;&nbsp;</b></a> 
+				</div> 
+			</div>
+		</div>
+	</div>
+    <div id="popup3" class="full-screen-popup">
+		<div class="full-screen-popup-content">
+			<p class = "menu-text"><b></b></p>
+			<!-- <center> -->
+			<br><br>
+            <div class="clock-container2">
+                <div class="date-display2" id="date-display2"></div>
+                <div id="clock-display2"></div>
+            </div>
+
+            <center>
+                <!-- Battery icon and percentage display -->
+                <div class="battery-display-area">
+                    <div id="battery-icon" class="battery-icon" fill="currentColor" viewBox="0 0 24 24">
+                        <i class="fa-solid fa-battery-empty" style="font-size: 30pt;"></i>
+                        <!-- Default battery icon (can be updated dynamically) -->
+                        <!-- <path d="M17 5H6C5.447 5 5 5.447 5 6v12c0 .553.447 1 1 1h11c.553 0 1-.447 1-1V6c0-.553-.447-1-1-1zm-1 12H7V7h9v10zm2-10h-1v8h1c.553 0 1-.447 1-1V8c0-.553-.447-1-1-1z"/> -->
+                    </div>
+                    <!-- <i id="battery-icon" fill="currentColor" class="fa-solid fa-battery-empty" style="font-size: 30pt;"></i> -->
+                    <p id="battery-percentage" class="battery-percentage">--%</p>
+                    <p id="charging-status" class="charging-status">Checking...</p>
+                </div>
+
+                <!-- Charging status display -->
+                <!-- <p id="charging-status" class="charging-status">Checking...</p> -->
+
+                <!-- Message for unsupported API -->
+                <p id="unsupported-message" class="unsupported-message">
+                    Battery Status API is not supported or requires a secure connection (HTTPS).
+                </p>
+            </center>
+
+            <!-- </center> -->
+			<br>
+			<center><a class = "action-button-tonaldark" onclick="closePopup3()"><b>&nbsp;<i class="fa-solid fa-xmark"></i>&nbsp;</b></a> </center>
+		</div>
+	</div>
+
+    <!-- Tally Counter -->
+    <div id="popup10" class="page-normal-container">
+		<div class="page-normal">
+            <!-- Tasks -->
+            <header  class = "sticky-header" style="z-index: 1000000;">          
+                <div class = "header-left-alt">
+                    <!-- <a class="material-symbols-rounded" onclick="toggleDrawer()">chevron_backward</a>	 -->
+                    <a class="material-symbols-rounded" onclick="closePopup10()">arrow_back_ios_new</a>
+                </div>
+                    
+                    
+                <div id = "logo">				
+                    <a class = "header-text"> Tally Counter</a>
+                </div>
+
+                <div class="header-right">
+                        
+                    <div class="dropdown" style="float:right;">
+                        <a class="material-symbols-rounded">more_vert</a>
+                        <div class="dropdown-content">
+                            <a onclick="openPopup()">&nbsp;&nbsp;<i class="fa-solid fa-info"></i>&nbsp;&nbsp;&nbsp;About Me&nbsp;&nbsp;&nbsp;</a><br>	
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <br>
+            <div class="padding-body-a">
+                <center>
+                    <div class="main-container">
+
+                    <div class="controls">
+                        <button id="add-counter-btn" class="action-button-filled" style="border: none;"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-plus"></i>&nbsp;&nbsp;New Counter&nbsp;&nbsp;&nbsp;&nbsp;</b></button>
+                    </div>
+
+                    <div id="counters-container">
+                        <!-- Counters will be dynamically added here -->
+                    </div>
+                    
+                    <div id="placeholder">
+                        <p>No counters yet. Click "Add New Counter" to get started!</p>
+                    </div>
+                </center>
+            </div>
+			<br>
+			
+		</div>
+	</div>
+
+    <!-- Device Tests -->
+    <div id="popup11" class="page-normal-container">
+		<div class="page-normal">
+            <!-- Tasks -->
+            <header  class = "sticky-header" style="z-index: 1000000;">          
+                <div class = "header-left-alt">
+                    <!-- <a class="material-symbols-rounded" onclick="toggleDrawer()">chevron_backward</a>	 -->
+                    <a class="material-symbols-rounded" onclick="closePopup11()">arrow_back_ios_new</a>
+                </div>
+                    
+                    
+                <div id = "logo">				
+                    <a class = "header-text"> Device Tests</a>
+                </div>
+
+                <div class="header-right">
+                        
+                    <div class="dropdown" style="float:right;">
+                        <a class="material-symbols-rounded">more_vert</a>
+                        <div class="dropdown-content">
+                            <a onclick="openPopup()">&nbsp;&nbsp;<i class="fa-solid fa-info"></i>&nbsp;&nbsp;&nbsp;About Me&nbsp;&nbsp;&nbsp;</a><br>	
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <br>
+            <div class="padding-body-a">
+                
+                <!-- Device Performance Card -->
+                <center>
+                
+                <div class="card">
+                    <h1>Device Performance Test</h1>
+                    <br>
+                    <div class="section-content">
+                        <div class="btn-container">
+                            <button id="deviceTestBtn" class="action-button-filled" style="border: none"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-play"></i>&nbsp;&nbsp;&nbsp;Start Performance Test&nbsp;&nbsp;&nbsp;&nbsp;</b></button>
+                            <span id="deviceSpinner" class="spinner" style="display:none;"></span>
+                        </div>
+                        <div id="deviceResults" class="result-box" style="display:none;">
+                            <div class="result-item">
+                                <span class="result-label">CPU Performance:</span>
+                                <span id="cpuResult" class="result-value"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                </center>
+                <br><br>
+                <!-- Internet Speed Test Card -->
+                <center>
+                <div class="card">
+                    <h1>Internet Speed Test</h1>
+                    <br>
+                    <div class="section-content">
+                        
+                        <div class="btn-container">
+                            <button id="speedTestBtn" class="action-button-filled" style="border: none"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-play"></i>&nbsp;&nbsp;&nbsp;Start Speed Test&nbsp;&nbsp;&nbsp;&nbsp;</b></button>
+                            
+                        </div>
+                        
+                        
+                        <div id="speedResults" class="result-box" style="display:none;">
+                            <div class="result-item">
+                                <span class="result-label">Download Speed:</span>
+                                <span id="downloadResult" class="result-value"></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Upload Speed:</span>
+                                <span id="uploadResult" class="result-value"></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Latency:</span>
+                                <span id="latencyResult" class="result-value"></span>
+                            </div>
+                        </div>
+                        
+                        
+                            <span id="speedSpinner" class="spinner" style="display:none;"></span>
+                            <p id="statusMessage" class="message" style="display:none;"></p>
+                        
+                    </div>
+                    <br>
+                </div>
+                </center>
+                
+   
+            </div>
+			<br>
+			
+		</div>
+	</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const addCounterBtn = document.getElementById('add-counter-btn');
+            const countersContainer = document.getElementById('counters-container');
+            const placeholder = document.getElementById('placeholder');
+            let counterId = 0;
+
+            // --- LOCAL STORAGE FUNCTIONS ---
+
+            // Function to save all counter data to localStorage
+            const saveCounters = () => {
+                const counters = document.querySelectorAll('.counter');
+                const countersData = [];
+                counters.forEach(counter => {
+                    const id = counter.dataset.id;
+                    const label = counter.querySelector('.counter-label').value;
+                    const count = parseInt(counter.querySelector('.count-display').textContent, 10);
+                    const limit = counter.querySelector('.counter-limit').value;
+                    countersData.push({ id, label, count, limit });
+                });
+                localStorage.setItem('tallyCounters', JSON.stringify(countersData));
+            };
+
+            // Function to load counters from localStorage on page start
+            const loadCounters = () => {
+                const savedCounters = JSON.parse(localStorage.getItem('tallyCounters'));
+                if (savedCounters && savedCounters.length > 0) {
+                    let maxId = 0;
+                    savedCounters.forEach(counterData => {
+                        const newCounter = createCounterElement(counterData);
+                        countersContainer.appendChild(newCounter);
+                        checkLimit(newCounter); // Check limit status on load
+                        const currentId = parseInt(counterData.id.split('-')[1]);
+                        if (currentId > maxId) {
+                            maxId = currentId;
+                        }
+                    });
+                    counterId = maxId; // Set the global ID to avoid conflicts
+                }
+                checkPlaceholder();
+            };
+
+            // --- COUNTER MANAGEMENT FUNCTIONS ---
+
+            // Function to check if the placeholder should be visible
+            const checkPlaceholder = () => {
+                placeholder.style.display = countersContainer.children.length === 0 ? 'block' : 'none';
+            };
+
+            // Function to create a new counter element, optionally with data
+            const createCounterElement = (data = null) => {
+                const idToUse = data ? parseInt(data.id.split('-')[1]) : ++counterId;
+
+                const counterDiv = document.createElement('div');
+                counterDiv.className = 'counter';
+                counterDiv.dataset.id = `counter-${idToUse}`;
+
+                // Added contenteditable="true" to the count display
+                counterDiv.innerHTML = `
+                    <input type="text" class="counter-label" placeholder="Counter Label ${idToUse}">
+                    <h2 class="count-display" contenteditable="true">0</h2>
+                    <div class="flex-container-c">
+                        <button class="btn decrement-btn" title="Decrement">-</button>
+                        <button class="btn increment-btn" title="Increment">&nbsp;+&nbsp;</button>
+                    </div>
+                    <div class="limit-setter">
+                        <label for="limit-${idToUse}">Limit:</label>
+                        <input type="number" id="limit-${idToUse}" class="counter-limit" placeholder="-" min="0">
+                    </div>
+                    <div class="counter-actions">
+                        
+                        
+                        <button class="btn reset-btn" title="Reset">&nbsp;Reset&nbsp;</button>
+                        <button class="btn delete-btn" title="Delete this counter">&nbsp;Delete&nbsp;</button>
+                    </div>
+                `;
+
+                if (data) {
+                    counterDiv.querySelector('.counter-label').value = data.label;
+                    counterDiv.querySelector('.count-display').textContent = data.count;
+                    counterDiv.querySelector('.counter-limit').value = data.limit;
+                }
+
+                return counterDiv;
+            };
+
+            // Function to check and apply the limit state
+            const checkLimit = (counterElement) => {
+                const countDisplay = counterElement.querySelector('.count-display');
+                const incrementBtn = counterElement.querySelector('.increment-btn');
+                const limitInput = counterElement.querySelector('.counter-limit');
+                
+                const count = parseInt(countDisplay.textContent, 10);
+                const limit = limitInput.value ? parseInt(limitInput.value, 10) : null;
+
+                if (limit !== null && count >= limit) {
+                    incrementBtn.disabled = true;
+                    countDisplay.classList.add('limit-reached');
+                } else {
+                    incrementBtn.disabled = false;
+                    countDisplay.classList.remove('limit-reached');
+                }
+            };
+
+            // --- EVENT LISTENERS ---
+
+            // Event listener for the "Add Counter" button
+            addCounterBtn.addEventListener('click', () => {
+                const newCounter = createCounterElement();
+                countersContainer.appendChild(newCounter);
+                checkPlaceholder();
+                saveCounters();
+            });
+
+            // Event delegation for clicks on counter actions
+            countersContainer.addEventListener('click', (event) => {
+                const target = event.target;
+                const counterElement = target.closest('.counter');
+                if (!counterElement) return;
+
+                const countDisplay = counterElement.querySelector('.count-display');
+                let count = parseInt(countDisplay.textContent, 10);
+                let stateChanged = false;
+
+                if (target.classList.contains('increment-btn')) {
+                    count++;
+                    countDisplay.textContent = count;
+                    stateChanged = true;
+                } else if (target.classList.contains('decrement-btn')) {
+                    if (count > 0) {
+                        count--;
+                        countDisplay.textContent = count;
+                        stateChanged = true;
+                    }
+                } else if (target.classList.contains('reset-btn')) {
+                    countDisplay.textContent = 0;
+                    stateChanged = true;
+                } else if (target.classList.contains('delete-btn')) {
+                    counterElement.remove();
+                    checkPlaceholder();
+                    saveCounters();
+                    return;
+                }
+                
+                if (stateChanged) {
+                    checkLimit(counterElement);
+                    saveCounters();
+                }
+            });
+
+            // Event delegation for input changes on labels and limits
+            countersContainer.addEventListener('input', (event) => {
+                const target = event.target;
+                if (target.classList.contains('counter-limit') || target.classList.contains('counter-label')) {
+                    if (target.classList.contains('counter-limit')) {
+                        checkLimit(target.closest('.counter'));
+                    }
+                    saveCounters();
+                }
+            });
+
+            // --- EVENT LISTENERS FOR EDITABLE COUNT ---
+            
+            // Sanitize and save when the user clicks away from the count display
+            countersContainer.addEventListener('blur', (event) => {
+                const target = event.target;
+                if (target.classList.contains('count-display')) {
+                    // Remove any non-numeric characters
+                    let sanitizedValue = target.textContent.replace(/[^0-9]/g, '');
+                    // If empty after sanitizing, default to 0
+                    target.textContent = sanitizedValue === '' ? '0' : parseInt(sanitizedValue, 10);
+                    
+                    checkLimit(target.closest('.counter'));
+                    saveCounters();
+                }
+            }, true); // Use capture phase to ensure this runs before other blur events
+
+            // Handle 'Enter' key to confirm edit, preventing new lines
+            countersContainer.addEventListener('keydown', (event) => {
+                if (event.target.classList.contains('count-display') && event.key === 'Enter') {
+                    event.preventDefault(); // Prevent adding a new line
+                    event.target.blur(); // Trigger the blur event to save and sanitize
+                }
+            });
+
+
+            // --- INITIALIZATION ---
+            loadCounters();
+        });
+    </script>
+    <script src = "script.js"></script>
+    
+    <!-- StandBy -->
+    <script>
+        /**
+         * Function to update the clock and date display.
+         * This function gets the current time and date, formats them,
+         * and updates the corresponding HTML elements.
+         */
+        function updateClock() {
+            const now = new Date(); // Get the current date and time
+
+            // --- Time Formatting ---
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            // Seconds are intentionally not used as per request.
+
+            // Determine AM/PM and convert to 12-hour format
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // The hour '0' should be '12'
+
+            // Add leading zeros for minutes if they are less than 10
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+
+            // Construct the time string without seconds
+            const timeString = `${hours}:${minutes} ${ampm}`;
+
+            // --- Date Formatting ---
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateString = now.toLocaleDateString(undefined, options); // Format date based on user's locale
+
+            // --- Update HTML Elements ---
+            // Get the HTML element for the clock display by its ID
+            const clockElement = document.getElementById('clock-display');
+            // Check if the element exists before updating its content
+            if (clockElement) {
+                clockElement.textContent = timeString; // Set the text content to the formatted time
+            } else {
+                console.error("Clock display element not found!");
+            }
+
+            // Get the HTML element for the date display by its ID
+            const dateElement = document.getElementById('date-display');
+            // Check if the element exists before updating its content
+            if (dateElement) {
+                dateElement.textContent = dateString; // Set the text content to the formatted date
+            } else {
+                console.error("Date display element not found!");
+            }
+
+            // --- Update HTML Elements ---
+            // Get the HTML element for the clock display by its ID
+            const clockElement2 = document.getElementById('clock-display2');
+            // Check if the element exists before updating its content
+            if (clockElement2) {
+                clockElement2.textContent = timeString; // Set the text content to the formatted time
+            } else {
+                console.error("Clock display element not found!");
+            }
+
+            // Get the HTML element for the date display by its ID
+            const dateElement2 = document.getElementById('date-display2');
+            // Check if the element exists before updating its content
+            if (dateElement2) {
+                dateElement2.textContent = dateString; // Set the text content to the formatted date
+            } else {
+                console.error("Date display element not found!");
+            }
+        }
+
+        // Call updateClock initially to display the time and date immediately when the page loads.
+        updateClock();
+
+        // Set an interval to call the updateClock function every 1000 milliseconds (1 second).
+        // This ensures the clock updates in real-time.
+        setInterval(updateClock, 1000);
+
+        // Get references to the HTML elements
+        const batteryPercentageElement = document.getElementById('battery-percentage');
+        const chargingStatusElement = document.getElementById('charging-status');
+        const batteryIconElement = document.getElementById('battery-icon');
+        const unsupportedMessageElement = document.getElementById('unsupported-message');
+
+        /**
+         * Updates the display with the current battery information.
+         * @param {BatteryManager} battery - The BatteryManager object.
+         */
+        function updateBatteryInfo(battery) {
+            // Calculate battery percentage and round it
+            const percentage = Math.round(battery.level * 100);
+            batteryPercentageElement.textContent = `${percentage}%`;
+
+            // Update charging status text
+            chargingStatusElement.textContent = battery.charging ? 'Charging' : 'Not Charging';
+
+            // Reset icon classes before adding new ones
+            batteryIconElement.classList.remove('icon-green', 'icon-red', 'icon-yellow');
+
+            // Update battery icon color based on percentage and charging status
+            if (battery.charging) {
+                batteryIconElement.classList.add('icon-green'); // Green when charging
+            } else if (percentage <= 20) {
+                batteryIconElement.classList.add('icon-red'); // Red for low battery
+            } else if (percentage <= 50) {
+                batteryIconElement.classList.add('icon-yellow'); // Yellow for medium battery
+            } else {
+                // No specific color class for high battery, defaults to original gray from CSS
+            }
+        }
+
+        // Check if the Battery Status API is supported by the browser
+        if ('getBattery' in navigator) {
+            navigator.getBattery().then(function(battery) {
+                // Initial update of battery information
+                updateBatteryInfo(battery);
+
+                // Add event listeners to update the display when battery status changes
+                battery.addEventListener('chargingchange', () => updateBatteryInfo(battery));
+                battery.addEventListener('levelchange', () => updateBatteryInfo(battery));
+                battery.addEventListener('chargingtimechange', () => updateBatteryInfo(battery));
+                battery.addEventListener('dischargingtimechange', () => updateBatteryInfo(battery));
+            }).catch(function(error) {
+                // Handle potential errors (e.g., permission denied)
+                console.error("Error accessing Battery Status API:", error);
+                batteryPercentageElement.textContent = 'N/A';
+                chargingStatusElement.textContent = 'Error';
+                unsupportedMessageElement.classList.remove('hidden');
+            });
+        } else {
+            // Display a message if the API is not supported
+            batteryPercentageElement.textContent = 'N/A';
+            chargingStatusElement.textContent = 'Unavailable';
+            unsupportedMessageElement.classList.remove('hidden');
+        }
+    </script>
+
+    <!-- Device Tests -->
+    <script>
+        // Get all the necessary DOM elements
+        const deviceTestBtn = document.getElementById('deviceTestBtn');
+        const speedTestBtn = document.getElementById('speedTestBtn');
+        const deviceSpinner = document.getElementById('deviceSpinner');
+        const speedSpinner = document.getElementById('speedSpinner');
+        const deviceResults = document.getElementById('deviceResults');
+        const speedResults = document.getElementById('speedResults');
+        const cpuResult = document.getElementById('cpuResult');
+        const downloadResult = document.getElementById('downloadResult');
+        const uploadResult = document.getElementById('uploadResult');
+        const latencyResult = document.getElementById('latencyResult');
+        const statusMessage = document.getElementById('statusMessage');
+
+        /**
+         * Runs a simple CPU stress test by performing a complex calculation.
+         * The time taken to complete the calculation is a rough indicator of CPU performance.
+         */
+        function runCpuTest() {
+            return new Promise(resolve => {
+                const startTime = performance.now();
+                let sum = 0;
+                // A long loop to simulate a computational task
+                for (let i = 0; i < 100000000; i++) {
+                    sum += Math.sqrt(Math.pow(Math.sin(i), 2) + Math.pow(Math.cos(i), 2));
+                }
+                const endTime = performance.now();
+                const timeTaken = (endTime - startTime).toFixed(2);
+                resolve(timeTaken);
+            });
+        }
+
+        /**
+         * Performs a download speed test by fetching a large dummy file.
+         * It measures the time taken and calculates the speed in Mbps.
+         */
+        async function runDownloadTest() {
+            // Using a public API that returns a JSON object of a certain size to simulate a download
+            const fileUrl = 'https://dummyjson.com/products?limit=100';
+            const fileSizeInBytes = 100 * 1024; // Simulating a 100 KB download for a quick test
+            const startTime = performance.now();
+
+            try {
+                const response = await fetch(fileUrl, { cache: 'no-store' });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json(); // Wait for the data to be fully downloaded
+                const endTime = performance.now();
+                const timeTakenInSeconds = (endTime - startTime) / 1000;
+
+                if (timeTakenInSeconds === 0) {
+                    return Infinity; // Avoid division by zero
+                }
+
+                // Calculate speed: (fileSizeInBytes * 8) / timeTakenInSeconds
+                // Then convert bytes per second to Megabits per second
+                const speedMbps = ((fileSizeInBytes * 8) / timeTakenInSeconds / 1000000).toFixed(2);
+                return speedMbps;
+            } catch (error) {
+                console.error('Download test failed:', error);
+                return 'Error';
+            }
+        }
+
+        /**
+         * Performs an upload speed test by sending a large dummy payload.
+         * It measures the time taken and calculates the speed in Mbps.
+         */
+        async function runUploadTest() {
+            // Simulating a 50 KB payload for a quick test
+            const payloadSizeInBytes = 50 * 1024;
+            const dummyPayload = new Array(payloadSizeInBytes).fill('a').join('');
+            const uploadUrl = 'https://dummyjson.com/products/add';
+
+            const startTime = performance.now();
+            try {
+                const response = await fetch(uploadUrl, {
+                    method: 'POST',
+                    body: JSON.stringify({ title: 'Dummy Product', description: dummyPayload }),
+                    headers: { 'Content-Type': 'application/json' },
+                    cache: 'no-store'
+                });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                const endTime = performance.now();
+                const timeTakenInSeconds = (endTime - startTime) / 1000;
+
+                if (timeTakenInSeconds === 0) {
+                    return Infinity; // Avoid division by zero
+                }
+
+                const speedMbps = ((payloadSizeInBytes * 8) / timeTakenInSeconds / 1000000).toFixed(2);
+                return speedMbps;
+            } catch (error) {
+                console.error('Upload test failed:', error);
+                return 'Error';
+            }
+        }
+
+        /**
+         * Performs a latency test by measuring the time to get a response from a server.
+         */
+        async function runLatencyTest() {
+            const testUrl = 'https://dummyjson.com/products/1';
+            const startTime = performance.now();
+
+            try {
+                const response = await fetch(testUrl, { cache: 'no-store' });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const endTime = performance.now();
+                const latencyMs = (endTime - startTime).toFixed(2);
+                return latencyMs;
+            } catch (error) {
+                console.error('Latency test failed:', error);
+                return 'Error';
+            }
+        }
+
+        // Main function to run all tests and update the UI
+        async function runAllTests() {
+            // Disable buttons and show loading indicators
+            deviceTestBtn.disabled = true;
+            speedTestBtn.disabled = true;
+            deviceSpinner.style.display = 'inline-block';
+            speedSpinner.style.display = 'inline-block';
+            deviceResults.style.display = 'none';
+            speedResults.style.display = 'none';
+            statusMessage.style.display = 'block';
+
+            // Run Device Performance Test
+            statusMessage.textContent = 'Running CPU test...';
+            const cpuTime = await runCpuTest();
+            cpuResult.textContent = `${cpuTime} ms`;
+            deviceResults.style.display = 'flex';
+            deviceSpinner.style.display = 'none';
+            deviceTestBtn.disabled = false;
+            deviceTestBtn.innerHTML = '';
+
+            // Run Internet Speed Test
+            statusMessage.textContent = 'Running download speed test...';
+            const downloadSpeed = await runDownloadTest();
+            downloadResult.textContent = `${downloadSpeed} Mbps`;
+            
+            statusMessage.textContent = 'Running upload speed test...';
+            const uploadSpeed = await runUploadTest();
+            uploadResult.textContent = `${uploadSpeed} Mbps`;
+            
+            statusMessage.textContent = 'Running latency test...';
+            const latency = await runLatencyTest();
+            latencyResult.textContent = `${latency} ms`;
+
+            speedResults.style.display = 'flex';
+            speedSpinner.style.display = 'none';
+            speedTestBtn.disabled = false;
+            speedTestBtn.textContent = 'Test Complete';
+            statusMessage.textContent = 'All tests completed successfully!';
+
+            // Re-enable buttons after all tests are done
+            deviceTestBtn.innerHTML = '<b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-play"></i>&nbsp;&nbsp;&nbsp;Start Performance Test&nbsp;&nbsp;&nbsp;&nbsp;</b>';
+            speedTestBtn.innerHTML = '<b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-play"></i>&nbsp;&nbsp;&nbsp;Start Speed Test&nbsp;&nbsp;&nbsp;&nbsp;</b>';
+        }
+
+        // Add event listeners to the buttons
+        deviceTestBtn.addEventListener('click', runAllTests);
+        speedTestBtn.addEventListener('click', runAllTests);
+
+    </script>
+</body>
+</html>

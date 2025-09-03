@@ -1,0 +1,206 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 0; /* Ensure no default body margin */
+}
+.container {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 700px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+h1 {
+    font-size: 2.25rem; /* Equivalent to text-3xl */
+    font-weight: 700; /* Equivalent to font-bold */
+    text-align: center;
+    color: #1a202c; /* Equivalent to gray-800 */
+    margin-bottom: 10px;
+}
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+label {
+    color: #4a5568; /* Equivalent to gray-700 */
+    font-weight: 500; /* Equivalent to font-medium */
+    margin-bottom: 5px;
+}
+/* Style for the custom file input button */
+.custom-file-upload {
+    display: inline-block;
+    background-color: #667eea; /* A lighter indigo for the upload button */
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(102, 126, 234, 0.3);
+    border: none;
+    text-align: center;
+}
+.custom-file-upload:hover {
+    background-color: #5a61c9; /* Darker indigo on hover */
+    box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4);
+}
+/* Hide the actual file input */
+input[type="file"] {
+    display: none; /* Hide the default file input */
+}
+textarea {
+    width: 100%;
+    border: 1px solid #a49dff;
+    border-radius: 30px;
+    resize: vertical;
+    min-height: 50px;
+    font-size: 1rem;
+    color: #14007f;
+    transition-duration: 0.4s;
+    
+    background-color: #f4f2ff;
+    padding: 15px;
+    font-size: 16px;
+    resize: vertical;
+    min-height: 50px;
+    box-sizing: border-box;
+    font-weight: 500;
+}
+textarea:focus {
+    outline: none;
+    background-color: white;
+    transition-duration: 0.4s;
+    border-color: #0e00c6; /* Indigo 500 */
+    border-radius: 20px;
+    font-weight: 600;
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.5); /* Ring effect */
+}
+button {
+    background-color: #4c51bf; /* Indigo 600 */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    border: none; /* Remove default button border */
+}
+button:hover {
+    background-color: #5a61c9; /* Indigo 700 */
+    transition-duration: 0.4s;
+}
+button:disabled {
+    background-color: #a7b3e0; /* Lighter indigo for disabled state */
+    cursor: not-allowed;
+    box-shadow: none;
+}
+.image-preview {
+    max-width: 40%;
+    height: auto;
+    border-radius: 30px;
+    margin-top: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: none; /* Hidden by default */
+
+}
+.response-area {
+    background-color: white;
+    text-align: left;
+    font-weight: 600;
+    padding: 25px;
+    border-radius: 20px;
+    min-height: 80px;
+    color: #14007f;
+    font-size: 1rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word; 
+}
+.loading-spinner-a {
+    display: none; 
+
+    width: 35px;
+    height: 35px;
+    animation: spin 1.0s linear infinite;
+    
+    /* --- ADJUST COLOR HERE --- */
+    --spinner-color: #14007f;
+    
+    /* The spinner is created by masking a solid background color. */
+    background-color: var(--spinner-color);
+    -webkit-mask: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ccircle cx='50' cy='50' r='45' fill='none' stroke='black' stroke-width='10' stroke-linecap='round' stroke-dasharray='80 200' transform='rotate(0, 50, 50)'/%3e%3ccircle cx='50' cy='50' r='45' fill='none' stroke='black' stroke-width='10' stroke-linecap='round' stroke-dasharray='80 200' transform='rotate(180, 50, 50)'/%3e%3c/svg%3e") no-repeat center;
+    mask: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ccircle cx='50' cy='50' r='45' fill='none' stroke='black' stroke-width='10' stroke-linecap='round' stroke-dasharray='80 200' transform='rotate(0, 50, 50)'/%3e%3ccircle cx='50' cy='50' r='45' fill='none' stroke='black' stroke-width='10' stroke-linecap='round' stroke-dasharray='80 200' transform='rotate(180, 50, 50)'/%3e%3c/svg%3e") no-repeat center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/* Animations */
+@keyframes fadeIn {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+.message-box {
+    padding: 10px;
+    border-radius: 30px;
+    margin-bottom: 15px;
+    display: none; /* Hidden by default */
+    font-size: 0.9rem;
+    font-weight: 600;
+    animation: fadeIn .5s;
+    transition-duration: 0.4s;
+}
+.message-box.warning {
+    /* background-color: #fff3cd; */
+    color: #664d03;
+    /* border: 1px solid #ffecb5; */
+    
+}
+.message-box.error {
+    /* background-color: #f8d7da; */
+    color: #530000;
+    /* border: 1px solid #f5c6cb; */
+}
+
+@media (prefers-color-scheme: dark) {
+
+    .message-box.warning {
+        color: #fff3cd;        
+    }
+    .message-box.error {
+        color: #f8d7da;
+    }
+
+    .loading-spinner-a {
+        --spinner-color: #d1ceff;
+    }
+
+    textarea {
+        border: 1px solid #14007F;
+        color: #d1ceff;
+        background-color: #03011a;
+    }
+    textarea:focus {
+        border: 1px solid #14007F;
+        color: #d1ceff;
+        background-color: #111111;
+    }
+    .response-area {
+        background-color: #040126;
+        color: #d1ceff;
+    }
+
+}

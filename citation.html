@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citation Generator</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genes</title>
+    <link rel="stylesheet" href="searchstyles.css">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="color-scheme" content="light dark">
+    
+
+    <!-- FAVICON -->
+		<link rel="shortcut icon" href = "icon.png">
+		<link rel="icon" type="icon.png" sizes = "32x32" href = "iconSmall.png">
+		<link rel="aple-touch-icon" sizes = "180x180" href = "icon.png">
+		<link rel="icon" sizes = "192x192" href = "icon.png">
+
+        <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+    <!-- <script type="text/javascript" src="script.js"></script> -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="robots" content="noindex">
+
+    <style>
+        .container {
+            max-width: 960px;
+            background-color: #ffffff; /* bg-white */
+            padding: 2rem; /* p-8 */
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+            width: 100%;
+        }
+        .mb-6 {
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+        label {
+            display: block;
+            color: #14007f;
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 550; /* font-medium */
+            margin-bottom: 0.5rem; /* mb-2 */
+        }
+        label .text-sm {
+            font-size: 0.875rem; /* text-sm */
+            color: #766bff; /* text-gray-500 */
+        }
+        input[type="text"], input[type="number"], input[type="date"] {
+            width: 100%;
+            padding: 0.75rem; /* p-3 */
+            border: 1px solid #766bff;
+            /* border:none; */
+            border-radius: 30px; /* rounded-lg */
+            outline: none;
+            font-weight: 600;
+            transition-duration: 0.4s;
+            color: #14007f;
+            font-family: quicksand;
+            background-color: #f4f2ff;
+        }
+
+        input[type="text"]:hover, input[type="number"]:hover, input[type="date"]:hover {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus {
+            border-color: #14007f; /* focus:ring-blue-500 */
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* focus:ring-2 focus:ring-blue-500 */
+            font-weight: 800;
+            transition-duration: 0.4s;
+            animation: fadein 0.5s ease-in-out; /* Add fade-in animation */
+            border-radius: 20px;
+            background-color: white;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            font-size: 0.90rem;
+            
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        #inputFields {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem; /* gap-6 */
+            margin-bottom: 2rem; /* mb-8 */
+        }
+        @media (min-width: 768px) { /* md breakpoint */
+            #inputFields {
+                grid-template-columns: 1fr 1fr;
+            }
+            .md\:col-span-2 {
+                grid-column: span 2 / span 2;
+            }
+        }
+        .hidden {
+            display: none !important;
+        }
+        .mt-8 {
+            margin-top: 2rem; /* mt-8 */
+        }
+        textarea {
+            width: 100%;
+            padding: 1rem; /* p-4 */
+            border: 1px solid #f4f2ff; /* border border-gray-300 */
+            border-radius: 30px; /* rounded-lg */
+            background-color: #f4f2ff;
+            color: #14007f; /* text-gray-800 */
+            font-size: 1rem; /* text-base */
+            resize: vertical; /* resize-y */
+            font-family: 'quicksand';
+            font-weight: bold;
+        }
+        textarea::-webkit-scrollbar {
+            width: 8px;
+        }
+        textarea::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        textarea::-webkit-scrollbar-thumb {
+            background: #cbd5e1; /* Tailwind gray-300 */
+            border-radius: 10px;
+        }
+        textarea::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; /* Tailwind gray-400 */
+        }
+        
+        #messageBox {
+            margin-top: 1rem; /* mt-4 */
+            padding: 0.75rem; /* p-3 */
+            border-radius: 30px; /* rounded-lg */
+            text-align: center;
+            color: #ffffff; /* text-white */
+            font-weight: bold;
+            float: center;
+            transition-duration: 0.4s;
+            animation: fadeIn 0.25s ease-in-out; /* Add fade-in animation */
+        }
+
+        #messageBox.success {
+            color: #0d5527;
+            
+        }
+        #messageBox.error {
+            color: #530000; /* bg-red-500 */
+        }
+
+        /* Custom Dropdown Styles */
+        .custom-select {
+            position: relative;
+            width: 100%;
+        }
+
+        .select-selected {
+            background-color: #e8e5f8;
+            padding: 0.75rem;
+            border: 1px solid #e8e5f8;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            border-radius: 30px; /* rounded-lg */
+            outline: none;
+            color: #f2f2f2; /* text-gray-800 */
+            transition-duration: 0.4s;
+            color: #14007f;
+            font-family: quicksand;
+            font-weight: 600;
+        }
+
+        .select-selected:hover {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            background-color: #A999FF;
+        }
+
+        .select-selected:after {
+            position: absolute;
+            content: "";
+            top: 14px;
+            right: 10px;
+            width: 0;
+            height: 0;
+            border: 6px solid transparent;
+            /* border-color: #14007F transparent transparent transparent; */
+            
+        }
+
+        .select-selected:active{
+            border-radius: 18px;
+	        transition-duration: 0.2s;  
+        }
+
+        .select-selected.select-arrow-active:after {
+            /* border-color: transparent transparent #14007F transparent; */
+            top: 7px;
+        }
+
+        .select-items {
+            position: absolute;
+            background-color: #ffffff;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 99;
+            max-height: 200px; /* Limit height for scroll */
+            overflow-y: auto; /* Add scrollbar if content overflows */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);  /* shadow-md */
+            text-align: left;
+
+            /* background-color: #D1CEFF; */
+            background-color: rgba(209, 206, 255, .85);
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            border-radius: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.10);
+            z-index: 98;
+            padding: 10px;
+            text-align: left;
+            animation: fadeIn .15s;
+            color: #14007f;
+            font-weight: 600;
+            transition-duration: 0.4s;
+        }
+
+        .select-items div {
+            /* padding: 0.75rem; */
+            padding: 10px;
+            cursor: pointer;
+            color: #14007f;
+            border-radius: 30px;
+            transition-duration: 0.4s;
+            animation: fadeIn .15s;
+
+        }
+
+        .select-items div:hover, .same-as-selected {
+            background-color: #a999ff;
+            padding-top: 15px;
+	        padding-bottom: 15px;
+        }
+
+        .select-items div:active{
+            border-radius: 15px;
+	        transition-duration: 0.1s;  
+        }
+
+
+
+        
+
+        .padding-body {
+            padding-right: 45px;
+            padding-left: 45px;
+        }
+        @media (max-width: 1024px) {
+            .padding-body {
+                padding-right: 20px;
+                padding-left: 20px;
+            }
+        }
+
+        .card-white {
+            background-color: white;
+            border-radius: 20px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            padding-right: 20px;
+            padding-left: 20px;
+            margin-top: 20px;
+            transition-duration: 0.4s;
+        }
+        
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+
+        .action-button-filled-h {
+            font-family: quicksand;
+            padding: 12px;
+            background-color: #1f00bf;
+            margin: auto;
+            width: auto; 
+            text-align: center;
+            border-radius: 100px;
+            float: none;
+            color: white;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 13pt;	
+        }
+
+        .action-button-filled-h a {
+            text-decoration: none;
+            color: white;
+            transition-duration: 0.4s;
+            display: block;	
+        }
+
+        .action-button-filled-h:hover {
+            background-color: #14007f;
+            color: white;
+            padding-top: 16px;
+            padding-bottom:16px;
+        }
+
+        .action-button-tonal-h {
+            padding: 13px;
+            background-color:#e8e5f8;
+            border-color: #14007F;
+            margin-top: 10px;
+            width: auto;
+            text-align: center;
+            border-radius: 100px;
+            float: none;
+            color: #14007F;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            font-family: quicksand;
+            text-decoration: none;
+            font-size: 13pt;
+        }
+
+        .action-button-tonal-h a {
+            text-decoration: none;
+            color: #14007F;
+            transition-duration: 0.4s;
+            display: block;
+            font-size: 13pt;
+            font-style: bold;
+        }
+
+        .action-button-tonal-h:hover {
+            background-color: #A999FF;
+            padding-top: 16px;
+            padding-bottom:16px;
+        }
+
+        .action-button-tonal-h:active, .action-button-filled-h:active {
+            transition-duration: 0.2s;
+	        border-radius: 15px;
+        }
+        
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                color: #f0f0f0; /* Light gray text */
+                /* background-color: #050233; */
+                background-color: #03011a;
+            }
+
+            header {
+                background-color: #03011a;
+            }
+
+            header a {
+                color: #d1ceff;
+            }
+            
+            .header-left a{
+                color: #d1ceff;
+            }
+
+            .header-left-alt a{
+                color: #d1ceff;
+            }
+
+            .header-left-alt a:hover {
+                background-color: #454170;
+            }
+
+            .header-right a{
+                color: #d1ceff;
+            }
+
+            .header-right a:hover {
+                background-color: #454170;
+            }
+
+            h1 {
+                color: #d1ceff; /* Lighter blue heading */
+            }
+
+            h2 {
+                color: #d1ceff;
+            }
+
+            li {
+                font-size: 1.1rem;
+                color: #14007F;
+            }
+
+            a {
+                color: #d1ceff; /* Even lighter blue link */
+            }
+
+            p {
+                color: #d1ceff; 
+            }
+
+            label {
+                color: #d1ceff;
+            }
+
+            input[type="text"], input[type="number"], input[type="date"] {
+                border: 1px solid #14007F;
+                color: #d1ceff;
+                background-color: #03011a;
+            }
+
+            input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus {
+                border-color: #14007f;
+                background-color: #111111;                
+            }
+
+            textarea {
+                border: 1px solid #03011a;
+                background-color: #03011a; /* bg-gray-50 */
+                color: #d1ceff;
+            }
+
+            .select-selected {
+                background-color: #070240;
+                border: 1px solid #070240;
+                color: #d1ceff;
+            }
+
+            .select-selected:hover {
+                background-color: #454170;
+            }
+
+            .select-items {
+                border: 1px solid #080033;
+                /* background-color: #080033; */
+                background-color: rgba(8, 0, 51, .85);
+                -webkit-backdrop-filter: blur(5px);
+                backdrop-filter: blur(5px);
+                color: #d1ceff;
+            }
+
+            .select-items div {
+                color: #d1ceff;
+            }
+
+            .select-items div:hover, .same-as-selected {
+                background-color: #454170;
+            }
+
+            .action-button-filled-h {
+                background-color: #1f00bf;
+                color: white;
+            }
+
+            .action-button-filled-h a {
+                color: white;
+            }
+
+            .action-button-filled-h:hover {
+                background-color: #6259da;
+                color: white;
+            }
+
+            .action-button-tonal-h {
+                background-color:#070240;
+                color: #d1ceff;		
+            }
+
+            .action-button-tonal-h a{
+                color: #d1ceff;
+            }
+
+            .action-button-tonal-h:hover{
+                background-color: #454170;
+            }
+
+            .card-white {
+                background-color: #040126;
+            }
+        }        
+    </style>
+</head>
+<body>
+    <header  class = "sticky-header">          
+        <div class = "header-left-alt">
+            <!-- <a class="material-symbols-rounded" onclick="toggleDrawer()">chevron_backward</a>	 -->
+            <a class="material-symbols-rounded" onclick="history.back()">arrow_back_ios_new</a>
+        </div>
+			
+			
+        <div id = "logo">				
+            <a class = "header-text"> Citation Generator</a>
+        </div>
+
+
+        <div class="header-right">
+
+            <div class="dropdown" style="float:right;">
+                <a class="material-symbols-rounded">more_vert</a>
+                <div class="dropdown-content">
+                    <a onclick="openPopup2()">&nbsp;<i class="fa-solid fa-plus"></i>&nbsp;&nbsp;New Citation&nbsp;&nbsp;&nbsp;</a><br>	
+                    <a onclick="openPopup()">&nbsp;&nbsp;<i class="fa-solid fa-info"></i>&nbsp;&nbsp;&nbsp;About Me&nbsp;&nbsp;&nbsp;</a><br>	
+                </div>
+            </div>
+				
+            
+
+        </div>
+    
+    </header>
+<div class="padding-body">
+
+    <div class="card-white">
+
+        <!-- Citation Style Selection -->
+        <div class="mb-6">
+            <label for="citationStyle">Select Citation Style:</label>
+            <div class="custom-select" id="customCitationStyle">
+                <div class="select-selected">APA (7th Edition)</div>
+                <div class="select-items hidden">
+                    <div data-value="apa">APA (7th Edition)</div>
+                    <div data-value="mla">MLA (9th Edition)</div>
+                    <div data-value="chicago">Chicago (17th Edition)</div>
+                    <div data-value="ieee">IEEE</div>
+                </div>
+                <!-- Hidden input to store the actual value for JS logic -->
+                <input type="hidden" id="citationStyle" value="apa">
+            </div>
+        </div>
+
+        <!-- Source Type Selection -->
+        <div class="mb-6">
+            <label for="sourceType">Select Source Type:</label>
+            <div class="custom-select" id="customSourceType">
+                <div class="select-selected">Book</div>
+                <div class="select-items hidden">
+                    <div data-value="book">Book</div>
+                    <div data-value="journalArticle">Journal Article</div>
+                    <div data-value="website">Website</div>
+                    <div data-value="movie">Movie</div>
+                    <div data-value="generativeAI">Generative AI</div>
+                    <div data-value="image">Image</div>
+                    <div data-value="dissertation">Dissertation</div>
+                    <div data-value="documentary">Documentary</div>
+                    <div data-value="lecture">Lecture</div>
+                    <div data-value="magazineArticle">Magazine Article</div>
+                    <div data-value="newspaper">Newspaper</div>
+                    <div data-value="onlineVideo">Online Video</div>
+                    <div data-value="textbook">Textbook</div>
+                    <div data-value="wikipedia">Wikipedia</div>
+                </div>
+                <!-- Hidden input to store the actual value for JS logic -->
+                <input type="hidden" id="sourceType" value="book">
+            </div>
+        </div>
+
+        <!-- Input Fields for Citation Details -->
+        <div id="inputFields">
+            <!-- Author(s) -->
+            <div id="authorField">
+                <label for="author">Author(s) <span class="text-sm">(e.g., Kurt Doe; Kurt Smith)</span>:</label>
+                <input type="text" id="author" placeholder="Separate multiple authors with a semicolon">
+            </div>
+
+            <!-- Year -->
+            <div id="yearField">
+                <label for="year">Year:</label>
+                <input type="number" id="year" placeholder="e.g., 2023">
+            </div>
+
+            <!-- Title of Work -->
+            <div id="titleField">
+                <label for="title">Title of Work <span class="text-sm">(e.g., Article Title, Book Chapter Title)</span>:</label>
+                <input type="text" id="title" placeholder="e.g., The Impact of Cats on Society: Why Cats Will Rule the World Someday">
+            </div>
+
+            <!-- Publication/Journal/Book Title -->
+            <div id="publicationField">
+                <label for="publication">Publication/Journal/Book Title <span class="text-sm">(e.g., Journal of Cat Research, Book Title)</span>:</label>
+                <input type="text" id="publication" placeholder="e.g., Nature, Cats: A Modern Approach">
+            </div>
+
+            <!-- Publisher -->
+            <div id="publisherField">
+                <label for="publisher">Publisher:</label>
+                <input type="text" id="publisher" placeholder="e.g., Feline Publishers">
+            </div>
+
+            <!-- Volume -->
+            <div id="volumeField">
+                <label for="volume">Volume:</label>
+                <input type="text" id="volume" placeholder="e.g., 15">
+            </div>
+
+            <!-- Issue -->
+            <div id="issueField">
+                <label for="issue">Issue:</label>
+                <input type="text" id="issue" placeholder="e.g., 3">
+            </div>
+
+            <!-- Pages -->
+            <div id="pagesField">
+                <label for="pages">Pages (e.g., 123-145):</label>
+                <input type="text" id="pages" placeholder="e.g., 123-145">
+            </div>
+
+            <!-- URL/DOI -->
+            <div id="urlField" class="md:col-span-2">
+                <label for="url">URL or DOI:</label>
+                <input type="text" id="url" placeholder="e.g., https://catsandkittens.com/meow or 10.1000/xyz123">
+            </div>
+
+            <!-- Access Date (for web sources) -->
+            <div id="accessDateField">
+                <label for="accessDate">Access Date (for web sources):</label>
+                <input type="date" id="accessDate">
+            </div>
+
+            <!-- Director (for movies/documentaries) -->
+            <div id="directorField" class="hidden">
+                <label for="director">Director(s) <span class="text-sm">(e.g., James Cameron; Ava DuVernay)</span>:</label>
+                <input type="text" id="director" placeholder="Separate multiple directors with a semicolon">
+            </div>
+
+            <!-- Production Company (for movies/documentaries) -->
+            <div id="productionCompanyField" class="hidden">
+                <label for="productionCompany">Production Company:</label>
+                <input type="text" id="productionCompany" placeholder="e.g., 20th Century Cats">
+            </div>
+
+            <!-- AI Model Name (for Generative AI) -->
+            <div id="aiModelNameField" class="hidden">
+                <label for="aiModelName">AI Model Name:</label>
+                <input type="text" id="aiModelName" placeholder="e.g., CatGPT, Gemini">
+            </div>
+
+            <!-- Description (for Generative AI/Image) -->
+            <div id="descriptionField" class="hidden md:col-span-2">
+                <label for="description">Description (e.g., Large language model response, Photograph):</label>
+                <input type="text" id="description" placeholder="e.g., Large cat language model response">
+            </div>
+
+            <!-- Degree/Institution (for Dissertation) -->
+            <div id="degreeInstitutionField" class="hidden md:col-span-2">
+                <label for="degreeInstitution">Degree & Institution:</label>
+                <input type="text" id="degreeInstitution" placeholder="e.g., PhD, University of CATlifornia, Berkeley">
+            </div>
+
+            <!-- Date of Lecture/Presentation -->
+            <div id="lectureDateField" class="hidden">
+                <label for="lectureDate">Date of Lecture/Presentation:</label>
+                <input type="date" id="lectureDate">
+            </div>
+
+            <!-- Lecture Location/Context -->
+            <div id="lectureLocationField" class="hidden">
+                <label for="lectureLocation">Lecture Location/Context:</label>
+                <input type="text" id="lectureLocation" placeholder="e.g., University Auditorium, Cat Cafe, Conference Name">
+            </div>
+
+            <!-- Newspaper/Magazine Date -->
+            <div id="articleDateField" class="hidden">
+                <label for="articleDate">Date of Article:</label>
+                <input type="date" id="articleDate">
+            </div>
+
+            <!-- Online Video Platform -->
+            <div id="videoPlatformField" class="hidden">
+                <label for="videoPlatform">Video Platform:</label>
+                <input type="text" id="videoPlatform" placeholder="e.g., CatTube, Vimeo">
+            </div>
+
+        </div>
+
+        <!-- Generate Button -->
+        <h2 class="action-button-filled-h" id="generateBtn"><i class="fa-solid fa-check-to-slot"></i>&nbsp;&nbsp;Generate Citation</h2>
+
+        <!-- Generated Citation Display -->
+        <div class="mt-8">
+            <h2>Generated Citation:</h2>
+            <textarea id="generatedCitation" rows="5" readonly placeholder="Your generated citation will appear here..."></textarea>
+            <h2 class="action-button-tonal-h" id="copyBtn" ><i class="fa-solid fa-clone"></i>&nbsp;&nbsp;Copy to Clipboard</h2>
+            <div id="messageBox" class="hidden"></div>
+        </div>
+    </div>
+</div>
+
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <p class = "menu-text"><b>About Me</b></p>
+        <center>
+        <img src="genesai.png" class="short-image-on-popup" alt = "Genes Logo">
+        <!-- <p class="p2">"Cats will rule the world someday!"</p> -->
+            <p class="p2"><b><i class="fa-solid fa-quote-left"></i>&nbsp;&nbsp;Citation Generator</b></p>
+        <p class="p2">App Version 4.23e</p>
+        <!-- <p>The version numbers that are used before 4.1 are from the PowerPoint app.</p> -->
+         <!-- Any given updates will match with the current parent update that is given -->
+        </center>
+        <br>
+        <div class="flex-container"> 
+            <div>
+                <a class = "action-button-tonal" onclick="closePopup()"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></a> 
+            </div> 
+        </div>
+    </div>
+</div>
+<div id="popup2" class="popup">
+    <div class="popup-content">
+        <p class = "menu-text"><b>New Citation</b></p>
+        
+        <p class="p2">Making a new citation will refresh this page and you will lose previously entered text.<br>Are you sure you want to continue?</p>
+        
+        <br>
+        <div class="flex-container"> 
+            <div>
+                <a class = "action-button-tonal-i" onclick="closePopup2()"><b>&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</b></a> 
+                <a class = "action-button-tonal-i" href="citation.html"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></a> 
+            </div> 
+        </div>
+    </div>
+</div>
+
+    <script>
+        function openPopup() {
+            document.getElementById('popup').style.display = 'flex';
+        }
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        function openPopup2() {
+            document.getElementById('popup2').style.display = 'flex';
+        }
+        function closePopup2() {
+            document.getElementById('popup2').style.display = 'none';
+        }
+
+        function openPopup3() {
+            document.getElementById('popup3').style.display = 'flex';
+        }
+        function closePopup3() {
+            document.getElementById('popup3').style.display = 'none';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get the hidden input elements for citation style and source type
+            const citationStyleInput = document.getElementById('citationStyle');
+            const sourceTypeInput = document.getElementById('sourceType');
+
+            // Input fields
+            const authorInput = document.getElementById('author');
+            const yearInput = document.getElementById('year');
+            const titleInput = document.getElementById('title');
+            const publicationInput = document.getElementById('publication'); // Journal/Book/Website name
+            const publisherInput = document.getElementById('publisher');
+            const volumeInput = document.getElementById('volume');
+            const issueInput = document.getElementById('issue');
+            const pagesInput = document.getElementById('pages');
+            const urlInput = document.getElementById('url');
+            const accessDateInput = document.getElementById('accessDate');
+            const directorInput = document.getElementById('director');
+            const productionCompanyInput = document.getElementById('productionCompany');
+            const aiModelNameInput = document.getElementById('aiModelName');
+            const descriptionInput = document.getElementById('description');
+            const degreeInstitutionInput = document.getElementById('degreeInstitution');
+            const lectureDateInput = document.getElementById('lectureDate');
+            const lectureLocationInput = document.getElementById('lectureLocation');
+            const articleDateInput = document.getElementById('articleDate');
+            const videoPlatformInput = document.getElementById('videoPlatform');
+
+
+            // Input field containers (for showing/hiding)
+            const authorField = document.getElementById('authorField');
+            const yearField = document.getElementById('yearField');
+            const titleField = document.getElementById('titleField');
+            const publicationField = document.getElementById('publicationField');
+            const publisherField = document.getElementById('publisherField');
+            const volumeField = document.getElementById('volumeField');
+            const issueField = document.getElementById('issueField');
+            const pagesField = document.getElementById('pagesField');
+            const urlField = document.getElementById('urlField');
+            const accessDateField = document.getElementById('accessDateField');
+            const directorField = document.getElementById('directorField');
+            const productionCompanyField = document.getElementById('productionCompanyField');
+            const aiModelNameField = document.getElementById('aiModelNameField');
+            const descriptionField = document.getElementById('descriptionField');
+            const degreeInstitutionField = document.getElementById('degreeInstitutionField');
+            const lectureDateField = document.getElementById('lectureDateField');
+            const lectureLocationField = document.getElementById('lectureLocationField');
+            const articleDateField = document.getElementById('articleDateField');
+            const videoPlatformField = document.getElementById('videoPlatformField');
+
+
+            const generateBtn = document.getElementById('generateBtn');
+            const generatedCitationTextarea = document.getElementById('generatedCitation');
+            const copyBtn = document.getElementById('copyBtn');
+            const messageBox = document.getElementById('messageBox');
+
+            /**
+             * Initializes a custom dropdown.
+             * @param {string} customSelectId - The ID of the custom select container.
+             * @param {HTMLElement} hiddenInput - The hidden input element to store the selected value.
+             */
+            function initializeCustomDropdown(customSelectId, hiddenInput) {
+                const customSelect = document.getElementById(customSelectId);
+                const selectSelected = customSelect.querySelector('.select-selected');
+                const selectItems = customSelect.querySelector('.select-items');
+                const selectOptions = selectItems.querySelectorAll('div');
+
+                // Set initial selected value
+                selectSelected.textContent = selectItems.querySelector(`[data-value="${hiddenInput.value}"]`).textContent;
+
+                selectSelected.addEventListener('click', function(e) {
+                    e.stopPropagation(); // Prevent document click from closing immediately
+                    closeAllSelect(this); // Close other dropdowns
+                    selectItems.classList.toggle('hidden');
+                    this.classList.toggle('select-arrow-active');
+                });
+
+                selectOptions.forEach(option => {
+                    option.addEventListener('click', function() {
+                        selectSelected.textContent = this.textContent;
+                        hiddenInput.value = this.dataset.value;
+                        selectItems.classList.add('hidden');
+                        selectSelected.classList.remove('select-arrow-active');
+                        // Trigger change event for the hidden input
+                        hiddenInput.dispatchEvent(new Event('change'));
+                    });
+                });
+            }
+
+            /**
+             * Closes all custom select boxes except the one clicked.
+             * @param {HTMLElement} elmnt - The element that was clicked.
+             */
+            function closeAllSelect(elmnt) {
+                const customSelects = document.querySelectorAll('.custom-select');
+                customSelects.forEach(select => {
+                    const selectItems = select.querySelector('.select-items');
+                    const selectSelected = select.querySelector('.select-selected');
+                    if (elmnt !== selectSelected && elmnt !== selectItems) {
+                        selectItems.classList.add('hidden');
+                        selectSelected.classList.remove('select-arrow-active');
+                    }
+                });
+            }
+
+            // Close custom dropdowns when clicking outside
+            document.addEventListener('click', closeAllSelect);
+
+            /**
+             * Displays a message in the message box.
+             * @param {string} message - The message to display.
+             * @param {string} type - The type of message ('success', 'error', 'info').
+             */
+            function showMessage(message, type) {
+                messageBox.textContent = message;
+                messageBox.classList.remove('hidden', 'success', 'error', 'info'); // Remove old types
+                if (type === 'success') {
+                    messageBox.classList.add('success');
+                } else if (type === 'error') {
+                    messageBox.classList.add('error');
+                } else if (type === 'info') {
+                    messageBox.classList.add('info');
+                }
+                setTimeout(() => {
+                    messageBox.classList.add('hidden');
+                }, 3000); // Hide after 3 seconds
+            }
+
+            /**
+             * Formats author names for different citation styles.
+             * @param {string} authorString - Semicolon-separated author names (e.g., "John Doe; Jane Smith").
+             * @param {string} style - The citation style ('apa', 'mla', 'chicago', 'ieee').
+             * @param {string} type - The type of author (e.g., 'author', 'director').
+             * @returns {string} Formatted author string.
+             */
+            function formatAuthors(authorString, style, type = 'author') {
+                if (!authorString) return '';
+                const authors = authorString.split(';').map(a => a.trim()).filter(a => a);
+
+                if (authors.length === 0) return '';
+
+                // Helper to format a single name (Last, F. M.)
+                const toLastNameInitials = (name) => {
+                    const parts = name.split(' ');
+                    const lastName = parts.pop();
+                    const firstInitials = parts.map(p => p.charAt(0) + '.').join(' ');
+                    return `${lastName}, ${firstInitials}`;
+                };
+
+                // Helper to format a single name (Last, First M.)
+                const toLastNameFirstName = (name) => {
+                    const parts = name.split(' ');
+                    const lastName = parts.pop();
+                    const firstName = parts.join(' ');
+                    return `${lastName}, ${firstName}`;
+                };
+
+                // Helper to format a single name (F. M. Last)
+                const toInitialsLastName = (name) => {
+                    const parts = name.split(' ');
+                    const lastName = parts.pop();
+                    const firstInitials = parts.map(p => p.charAt(0) + '.').join(' ');
+                    return `${firstInitials} ${lastName}`;
+                };
+
+                switch (style) {
+                    case 'apa':
+                        if (authors.length === 1) {
+                            return toLastNameInitials(authors[0]);
+                        } else if (authors.length <= 20) {
+                            const formatted = authors.map(toLastNameInitials);
+                            const lastAuthor = formatted.pop();
+                            return `${formatted.join(', ')}, & ${lastAuthor}`;
+                        } else {
+                            // APA 7th ed. uses first 19, then ellipsis, then last author
+                            const first19 = authors.slice(0, 19).map(toLastNameInitials).join(', ');
+                            const lastAuthorFormatted = toLastNameInitials(authors[authors.length - 1]);
+                            return `${first19}, ... , ${lastAuthorFormatted}`;
+                        }
+                    case 'mla':
+                        if (authors.length === 1) {
+                            return toLastNameFirstName(authors[0]);
+                        } else if (authors.length === 2) {
+                            const author1 = toLastNameFirstName(authors[0]);
+                            const author2 = toLastNameFirstName(authors[1]);
+                            return `${author1}, and ${author2.replace(/,$/, '')}`;
+                        } else {
+                            return `${toLastNameFirstName(authors[0])}, et al.`;
+                        }
+                    case 'chicago':
+                        if (type === 'director') {
+                            // Chicago for directors usually First Last
+                            return authors.map(a => {
+                                const parts = a.split(' ');
+                                const lastName = parts.pop();
+                                const firstName = parts.join(' ');
+                                return `${firstName} ${lastName}`;
+                            }).join(', and ');
+                        } else if (authors.length === 1) {
+                            return toLastNameFirstName(authors[0]);
+                        } else if (authors.length === 2) {
+                            const author1 = toLastNameFirstName(authors[0]);
+                            const author2Parts = authors[1].split(' ');
+                            const author2FirstName = author2Parts.shift();
+                            const author2LastName = author2Parts.join(' ');
+                            return `${author1}, and ${author2FirstName} ${author2LastName}`;
+                        } else {
+                            return `${toLastNameFirstName(authors[0])}, et al.`;
+                        }
+                    case 'ieee':
+                        return authors.map(toInitialsLastName).join(', and ');
+                    default:
+                        return authorString;
+                }
+            }
+
+            /**
+             * Updates the visibility of input fields based on the selected source type.
+             */
+            function updateInputFieldsVisibility() {
+                const sourceType = sourceTypeInput.value;
+
+                // Hide all fields first
+                [
+                    authorField, yearField, titleField, publicationField, publisherField,
+                    volumeField, issueField, pagesField, urlField, accessDateField,
+                    directorField, productionCompanyField, aiModelNameField, descriptionField,
+                    degreeInstitutionField, lectureDateField, lectureLocationField,
+                    articleDateField, videoPlatformField
+                ].forEach(field => field.classList.add('hidden'));
+
+                // Show relevant fields based on source type
+                switch (sourceType) {
+                    case 'book':
+                    case 'textbook':
+                        authorField.classList.remove('hidden');
+                        yearField.classList.remove('hidden');
+                        titleField.classList.remove('hidden');
+                        publisherField.classList.remove('hidden');
+                        urlField.classList.remove('hidden');
+                        break;
+                    case 'journalArticle':
+                    case 'magazineArticle':
+                    case 'newspaper':
+                        authorField.classList.remove('hidden');
+                        yearField.classList.remove('hidden');
+                        titleField.classList.remove('hidden');
+                        publicationField.classList.remove('hidden'); // Journal/Magazine/Newspaper Title
+                        volumeField.classList.remove('hidden');
+                        issueField.classList.remove('hidden');
+                        pagesField.classList.remove('hidden');
+                        urlField.classList.remove('hidden');
+                        if (sourceType === 'newspaper' || sourceType === 'magazineArticle') {
+                            articleDateField.classList.remove('hidden'); // Specific date for articles
+                        }
+                        break;
+                    case 'website':
+                    case 'wikipedia':
+                        authorField.classList.remove('hidden'); // Author or organization
+                        titleField.classList.remove('hidden'); // Page title
+                        publicationField.classList.remove('hidden'); // Website name
+                        yearField.classList.remove('hidden'); // Date published/updated
+                        urlField.classList.remove('hidden');
+                        accessDateField.classList.remove('hidden');
+                        break;
+                    case 'movie':
+                    case 'documentary':
+                        directorField.classList.remove('hidden');
+                        yearField.classList.remove('hidden');
+                        titleField.classList.remove('hidden');
+                        productionCompanyField.classList.remove('hidden');
+                        urlField.classList.remove('hidden');
+                        break;
+                    case 'generativeAI':
+                        authorField.classList.remove('hidden'); // AI company (e.g., OpenAI, Google) or "ChatGPT"
+                        aiModelNameField.classList.remove('hidden');
+                        yearField.classList.remove('hidden');
+                        titleField.classList.remove('hidden'); // Title of the query/response
+                        descriptionField.classList.remove('hidden'); // e.g., Large language model response
+                        urlField.classList.remove('hidden'); // URL to the specific chat/model
+                        accessDateField.classList.remove('hidden');
+                        break;
+                    case 'image':
+                        authorField.classList.remove('hidden');
+                        yearField.classList.remove('hidden');
+                        titleField.classList.remove('hidden');
+                        descriptionField.classList.remove('hidden'); // e.g., Photograph, Digital image
+                        publicationField.classList.remove('hidden'); // Website/Collection name
+                        urlField.classList.remove('hidden');
+                        accessDateField.classList.remove('hidden');
+                        break;
+                    case 'dissertation':
+                        authorField.classList.remove('hidden');
+                        yearField.classList.remove('hidden');
+                        titleField.classList.remove('hidden');
+                        degreeInstitutionField.classList.remove('hidden');
+                        urlField.classList.remove('hidden');
+                        break;
+                    case 'lecture':
+                        authorField.classList.remove('hidden'); // Lecturer
+                        titleField.classList.remove('hidden'); // Lecture title
+                        lectureDateField.classList.remove('hidden');
+                        lectureLocationField.classList.remove('hidden');
+                        urlField.classList.remove('hidden'); // If online
+                        break;
+                    case 'onlineVideo':
+                        authorField.classList.remove('hidden'); // Uploader/Creator
+                        titleField.classList.remove('hidden'); // Video title
+                        videoPlatformField.classList.remove('hidden');
+                        yearField.classList.remove('hidden'); // Upload year
+                        urlField.classList.remove('hidden');
+                        accessDateField.classList.remove('hidden');
+                        break;
+                    default:
+                        // Default to showing common fields if not explicitly handled
+                        authorField.classList.remove('hidden');
+                        yearField.classList.remove('hidden');
+                        titleField.classList.remove('hidden');
+                        publicationField.classList.remove('hidden');
+                        publisherField.classList.remove('hidden');
+                        urlField.classList.remove('hidden');
+                        accessDateField.classList.remove('hidden');
+                        break;
+                }
+            }
+
+            /**
+             * Generates the citation based on selected style and input values.
+             */
+            function generateCitation() {
+                const style = citationStyleInput.value;
+                const sourceType = sourceTypeInput.value;
+
+                const author = authorInput.value.trim();
+                const year = yearInput.value.trim();
+                const title = titleInput.value.trim();
+                const publication = publicationInput.value.trim(); // Journal/Book/Website name
+                const publisher = publisherInput.value.trim();
+                const volume = volumeInput.value.trim();
+                const issue = issueInput.value.trim();
+                const pages = pagesInput.value.trim();
+                const url = urlInput.value.trim();
+                const accessDate = accessDateInput.value; // YYYY-MM-DD
+                const director = directorInput.value.trim();
+                const productionCompany = productionCompanyInput.value.trim();
+                const aiModelName = aiModelNameInput.value.trim();
+                const description = descriptionInput.value.trim();
+                const degreeInstitution = degreeInstitutionInput.value.trim();
+                const lectureDate = lectureDateInput.value;
+                const lectureLocation = lectureLocationInput.value.trim();
+                const articleDate = articleDateInput.value;
+                const videoPlatform = videoPlatformInput.value.trim();
+
+
+                let citation = '';
+                const formattedAuthors = formatAuthors(author, style, 'author');
+                const formattedDirectors = formatAuthors(director, style, 'director');
+
+                // Helper for common date formatting
+                const formatDate = (dateStr, formatType = 'numeric') => {
+                    if (!dateStr) return '';
+                    const date = new Date(dateStr);
+                    if (isNaN(date)) return ''; // Invalid date
+                    if (formatType === 'numeric') {
+                        return date.toLocaleDateString('en-US', { year: 'numeric', month: 'numeric', day: 'numeric' });
+                    } else if (formatType === 'long') {
+                        return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                    } else if (formatType === 'monthYear') {
+                        return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+                    }
+                    return '';
+                };
+
+                // Helper for DOI/URL formatting
+                const formatUrlOrDoi = (inputUrl) => {
+                    if (!inputUrl) return '';
+                    if (inputUrl.startsWith('http')) {
+                        return inputUrl;
+                    } else if (inputUrl.startsWith('10.')) { // Likely a DOI
+                        return `https://doi.org/${inputUrl}`;
+                    }
+                    return inputUrl; // Return as is if not a URL or DOI
+                };
+
+                // IEEE uses numerical citations, reset for each generation
+                let ieeeCounter = 1;
+
+                switch (style) {
+                    case 'apa':
+                        switch (sourceType) {
+                            case 'book':
+                            case 'textbook':
+                                if (formattedAuthors && year && title && publisher) {
+                                    citation = `${formattedAuthors} (${year}). *${title}*. ${publisher}.`;
+                                    if (url) citation += ` ${formatUrlOrDoi(url)}`;
+                                } else {
+                                    citation = 'Please provide Author(s), Year, Title, and Publisher for a Book/Textbook (APA).';
+                                }
+                                break;
+                            case 'journalArticle':
+                                if (formattedAuthors && year && title && publication && volume && pages) {
+                                    citation = `${formattedAuthors} (${year}). ${title}. *${publication}*, *${volume}*${issue ? `(${issue})` : ''}, ${pages}.`;
+                                    if (url) citation += ` ${formatUrlOrDoi(url)}`;
+                                } else {
+                                    citation = 'Please provide Author(s), Year, Title, Publication, Volume, and Pages for a Journal Article (APA).';
+                                }
+                                break;
+                            case 'magazineArticle':
+                            case 'newspaper':
+                                if (formattedAuthors && articleDate && title && publication && pages) {
+                                    const date = new Date(articleDate);
+                                    const monthDayYear = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                                    citation = `${formattedAuthors} (${monthDayYear}). ${title}. *${publication}*, ${pages}.`;
+                                    if (url) citation += ` ${formatUrlOrDoi(url)}`;
+                                } else {
+                                    citation = 'Please provide Author(s), Date of Article, Title, Publication, and Pages for a Magazine/Newspaper Article (APA).';
+                                }
+                                break;
+                            case 'website':
+                            case 'wikipedia':
+                                if (formattedAuthors && year && title && url) {
+                                    const dateAccessed = accessDate ? formatDate(accessDate, 'long') : '';
+                                    citation = `${formattedAuthors} (${year}). ${title}. ${publication ? `*${publication}*. ` : ''}Retrieved ${dateAccessed}, from ${url}`;
+                                } else {
+                                    citation = 'Please provide Author(s), Year, Title, and URL for a Website/Wikipedia (APA).';
+                                }
+                                break;
+                            case 'movie':
+                            case 'documentary':
+                                if (formattedDirectors && year && title && productionCompany) {
+                                    citation = `${formattedDirectors} (Director). (${year}). *${title}* [Film]. ${productionCompany}.`;
+                                    if (url) citation += ` ${formatUrlOrDoi(url)}`;
+                                } else {
+                                    citation = 'Please provide Director(s), Year, Title, and Production Company for a Movie/Documentary (APA).';
+                                }
+                                break;
+                            case 'generativeAI':
+                                if (aiModelName && year && title && description && url) {
+                                    const dateAccessed = accessDate ? formatDate(accessDate, 'long') : '';
+                                    citation = `${aiModelName}. (${year}). *${title}* [${description}]. Retrieved ${dateAccessed}, from ${url}`;
+                                } else {
+                                    citation = 'Please provide AI Model Name, Year, Title, Description, and URL for Generative AI (APA).';
+                                }
+                                break;
+                            case 'image':
+                                if (formattedAuthors && year && title && description && url) {
+                                    const dateAccessed = accessDate ? formatDate(accessDate, 'long') : '';
+                                    citation = `${formattedAuthors} (${year}). *${title}* [${description}]. ${publication ? `${publication}. ` : ''}Retrieved ${dateAccessed}, from ${url}`;
+                                } else {
+                                    citation = 'Please provide Author(s), Year, Title, Description, and URL for an Image (APA).';
+                                }
+                                break;
+                            case 'dissertation':
+                                if (formattedAuthors && year && title && degreeInstitution) {
+                                    citation = `${formattedAuthors} (${year}). *${title}* (Doctoral dissertation or Master's thesis, ${degreeInstitution}).`;
+                                    if (url) citation += ` ${formatUrlOrDoi(url)}`;
+                                } else {
+                                    citation = 'Please provide Author(s), Year, Title, and Degree & Institution for a Dissertation (APA).';
+                                }
+                                break;
+                            case 'lecture':
+                                if (formattedAuthors && lectureDate && title && lectureLocation) {
+                                    const date = new Date(lectureDate);
+                                    const monthDayYear = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                                    citation = `${formattedAuthors} (${monthDayYear}). *${title}* [Lecture notes or Presentation]. ${lectureLocation}.`;
+                                    if (url) citation += ` ${formatUrlOrDoi(url)}`;
+                                } else {
+                                    citation = 'Please provide Author(s), Date, Title, and Location for a Lecture (APA).';
+                                }
+                                break;
+                            case 'onlineVideo':
+                                if (formattedAuthors && year && title && videoPlatform && url) {
+                                    citation = `${formattedAuthors} (${year}). *${title}* [Video]. ${videoPlatform}. ${url}`;
+                                } else {
+                                    citation = 'Please provide Author(s), Year, Title, Video Platform, and URL for an Online Video (APA).';
+                                }
+                                break;
+                            default:
+                                citation = 'Please provide sufficient information for an APA citation based on the selected source type.';
+                        }
+                        break;
+
+                    case 'mla':
+                        switch (sourceType) {
+                            case 'book':
+                            case 'textbook':
+                                if (formattedAuthors && title && publisher && year) {
+                                    citation = `${formattedAuthors}. *${title}*. ${publisher}, ${year}.`;
+                                    if (url) citation += ` ${formatUrlOrDoi(url)}.`;
+                                } else {
+                                    citation = 'Please provide Author(s), Title, Publisher, and Year for a Book/Textbook (MLA).';
+                                }
+                                break;
+                            case 'journalArticle':
+                                if (formattedAuthors && title && publication && volume && year && pages) {
+                                    citation = `${formattedAuthors}. "${title}." *${publication}*, vol. ${volume}, no. ${issue ? `${issue}, ` : ''}${year}, pp. ${pages}.`;
+                                    if (url) citation += ` ${formatUrlOrDoi(url)}.`;
+                                } else {
+                                    citation = 'Please provide Author(s), Title, Publication, Volume, Year, and Pages for a Journal Article (MLA).';
+                                }
+                                break;
+                            case 'magazineArticle':
+                            case 'newspaper':
+                                if (formattedAuthors && title && publication && articleDate && pages) {
+                                    const date = new Date(articleDate);
+                                    const mlaDate = date.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
+                                    citation = `${formattedAuthors}. "${title}." *${publication}*, ${mlaDate}, pp. ${pages}.`;
+                                    if (url) citation += ` ${formatUrlOrDoi(url)}.`;
+                                } else {
+                                    citation = 'Please provide Author(s), Title, Publication, Date of Article, and Pages for a Magazine/Newspaper Article (MLA).';
+                                }
+                                break;
+                            case 'website':
+                            case 'wikipedia':
+                                if (formattedAuthors && title && publication && url) {
+                                    const accessDateFormatted = accessDate ? formatDate(accessDate, 'long') : '';
+                                    citation = `${formattedAuthors}. "${title}." *${publication || 'Website'}*, ${accessDateFormatted}, ${url}. Accessed ${accessDateFormatted}.`;
+                                } else {
+                                    citation = 'Please provide Author(s), Title, Website Name, and URL for a Website/Wikipedia (MLA).';
+                                }
+                                break;
+                            case 'movie':
+                            case 'documentary':
+                                if (title && formattedDirectors && productionCompany && year) {
+                                    citation = `*${title}*. Directed by ${formattedDirectors}, ${productionCompany}, ${year}.`;
+                                    if (url) citation += ` ${formatUrlOrDoi(url)}.`;
+                                } else {
+                                    citation = 'Please provide Title, Director(s), Production Company, and Year for a Movie/Documentary (MLA).';
+                                }
+                                break;
+                            case 'generativeAI':
+                                if (title && aiModelName && accessDate && url) {
+                                    const accessDateFormatted = formatDate(accessDate, 'long');
+                                    citation = `"${title}." *${aiModelName}*, ${accessDateFormatted}, ${url}.`;
+                                } else {
+                                    citation = 'Please provide Title, AI Model Name, Access Date, and URL for Generative AI (MLA).';
+                                }
+                                break;
+                            case 'image':
+                                if (formattedAuthors && title && publication && url) {
+                                    const accessDateFormatted = accessDate ? formatDate(accessDate, 'long') : '';
+                                    citation = `${formattedAuthors}. *${title}*. ${publication}, ${accessDateFormatted}, ${url}.`;
+                                } else {
+                                    citation = 'Please provide Author(s), Title, Website/Collection Name, and URL for an Image (MLA).';
+                                }
+                                break;
+                            case 'dissertation':
+                                if (formattedAuthors && title && degreeInstitution && year) {
+                                    citation = `${formattedAuthors}. *${title}*. ${degreeInstitution}, ${year}.`;
+                                    if (url) citation += ` ${formatUrlOrDoi(url)}.`;
+                                } else {
+                                    citation = 'Please provide Author(s), Title, Degree & Institution, and Year for a Dissertation (MLA).';
+                                }
+                                break;
+                            case 'lecture':
+                                if (formattedAuthors && title && lectureLocation && lectureDate) {
+                                    const date = new Date(lectureDate);
+                                    const mlaDate = date.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
+                                    citation = `${formattedAuthors}. "${title}." ${lectureLocation}, ${mlaDate}. Lecture.`;
+                                    if (url) citation += ` ${formatUrlOrDoi(url)}.`;
+                                } else {
+                                    citation = 'Please provide Author(s), Title, Location, and Date for a Lecture (MLA).';
+                                }
+                                break;
+                            case 'onlineVideo':
+                                if (formattedAuthors && title && videoPlatform && year && url) {
+                                    citation = `${formattedAuthors}, creator. "${title}." *${videoPlatform}*, ${year}, ${url}.`;
+                                } else {
+                                    citation = 'Please provide Author(s), Title, Video Platform, Year, and URL for an Online Video (MLA).';
+                                }
+                                break;
+                            default:
+                                citation = 'Please provide sufficient information for an MLA citation based on the selected source type.';
+                        }
+                        break;
+
+                    case 'chicago':
+                        // Chicago (17th Edition) - Notes and Bibliography style
+                        switch (sourceType) {
+                            case 'book':
+                            case 'textbook':
+                                if (formattedAuthors && title && publisher && year) {
+                                    citation = `${formattedAuthors}. *${title}*. ${publisher}, ${year}.`;
+                                    if (url) citation += ` ${formatUrlOrDoi(url)}.`;
+                                } else {
+                                    citation = 'Please provide Author(s), Title, Publisher, and Year for a Book/Textbook (Chicago).';
+                                }
+                                break;
+                            case 'journalArticle':
+                                if (formattedAuthors && title && publication && volume && year && pages) {
+                                    citation = `${formattedAuthors}. "${title}." *${publication}* ${volume}, no. ${issue ? `${issue} ` : ''}(${year}): ${pages}.`;
+                                    if (url) citation += ` ${formatUrlOrDoi(url)}.`;
+                                } else {
+                                    citation = 'Please provide Author(s), Title, Publication, Volume, Year, and Pages for a Journal Article (Chicago).';
+                                }
+                                break;
+                            case 'magazineArticle':
+                            case 'newspaper':
+                                if (formattedAuthors && title && publication && articleDate) {
+                                    const date = new Date(articleDate);
+                                    const chicagoDate = date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+                                    citation = `${formattedAuthors}. "${title}." *${publication}*, ${chicagoDate}.`;
+                                    if (url) citation += ` ${formatUrlOrDoi(url)}.`;
+                                } else {
+                                    citation = 'Please provide Author(s), Title, Publication, and Date of Article for a Magazine/Newspaper Article (Chicago).';
+                                }
+                                break;
+                            case 'website':
+                            case 'wikipedia':
+                                if (formattedAuthors && title && publication && url) {
+                                    const accessDateFormatted = accessDate ? formatDate(accessDate, 'long') : '';
+                                    citation = `${formattedAuthors}. "${title}." *${publication || 'Website'}*, last modified ${accessDateFormatted}. ${url}.`;
+                                } else {
+                                    citation = 'Please provide Author(s), Title, Website Name, and URL for a Website/Wikipedia (Chicago).';
+                                }
+                                break;
+                            case 'movie':
+                            case 'documentary':
+                                if (title && formattedDirectors && productionCompany && year) {
+                                    citation = `*${title}*. Directed by ${formattedDirectors}. ${productionCompany}, ${year}.`;
+                                    if (url) citation += ` ${formatUrlOrDoi(url)}.`;
+                                } else {
+                                    citation = 'Please provide Title, Director(s), Production Company, and Year for a Movie/Documentary (Chicago).';
+                                }
+                                break;
+                            case 'generativeAI':
+                                if (aiModelName && title && accessDate && url) {
+                                    const accessDateFormatted = formatDate(accessDate, 'long');
+                                    citation = `"${title}." ${aiModelName}, ${accessDateFormatted}. ${url}.`;
+                                } else {
+                                    citation = 'Please provide AI Model Name, Title, Access Date, and URL for Generative AI (Chicago).';
+                                }
+                                break;
+                            case 'image':
+                                if (formattedAuthors && title && publication && url) {
+                                    const yearCreated = year || new Date().getFullYear(); // Use current year if not provided
+                                    citation = `${formattedAuthors}. *${title}*. ${publication}, ${yearCreated}. ${url}.`;
+                                } else {
+                                    citation = 'Please provide Author(s), Title, Website/Collection Name, and URL for an Image (Chicago).';
+                                }
+                                break;
+                            case 'dissertation':
+                                if (formattedAuthors && title && degreeInstitution && year) {
+                                    citation = `${formattedAuthors}. *${title}*. ${degreeInstitution}, ${year}.`;
+                                    if (url) citation += ` ${formatUrlOrDoi(url)}.`;
+                                } else {
+                                    citation = 'Please provide Author(s), Title, Degree & Institution, and Year for a Dissertation (Chicago).';
+                                }
+                                break;
+                            case 'lecture':
+                                if (formattedAuthors && title && lectureLocation && lectureDate) {
+                                    const date = new Date(lectureDate);
+                                    const chicagoDate = date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+                                    citation = `${formattedAuthors}. "${title}." Lecture, ${lectureLocation}, ${chicagoDate}.`;
+                                    if (url) citation += ` ${formatUrlOrDoi(url)}.`;
+                                } else {
+                                    citation = 'Please provide Author(s), Title, Location, and Date for a Lecture (Chicago).';
+                                }
+                                break;
+                            case 'onlineVideo':
+                                if (formattedAuthors && title && videoPlatform && year && url) {
+                                    citation = `"${title}." ${videoPlatform}, ${year}. Video, ${url}.`;
+                                } else {
+                                    citation = 'Please provide Author(s), Title, Video Platform, Year, and URL for an Online Video (Chicago).';
+                                }
+                                break;
+                            default:
+                                citation = 'Please provide sufficient information for a Chicago citation based on the selected source type.';
+                        }
+                        break;
+
+                    case 'ieee':
+                        // Helper for IEEE URL/DOI
+                        const formatIeeeUrlOrDoi = (inputUrl) => {
+                            if (!inputUrl) return '';
+                            if (inputUrl.startsWith('http')) {
+                                return `Available: ${inputUrl}.`;
+                            } else if (inputUrl.startsWith('10.')) {
+                                return `doi: ${inputUrl}.`;
+                            }
+                            return '';
+                        };
+
+                        switch (sourceType) {
+                            case 'book':
+                            case 'textbook':
+                                if (formattedAuthors && title && publisher && year) {
+                                    citation = `[${ieeeCounter++}] ${formattedAuthors}, *${title}*. ${publisher}, ${year}.`;
+                                    if (url) citation += ` ${formatIeeeUrlOrDoi(url)}`;
+                                } else {
+                                    citation = 'Please provide Author(s), Title, Publisher, and Year for a Book/Textbook (IEEE).';
+                                }
+                                break;
+                            case 'journalArticle':
+                                if (formattedAuthors && title && publication && volume && year && pages) {
+                                    const monthYear = year ? new Date(year, 0).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) : '';
+                                    citation = `[${ieeeCounter++}] ${formattedAuthors}, "${title}," *${publication}*, vol. ${volume}, no. ${issue ? `${issue}, ` : ''}pp. ${pages}, ${monthYear}.`;
+                                    if (url) citation += ` ${formatIeeeUrlOrDoi(url)}`;
+                                } else {
+                                    citation = 'Please provide Author(s), Title, Publication, Volume, Year, and Pages for a Journal Article (IEEE).';
+                                }
+                                break;
+                            case 'magazineArticle':
+                            case 'newspaper':
+                                if (formattedAuthors && title && publication && articleDate && pages) {
+                                    const date = new Date(articleDate);
+                                    const monthDayYear = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+                                    citation = `[${ieeeCounter++}] ${formattedAuthors}, "${title}," *${publication}*, pp. ${pages}, ${monthDayYear}.`;
+                                    if (url) citation += ` ${formatIeeeUrlOrDoi(url)}`;
+                                } else {
+                                    citation = 'Please provide Author(s), Title, Publication, Date of Article, and Pages for a Magazine/Newspaper Article (IEEE).';
+                                }
+                                break;
+                            case 'website':
+                            case 'wikipedia':
+                                if (formattedAuthors && title && url) {
+                                    const accessDateFormatted = accessDate ? formatDate(accessDate, 'long') : '';
+                                    citation = `[${ieeeCounter++}] ${formattedAuthors}, "${title}," *${publication || 'Website'}*. [Online]. ${formatIeeeUrlOrDoi(url)} [Accessed: ${accessDateFormatted}].`;
+                                } else {
+                                    citation = 'Please provide Author(s), Title, and URL for a Website/Wikipedia (IEEE).';
+                                }
+                                break;
+                            case 'movie':
+                            case 'documentary':
+                                if (formattedDirectors && title && productionCompany && year) {
+                                    citation = `[${ieeeCounter++}] ${formattedDirectors} (Director), *${title}*. ${productionCompany}, ${year}.`;
+                                    if (url) citation += ` ${formatIeeeUrlOrDoi(url)}`;
+                                } else {
+                                    citation = 'Please provide Director(s), Title, Production Company, and Year for a Movie/Documentary (IEEE).';
+                                }
+                                break;
+                            case 'generativeAI':
+                                if (aiModelName && title && year && url) {
+                                    const accessDateFormatted = accessDate ? formatDate(accessDate, 'long') : '';
+                                    citation = `[${ieeeCounter++}] ${aiModelName}, "${title}," ${year}. [Online]. ${formatIeeeUrlOrDoi(url)} [Accessed: ${accessDateFormatted}].`;
+                                } else {
+                                    citation = 'Please provide AI Model Name, Title, Year, and URL for Generative AI (IEEE).';
+                                }
+                                break;
+                            case 'image':
+                                if (formattedAuthors && title && publication && year && url) {
+                                    const accessDateFormatted = accessDate ? formatDate(accessDate, 'long') : '';
+                                    citation = `[${ieeeCounter++}] ${formattedAuthors}, "${title}," *${publication}*, ${year}. [Online]. ${formatIeeeUrlOrDoi(url)} [Accessed: ${accessDateFormatted}].`;
+                                } else {
+                                    citation = 'Please provide Author(s), Title, Website/Collection Name, Year, and URL for an Image (IEEE).';
+                                }
+                                break;
+                            case 'dissertation':
+                                if (formattedAuthors && title && degreeInstitution && year) {
+                                    citation = `[${ieeeCounter++}] ${formattedAuthors}, *${title}*. ${degreeInstitution}, ${year}.`;
+                                    if (url) citation += ` ${formatIeeeUrlOrDoi(url)}`;
+                                } else {
+                                    citation = 'Please provide Author(s), Title, Degree & Institution, and Year for a Dissertation (IEEE).';
+                                }
+                                break;
+                            case 'lecture':
+                                if (formattedAuthors && title && lectureLocation && lectureDate) {
+                                    const date = new Date(lectureDate);
+                                    const monthDayYear = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+                                    citation = `[${ieeeCounter++}] ${formattedAuthors}, "${title}," presented at ${lectureLocation}, ${monthDayYear}.`;
+                                    if (url) citation += ` [Online]. ${formatIeeeUrlOrDoi(url)}`;
+                                } else {
+                                    citation = 'Please provide Author(s), Title, Location, and Date for a Lecture (IEEE).';
+                                }
+                                break;
+                            case 'onlineVideo':
+                                if (formattedAuthors && title && videoPlatform && year && url) {
+                                    citation = `[${ieeeCounter++}] ${formattedAuthors}, "${title}," *${videoPlatform}*, ${year}. [Video file]. ${formatIeeeUrlOrDoi(url)}`;
+                                } else {
+                                    citation = 'Please provide Author(s), Title, Video Platform, Year, and URL for an Online Video (IEEE).';
+                                }
+                                break;
+                            default:
+                                citation = 'Please provide sufficient information for an IEEE citation based on the selected source type.';
+                        }
+                        break;
+
+                    default:
+                        citation = 'Please select a citation style.';
+                }
+
+                generatedCitationTextarea.value = citation.replace(/\s\s+/g, ' ').trim(); // Remove extra spaces
+            }
+
+            /**
+             * Copies the generated citation to the clipboard.
+             */
+            function copyToClipboard() {
+                const citationText = generatedCitationTextarea.value;
+                if (citationText) {
+                    // Create a temporary textarea element
+                    const tempTextArea = document.createElement('textarea');
+                    tempTextArea.value = citationText;
+                    document.body.appendChild(tempTextArea);
+                    tempTextArea.select();
+                    try {
+                        document.execCommand('copy');
+                        showMessage('Citation copied to clipboard!', 'success');
+                    } catch (err) {
+                        showMessage('Failed to copy citation. Please copy manually.', 'error');
+                        console.error('Copy command failed:', err);
+                    } finally {
+                        document.body.removeChild(tempTextArea);
+                    }
+                } else {
+                    showMessage('No citation to copy.', 'error');
+                }
+            }
+
+            /**
+             * Fetches metadata for a given DOI from CrossRef.
+             * @param {string} doi - The DOI to fetch metadata for.
+             */
+            async function fetchDoiMetadata(doi) {
+                showMessage('Fetching DOI metadata...', 'info');
+                const apiUrl = `https://api.crossref.org/works/${doi}`;
+
+                try {
+                    const response = await fetch(apiUrl);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const data = await response.json();
+
+                    if (data.status === 'ok' && data.message) {
+                        const msg = data.message;
+
+                        // Clear existing inputs before populating
+                        authorInput.value = '';
+                        yearInput.value = '';
+                        titleInput.value = '';
+                        publicationInput.value = '';
+                        publisherInput.value = '';
+                        volumeInput.value = '';
+                        issueInput.value = '';
+                        pagesInput.value = '';
+                        // urlInput.value = url; // Keep the DOI in the URL field
+                        accessDateInput.value = '';
+                        directorInput.value = '';
+                        productionCompanyInput.value = '';
+                        aiModelNameInput.value = '';
+                        descriptionInput.value = '';
+                        degreeInstitutionInput.value = '';
+                        lectureDateInput.value = '';
+                        lectureLocationInput.value = '';
+                        articleDateInput.value = '';
+                        videoPlatformInput.value = '';
+
+
+                        // Populate fields
+                        if (msg.author && msg.author.length > 0) {
+                            authorInput.value = msg.author.map(a => {
+                                let name = '';
+                                if (a.given) name += a.given + ' ';
+                                if (a.family) name += a.family;
+                                return name.trim();
+                            }).join('; ');
+                        }
+
+                        if (msg.issued && msg['issued']['date-parts'] && msg['issued']['date-parts'][0] && msg['issued']['date-parts'][0][0]) {
+                            yearInput.value = msg['issued']['date-parts'][0][0];
+                        }
+
+                        if (msg.title && msg.title.length > 0) {
+                            titleInput.value = msg.title[0];
+                        }
+
+                        if (msg['container-title'] && msg['container-title'].length > 0) {
+                            publicationInput.value = msg['container-title'][0];
+                        }
+
+                        if (msg.publisher) {
+                            publisherInput.value = msg.publisher;
+                        }
+
+                        if (msg.volume) {
+                            volumeInput.value = msg.volume;
+                        }
+
+                        if (msg.issue) {
+                            issueInput.value = msg.issue;
+                        }
+
+                        if (msg.page) {
+                            pagesInput.value = msg.page;
+                        }
+
+                        // Determine source type based on CrossRef type
+                        let detectedSourceType = 'journalArticle'; // Default for DOI
+                        if (msg.type) {
+                            if (msg.type.includes('book-chapter') || msg.type.includes('book')) {
+                                detectedSourceType = 'book';
+                            } else if (msg.type.includes('dissertation')) {
+                                detectedSourceType = 'dissertation';
+                            } else if (msg.type.includes('posted-content') || msg.type.includes('report')) {
+                                detectedSourceType = 'website'; // Or a more specific type if available
+                            }
+                            // Add more mappings as needed
+                        }
+                        const customSourceTypeDiv = document.getElementById('customSourceType');
+                        const selectSelectedSource = customSourceTypeDiv.querySelector('.select-selected');
+                        const selectItemsSource = customSourceTypeDiv.querySelector('.select-items');
+                        const sourceOptionToSelect = selectItemsSource.querySelector(`[data-value="${detectedSourceType}"]`);
+
+                        if (sourceOptionToSelect) {
+                            selectSelectedSource.textContent = sourceOptionToSelect.textContent;
+                            sourceTypeInput.value = detectedSourceType;
+                            sourceTypeInput.dispatchEvent(new Event('change')); // Trigger change to update fields
+                        }
+
+
+                        showMessage('DOI metadata fetched successfully!', 'success');
+                        generateCitation(); // Generate citation after populating
+                    } else {
+                        showMessage('Could not find metadata for this DOI.', 'error');
+                    }
+                } catch (error) {
+                    showMessage('Error fetching DOI metadata. Please check the DOI or try again later.', 'error');
+                    console.error('Error fetching DOI metadata:', error);
+                }
+            }
+
+            // Event listener for URL/DOI input to detect DOI paste
+            urlInput.addEventListener('input', (event) => {
+                const value = event.target.value.trim();
+                // Basic regex for DOI detection
+                const doiRegex = /^(?:doi:|(?:https?:\/\/)?(?:dx\.)?doi\.org\/)(10\.\d{4,9}\/[-._;()/:A-Z0-9]+)$/i;
+                const match = value.match(doiRegex);
+
+                if (match && match[1]) {
+                    const doi = match[1];
+                    fetchDoiMetadata(doi);
+                } else {
+                    // If it's not a DOI, just generate citation based on manual input
+                    generateCitation();
+                }
+            });
+
+
+            // Initialize custom dropdowns
+            initializeCustomDropdown('customCitationStyle', citationStyleInput);
+            initializeCustomDropdown('customSourceType', sourceTypeInput);
+
+            // Event Listeners for hidden inputs (which are updated by custom dropdowns)
+            citationStyleInput.addEventListener('change', generateCitation);
+            sourceTypeInput.addEventListener('change', () => {
+                updateInputFieldsVisibility();
+                generateCitation(); // Regenerate citation after changing source type
+            });
+            generateBtn.addEventListener('click', generateCitation);
+            copyBtn.addEventListener('click', copyToClipboard);
+
+            // Add event listeners to all other input fields to trigger citation generation on change
+            const inputFields = document.querySelectorAll('#inputFields input, #inputFields textarea');
+            inputFields.forEach(input => {
+                // Only add input listener if it's not the URL input (to avoid double-triggering DOI fetch)
+                if (input.id !== 'url') {
+                    input.addEventListener('input', generateCitation);
+                }
+                input.addEventListener('change', generateCitation); // For date inputs
+            });
+
+            // Initial setup
+            updateInputFieldsVisibility(); // Set initial field visibility
+            generateCitation(); // Initial generation on load
+        });
+    </script>
+    
+</body>
+</html>

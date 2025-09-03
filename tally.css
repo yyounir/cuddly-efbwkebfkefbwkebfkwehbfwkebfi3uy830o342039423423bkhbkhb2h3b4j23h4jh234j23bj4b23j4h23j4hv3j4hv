@@ -1,0 +1,309 @@
+/* Main Application Container */
+.main-container {
+    width: 100%;
+    max-width: 900px;
+}
+
+
+/* Control Bar for adding new counters */
+.controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+
+/* Container for all the counter cards */
+#counters-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+/* Individual Counter Card Styling */
+.counter {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); */
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+}
+
+.counter:hover {
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Label for the counter */
+.counter-label {
+    width: 100%; /* Updated width */
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    /* border-bottom: 2px solid #ddd; */
+    padding: 8px 4px;
+    transition: border-color 0.3s ease;
+    font-family: quicksand;
+    color:#14007F;
+}
+
+.counter-label:focus {
+    outline: none;
+    color: #14007F;
+}
+
+/* The count display */
+.count-display {
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+    color:#14007F;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+/* Limit Setter Styling */
+.limit-setter {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    justify-content: center;
+    color:#14007F;
+}
+
+.counter-limit {
+    width: 70px;
+    padding: 6px 8px;
+    background-color: inherit;
+    border: inherit;
+    border-radius: 6px;
+    margin-bottom: 5px;
+    font-size: 15pt;
+    text-align: center;
+    font-family: quicksand;
+    font-weight: bold;
+    color: #14007F;
+}
+
+.counter-limit:focus {
+    outline: none;
+    border-color: #14007F;
+}
+
+/* Style for when the limit is reached */
+.limit-reached {
+    color: #dc3545; /* Red color to indicate limit */
+}
+
+/* Container for the action buttons */
+.counter-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    
+}
+
+.counter-actions .btn {
+    padding: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    /* border-radius: 8px; */
+    cursor: pointer;
+    /* transition: background-color 0.2s ease, transform 0.1s ease, opacity 0.2s ease; */
+}
+
+.counter-actions .btn:active {
+    transform: scale(0.97);
+    transition-duration: 0.1s;
+	border-radius: 13px;
+}
+
+
+
+.increment-btn {
+    padding: 13px;
+	background-color:#e8e5f8;
+	border: none;
+	margin: auto;
+	width: auto;
+	text-align: center;
+	border-radius: 100px;
+	float: none;
+	color: #14007F;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	font-family: quicksand;
+	text-decoration: none;
+	font-size: 25px;
+    font-weight: bold;
+}
+.increment-btn:hover {
+    background-color: #A999FF;
+	padding-right: 16px;
+	padding-left:16px;
+}
+/* Disabled button style */
+.increment-btn:disabled {
+    opacity: 0.6;
+    background-color:#e8e5f8;
+}
+
+
+.decrement-btn {
+    padding: 13px;
+	background-color:#e8e5f8;
+	border: none;
+	margin: auto;
+	width: auto;
+	text-align: center;
+	border-radius: 100px;
+	float: none;
+	color: #14007F;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	font-family: quicksand;
+	text-decoration: none;
+	font-size: 25px;
+    font-weight: bold;
+}
+.decrement-btn:hover {
+    background-color: #A999FF;
+	padding-right: 16px;
+	padding-left:16px;
+}
+
+.reset-btn {
+    padding: 13px;
+	background-color: inherit;
+	border-color: #14007F;
+	margin: auto;
+	width: auto;
+	text-align: center;
+	border-radius: 100px;
+	float: none;
+	color: #14007F;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	font-family: quicksand;
+	text-decoration: none;
+	font-size: 13pt;
+}
+.reset-btn:hover {
+    background-color: #A999FF;
+	padding-right: 16px;
+	padding-left:16px;
+}
+
+/* Updated Delete Button Styling */
+.delete-btn {
+    padding: 13px;
+	background-color: inherit;
+	border-color: #14007F;
+	margin: auto;
+	width: auto;
+	text-align: center;
+	border-radius: 100px;
+	/* float: center; */
+	color: #14007F;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	font-family: quicksand;
+	text-decoration: none;
+	font-size: 13pt;
+}
+
+.delete-btn:hover {
+    background-color: #A999FF;
+    color: #dc3545;
+	padding-right: 16px;
+	padding-left:16px;
+}
+
+.decrement-btn:active, .increment-btn:active {
+	transition-duration: 0.1s;
+	border-radius: 13px;
+}
+
+/* Placeholder message */
+#placeholder {
+    text-align: center;
+    color: #6c757d;
+    font-size: 1.2rem;
+    padding: 40px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .increment-btn {
+        background-color:#070240;
+		color: #d1ceff;
+    }
+
+    .increment-btn:disabled {
+        background-color:#070240;
+        opacity: 0.6;
+    }
+    .increment-btn:hover {
+        background-color: #454170;	
+    }
+
+    .decrement-btn {
+        background-color:#070240;
+		color: #d1ceff;
+    }
+    .decrement-btn:hover {
+        background-color: #454170;
+    }
+
+    .reset-btn {
+        background-color: inherit;
+		color: #d1ceff;
+    }
+    .reset-btn:hover {
+        background-color: #454170;
+    }
+
+    /* Updated Delete Button Styling */
+    .delete-btn {
+        color: #d1ceff;
+        background-color: inherit;
+    }
+
+    .delete-btn:hover {
+        background-color: #454170;
+    }
+
+    .counter {
+        background-color: #040126;
+    }
+
+    .counter-label {
+        color: #d1ceff;
+        background-color: inherit;
+    }
+
+    /* The count display */
+    .count-display {
+        color: #d1ceff;
+    }
+
+    .counter-limit {
+        background-color: inherit;
+        border: inherit;
+        color: #d1ceff;
+    }
+
+    .counter-limit:focus {
+        border-color: #d1ceff;
+    }
+
+    .limit-setter {
+        color: #d1ceff;
+    }
+
+    .limit-reached {
+        color: #dc3545; /* Red color to indicate limit */
+    }
+}

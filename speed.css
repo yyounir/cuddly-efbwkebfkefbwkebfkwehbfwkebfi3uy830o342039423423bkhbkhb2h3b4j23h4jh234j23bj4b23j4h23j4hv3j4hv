@@ -1,0 +1,140 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+    /* max-width: 900px; */
+}
+
+.card {
+    /* box-shadow: 0 4px 6px -1px var(--shadow-light), 0 2px 4px -1px var(--shadow-dark); */
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+
+.section-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.btn-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.result-box {
+    background-color: #f4f2ff;
+    border-radius: 20px;
+    padding: 1.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.125rem;
+}
+
+.result-label {
+    font-weight: 600;
+    color: #14007f;
+}
+
+.result-value {
+    color: #14007f;
+    font-weight: 800;
+}
+
+.message {
+    margin-top: -0.75rem;
+    color: #14007f;
+}
+
+@keyframes spinner {
+    to {transform: rotate(360deg);}
+}
+
+.spinner {
+    /* display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(0, 0, 0, .1);
+    border-top-color: var(--primary-color);
+    border-radius: 50%; */
+    animation: spinner 1.0s linear infinite;
+    width: 35px;
+    height: 35px;
+    /* animation: spin 1.0s linear infinite; */
+    
+    /* --- ADJUST COLOR HERE --- */
+    --spinner-color: #14007f;
+    
+    /* The spinner is created by masking a solid background color. */
+    background-color: var(--spinner-color);
+    -webkit-mask: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ccircle cx='50' cy='50' r='45' fill='none' stroke='black' stroke-width='10' stroke-linecap='round' stroke-dasharray='80 200' transform='rotate(0, 50, 50)'/%3e%3ccircle cx='50' cy='50' r='45' fill='none' stroke='black' stroke-width='10' stroke-linecap='round' stroke-dasharray='80 200' transform='rotate(180, 50, 50)'/%3e%3c/svg%3e") no-repeat center;
+    mask: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ccircle cx='50' cy='50' r='45' fill='none' stroke='black' stroke-width='10' stroke-linecap='round' stroke-dasharray='80 200' transform='rotate(0, 50, 50)'/%3e%3ccircle cx='50' cy='50' r='45' fill='none' stroke='black' stroke-width='10' stroke-linecap='round' stroke-dasharray='80 200' transform='rotate(180, 50, 50)'/%3e%3c/svg%3e") no-repeat center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+@media (prefers-color-scheme: dark) {
+    .spinner {
+        --spinner-color: #d1ceff;
+    }
+    .result-label {
+        color: #d1ceff;
+    }
+
+    .result-value {
+        color: #d1ceff;
+    }
+    .message {
+        color: #d1ceff;
+    }
+    .result-box {
+        background-color: #04002f;
+    }
+
+    p{
+        color: #d1ceff;
+    }
+}
+
+
+
+/* Mobile styles */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        gap: 16px;
+    }
+    .card {
+        padding: 1.5rem;
+    }
+    h1 {
+        font-size: 1.75rem;
+    }
+    h2 {
+        font-size: 1.25rem;
+    }
+    .result-item {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+    }
+}
