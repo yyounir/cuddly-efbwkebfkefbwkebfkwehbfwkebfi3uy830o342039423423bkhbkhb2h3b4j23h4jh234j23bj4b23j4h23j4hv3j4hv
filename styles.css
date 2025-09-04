@@ -519,7 +519,7 @@ p {
 	border-color: #14007F;
 	margin-bottom: 8px;
 	width: auto;
-	border-radius: 20px;
+	border-radius: 25px;
 	text-align: left;
 	float: none;
 	color: #14007F;
@@ -530,7 +530,77 @@ p {
 	font-size: 13pt;
 }
 
-.action-button-tonal-card a {
+.action-button-tonal-card-top {
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 13px;
+	padding-right: 13px;
+	background-color:#e8e5f8;
+	border-color: #14007F;
+	margin-bottom: 8px;
+	width: auto;
+
+	border-radius: 25px;
+	border-bottom-left-radius: 13px; 
+	border-bottom-right-radius: 13px;
+
+	text-align: left;
+	float: none;
+	color: #14007F;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	font-family: quicksand;
+	text-decoration: none;
+	font-size: 13pt;
+}
+
+.action-button-tonal-card-middle {
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 13px;
+	padding-right: 13px;
+	background-color:#e8e5f8;
+	border-color: #14007F;
+	margin-bottom: 8px;
+	width: auto;
+
+	border-radius: 13px;
+
+	text-align: left;
+	float: none;
+	color: #14007F;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	font-family: quicksand;
+	text-decoration: none;
+	font-size: 13pt;
+}
+
+.action-button-tonal-card-bottom {
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 13px;
+	padding-right: 13px;
+	background-color:#e8e5f8;
+	border-color: #14007F;
+	margin-bottom: 8px;
+	width: auto;
+
+	border-radius: 25px;
+	border-top-left-radius: 13px; 
+	border-top-right-radius: 13px;
+
+	text-align: left;
+	float: none;
+	color: #14007F;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	font-family: quicksand;
+	text-decoration: none;
+	font-size: 13pt;
+}
+
+.action-button-tonal-card a, .action-button-tonal-card-top a, .action-button-tonal-card-middle a, .action-button-tonal-card-bottom a{
 	text-decoration: none;
 	color: #14007F;
 	transition-duration: 0.4s;
@@ -539,14 +609,14 @@ p {
 	font-style: bold;
 }
 
-.action-button-tonal-card:hover {
+.action-button-tonal-card:hover, .action-button-tonal-card-top:hover, .action-button-tonal-card-middle:hover, .action-button-tonal-card-bottom:hover {
 	background-color: #A999FF;
 	padding-top: 8px;
 	padding-bottom: 8px;
 }
 
-.action-button-tonal-card:active {
-	border-radius: 50px;
+.action-button-tonal-card:active, .action-button-tonal-card-top:active, .action-button-tonal-card-middle:active, .action-button-tonal-card-bottom:active {
+	border-radius: 35px;
 	transition-duration: 0.2s;
 }
 
@@ -1156,7 +1226,7 @@ p {
 	padding-top: 25px;
 	padding-bottom: 45px;
     padding-right: 30px;
-	padding-left: 40px;
+	padding-left: 30px;
     border-radius: 30px;
 	width: auto;
 	height: auto;
@@ -1677,8 +1747,55 @@ p {
 	margin-right: 0.5rem; /* Equivalent to Tailwind's mr-2 */
 }
 
+/* Card Container Styles */
+        .card-container {
+            background-color: #1e1b4b; /* Equivalent to a dark indigo shade */
+            padding: 1.5rem; /* Equivalent to Tailwind's p-6 */
+            border-radius: 1.5rem; /* Equivalent to rounded-3xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Equivalent to shadow-xl */
+            max-width: 24rem; /* Equivalent to max-w-sm */
+            width: 100%;
+            box-sizing: border-box; /* Ensures padding is included in the width */
+        }
+
+        /* Inner Flexbox for Icon and Text */
+        .content-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem; /* Equivalent to space-x-4 */
+        }
+
+        /* Icon Styles */
+        .icon {
+            flex-shrink: 0; /* Equivalent to flex-shrink-0 */
+            height: 2rem; /* Equivalent to h-8 */
+            width: 2rem; /* Equivalent to w-8 */
+            color: #a5b4fc; /* Equivalent to text-indigo-300 */
+        }
+
+        /* Text Content Styles */
+        .text-content {
+            flex-grow: 1; /* Equivalent to flex-1 */
+            min-width: 0; /* Crucial for preventing text overflow issues */
+        }
+
+        .text-content h3 {
+            color: #fff; /* Equivalent to text-white */
+            font-size: 1.125rem; /* Equivalent to text-lg */
+            font-weight: 500; /* Equivalent to font-medium */
+            margin: 0;
+        }
+
+        .text-content p {
+            color: #c7d2fe; /* Equivalent to text-indigo-200 */
+            font-size: 0.875rem; /* Equivalent to text-sm */
+            margin-top: 0.25rem; /* Equivalent to mt-1 */
+            line-height: 1.375; /* Equivalent to leading-snug */
+            margin-bottom: 0;
+        }
+
 /* Media query for medium screens and larger */
-@media (min-width: 768px) { /* Equivalent to Tailwind's md breakpoint */
+@media ( min-width: 768px) { /* Equivalent to Tailwind's md breakpoint */
 	.cards-container {
 		flex-direction: row; /* Arrange items horizontally */
 	}	
@@ -1773,7 +1890,7 @@ p {
 		padding-top: 25px;
 		padding-bottom: 45px;
 		padding-right: 30px;
-		padding-left: 40px;
+		padding-left: 30px;
 		border-radius: 30px;
 		width: auto;
 		height: auto;
@@ -1892,16 +2009,16 @@ p {
 		color: white;
 	}
 
-	.action-button-tonal, .action-button-tonal-card, .action-button-tonal-i, .mdropbtn, .action-button-unfilled-i {
+	.action-button-tonal, .action-button-tonal-card, .action-button-tonal-card-top, .action-button-tonal-card-middle, .action-button-tonal-card-bottom, .action-button-tonal-i, .mdropbtn, .action-button-unfilled-i {
 		background-color:#070240;
 		color: #d1ceff;		
 	}
 
-	.action-button-tonal a, .action-button-tonal-card a, .action-button-tonal-i a, .mdropbtn a, .action-button-unfilled-i a{
+	.action-button-tonal a, .action-button-tonal-card a, .action-button-tonal-card-top a, .action-button-tonal-card-middle a, .action-button-tonal-card-bottom a, .action-button-tonal-i a, .mdropbtn a, .action-button-unfilled-i a{
 		color: #d1ceff;
 	}
 
-	.action-button-tonal:hover, .action-button-tonal-card:hover, .action-button-tonal-i:hover, .mdropbtn:hover , .action-button-unfilled-i:hover{
+	.action-button-tonal:hover, .action-button-tonal-card:hover, .action-button-tonal-card-top:hover, .action-button-tonal-card-middle:hover, .action-button-tonal-card-bottom:hover, .action-button-tonal-i:hover, .mdropbtn:hover , .action-button-unfilled-i:hover{
 		background-color: #454170;
 	}
 
