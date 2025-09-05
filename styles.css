@@ -942,6 +942,7 @@ p {
 .menu-text {
 	font-size: 30px;
 	font-style: bold;
+	padding-left: 10px;
 }
 
 /* Scrollable Card Example */
@@ -1189,6 +1190,7 @@ p {
 .p2 {
 	font-size: 16pt;
 	margin: none;
+	padding-left: 10px;
 }
 
 .popup {
@@ -1517,6 +1519,27 @@ p {
 	padding-right: 16px;
 	padding-left:16px;
 } */
+
+/* Make Scrollbars Invisible when Custom Scrollbars are being used */
+body::-webkit-scrollbar, .full-screen-popup-content::-webkit-scrollbar {
+	width: 0px;
+}
+
+.page-normal::-webkit-scrollbar, .popup-content::-webkit-scrollbar, .card-content::-webkit-scrollbar{
+	width: 5px;
+}
+.page-normal::-webkit-scrollbar-track, .card-content::-webkit-scrollbar-track{
+	background: inherit;
+	border-radius: 10px;
+}
+.page-normal::-webkit-scrollbar-thumb, .card-content::-webkit-scrollbar-thumb{
+	background: #a999ff;
+	border-radius: 10px;
+}
+.page-normal::-webkit-scrollbar-thumb:hover, .card-content::-webkit-scrollbar-thumb:hover{
+	background: #14007f;
+	
+}
 
 @media (max-width: 1024px) {
 
@@ -2056,6 +2079,15 @@ p {
 	.app-card:hover {
 		background-color: #454170;
 		color: #d1ceff;
+	}
+
+	/* Scrollbars */
+	.page-normal::-webkit-scrollbar-thumb, .card-content::-webkit-scrollbar-thumb{
+		background: #454170;
+	}
+	.page-normal::-webkit-scrollbar-thumb:hover, .card-content::-webkit-scrollbar-thumb:hover{
+		background: #d1ceff;
+		
 	}
 }
 
