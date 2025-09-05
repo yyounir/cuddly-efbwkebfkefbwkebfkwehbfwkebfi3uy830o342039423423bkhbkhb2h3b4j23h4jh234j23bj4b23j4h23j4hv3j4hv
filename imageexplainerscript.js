@@ -104,7 +104,7 @@ const imageUpload = document.getElementById('imageUpload');
                     contents: chatHistory,
                 };
 
-                const apiKey = "AIzaSyA6_zEoo5YkwCsFZVTMzVQDZMGRVcUTGco"; // Canvas will automatically provide the API key
+                const apiKey = ""; // Canvas will automatically provide the API key
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
                 let retryCount = 0;
@@ -160,4 +160,5 @@ const imageUpload = document.getElementById('imageUpload');
                 loadingSpinner.style.display = 'none'; // Hide loading spinner
                 explainButton.disabled = false; // Re-enable button
             }
+
         });
