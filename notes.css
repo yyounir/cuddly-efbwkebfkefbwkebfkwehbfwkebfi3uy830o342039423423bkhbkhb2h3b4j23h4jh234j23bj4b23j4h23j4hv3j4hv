@@ -1,0 +1,210 @@
+/* --- Notes Container --- */
+/* #notes-container {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+} */
+#notes-container-app {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- Note Card --- */
+.note {
+    position: absolute; /* Crucial for dragging */
+    width: 280px;
+    min-height: 250px;
+    background-color: #1f2937; /* Default note color */
+    border-radius: 20px;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.2), 0 4px 6px -4px rgb(0 0 0 / 0.2);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+    cursor: move; /* Indicates the note is draggable */
+    resize: both; /* Allow resizing */
+    overflow: hidden; /* Hide overflow during resize */
+    transition-duration: 0.4s;
+    font-family: quicksand;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.note:hover {
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.3), 0 8px 10px -6px rgb(0 0 0 / 0.3);
+}
+
+.note.dragging {
+    cursor: grabbing;
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.5);
+    transform: scale(1.02);
+    z-index: 999 !important; /* Ensure dragging note is on top */
+}
+
+.title-input, .content-textarea {
+    background-color: transparent;
+    border: none;
+    color: white;
+    width: 100%;
+    cursor: text; /* Revert cursor for text areas */
+    font-family: quicksand;
+}
+
+.title-input:focus, .content-textarea:focus {
+    outline: none;
+}
+
+.title-input {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.title-input::placeholder {
+    color: #6b7280;
+}
+
+.content-textarea {
+    flex-grow: 1;
+    resize: none;
+    font-size: 1rem;
+    color: white;
+}
+
+.content-textarea:focus {
+    background-color: inherit;
+    border: white;
+    color: white;
+}
+
+.content-textarea::placeholder {
+    color: #4b5563;
+}
+
+/* Custom scrollbar for textarea */
+.content-textarea::-webkit-scrollbar {
+    width: 8px;
+}
+.content-textarea::-webkit-scrollbar-track {
+    background: transparent;
+}
+.content-textarea::-webkit-scrollbar-thumb {
+    background-color: #4b5563;
+    border-radius: 20px;
+}
+
+/* --- Note Toolbar --- */
+.note-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    cursor: default; /* Revert cursor for toolbar */
+    transition-duration: 0.4s;
+}
+
+.toolbar-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition-duration: 0.4s;
+    animation: fadeIn .5s;
+}
+
+.toolbar-group .relative {
+    position: relative;
+    transition-duration: 0.4s;
+}
+
+.toolbar-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 1rem;
+    border-radius: 50px;
+    transition-duration: 0.4s;
+}
+
+@keyframes fadeIn {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+.color-picker{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 30px;
+    padding-left: 30px;
+    border-radius: 100px;
+}
+
+.toolbar-button, .delete-btn {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 25px;
+    padding-left: 25px;
+    border-radius: 100px;
+}
+
+.color-picker:hover{
+    background-color: rgb(255, 255, 255, .25);
+
+	/* color: #14007f; */
+    transition-duration: 0.4s;
+    padding-left: 35px;
+    padding-right: 35px;
+    border-radius: 100px;
+}
+
+.toolbar-button:hover {
+    background-color: rgb(255, 255, 255, .25);
+
+	/* color: #14007f; */
+    transition-duration: 0.4s;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 30px;
+    /* animation: fadeIn .5s; */
+}
+
+.delete-btn:hover {
+    color: #ef4444;
+    transition-duration: 0.4s;
+    background-color: rgb(255, 255, 255, .25);
+    /* animation: fadeIn .5s; */
+}
+
+.color-picker:active, .toolbar-button:active, .delete-btn:active {
+    border-radius: 13px;
+    transition-duration: 0.1s;
+}
+
+input[type="color"] {
+    /* -webkit-appearance: none; */
+    border: none;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    background-color: transparent;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 50px;
+}
+
+.fa-palette {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #d1d5db;
+    pointer-events: none;
+}
